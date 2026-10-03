@@ -369,3 +369,41 @@
   .problem-card.is-visible .problem-image{opacity:.31}
   .problem-shadow{background:linear-gradient(90deg,rgba(10,9,8,.95),rgba(10,9,8,.58)),linear-gradient(0deg,rgba(8,7,6,.86),transparent 75%)}
 }
+
+/* SANS RETOUR — cinematic luxury depth system */
+.luxury-site{position:relative;isolation:isolate}
+.luxury-ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;opacity:.48}
+.luxury-ambient i{position:absolute;border-radius:50%;filter:blur(90px);background:radial-gradient(circle,rgba(190,151,96,.13),rgba(190,151,96,0) 68%);animation:luxuryDrift 18s ease-in-out infinite alternate}
+.luxury-ambient i:nth-child(1){width:42rem;height:42rem;left:-22rem;top:18%}
+.luxury-ambient i:nth-child(2){width:36rem;height:36rem;right:-19rem;top:48%;animation-delay:-7s;animation-duration:23s}
+.luxury-ambient i:nth-child(3){width:28rem;height:28rem;left:42%;top:78%;animation-delay:-11s;animation-duration:27s}
+.luxury-site main,.luxury-site header,.luxury-site footer{position:relative;z-index:1}
+.hero-lux>img{animation:heroBreath 16s cubic-bezier(.22,1,.36,1) infinite alternate;will-change:transform}
+.hero-prism{position:absolute;inset:-20%;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(222,190,139,.055) 47%,rgba(255,248,232,.09) 50%,rgba(222,190,139,.025) 54%,transparent 66%);transform:translateX(-42%) rotate(-4deg);animation:prismSweep 10s ease-in-out infinite}
+.hero-orbit{position:absolute;width:min(58vw,720px);aspect-ratio:1;right:-22%;top:5%;border:1px solid rgba(202,165,111,.11);border-radius:50%;box-shadow:0 0 80px rgba(190,151,96,.035),inset 0 0 80px rgba(190,151,96,.025);animation:orbitFloat 14s ease-in-out infinite alternate}
+.hero-orbit:before,.hero-orbit:after{content:"";position:absolute;border:1px solid rgba(202,165,111,.07);border-radius:50%;inset:12%}
+.hero-orbit:after{inset:28%;border-color:rgba(238,219,187,.08)}
+.sand-luxury:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 78% 30%,rgba(190,151,96,.095),transparent 43%),linear-gradient(180deg,transparent,rgba(190,151,96,.025) 52%,transparent)}
+.sand-mesh{position:absolute;inset:4% -10% 0 22%;pointer-events:none;opacity:.52;perspective:900px;transform:rotate(-5deg);mask-image:linear-gradient(to bottom,transparent 0,#000 18%,#000 75%,transparent 100%)}
+.sand-mesh i{position:absolute;left:-10%;right:-10%;height:32%;border-radius:50%;border-top:1px solid rgba(204,169,116,.16);box-shadow:0 -18px 60px rgba(187,144,87,.045);transform:rotateX(67deg) skewX(-12deg);animation:sandWave 9s ease-in-out infinite alternate}
+.sand-mesh i:nth-child(1){top:8%}.sand-mesh i:nth-child(2){top:24%;animation-delay:-2s;animation-duration:11s}.sand-mesh i:nth-child(3){top:40%;animation-delay:-4s;animation-duration:13s}.sand-mesh i:nth-child(4){top:56%;animation-delay:-6s;animation-duration:10s}.sand-mesh i:nth-child(5){top:72%;animation-delay:-8s;animation-duration:14s}
+.process-panel{backdrop-filter:blur(2px);box-shadow:0 30px 90px rgba(0,0,0,.24)}
+.process-row{position:relative;transition:transform .65s cubic-bezier(.22,1,.36,1),background .55s ease,box-shadow .55s ease}
+.process-row:hover{transform:translateX(7px);background:linear-gradient(90deg,rgba(194,158,108,.055),transparent 62%);box-shadow:-24px 0 70px rgba(190,151,96,.035)}
+.problem-card{transition:transform .75s cubic-bezier(.22,1,.36,1),box-shadow .75s ease,border-color .55s ease}
+.problem-card:hover{transform:translateY(-5px) perspective(800px) rotateX(1deg);box-shadow:0 28px 80px rgba(0,0,0,.36),0 0 0 1px rgba(202,165,111,.08);border-color:rgba(202,165,111,.2)}
+.luxury-work{position:relative}
+.luxury-work:before{content:"";position:absolute;pointer-events:none;width:52vw;aspect-ratio:1;left:-26vw;top:8%;border-radius:50%;background:radial-gradient(circle,rgba(195,154,99,.075),transparent 68%);filter:blur(25px);animation:workGlow 12s ease-in-out infinite alternate}
+.portfolio-motion{transition:transform .85s cubic-bezier(.22,1,.36,1),filter .75s ease,box-shadow .75s ease;transform-style:preserve-3d}
+.portfolio-motion:hover{transform:translateY(-9px) scale(1.012);filter:contrast(1.04);box-shadow:0 35px 100px rgba(0,0,0,.42)}
+.industry-row:before{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:linear-gradient(90deg,transparent,rgba(220,184,128,.8),transparent);transition:width .8s cubic-bezier(.22,1,.36,1)}
+.industry-row:hover:before{width:100%}
+.luxury-noise{position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E")}
+@keyframes luxuryDrift{to{transform:translate3d(8vw,-5vh,0) scale(1.12)}}
+@keyframes heroBreath{from{transform:scale(1.015)}to{transform:scale(1.065) translate3d(-.5%,.4%,0)}}
+@keyframes prismSweep{0%,20%{transform:translateX(-55%) rotate(-4deg);opacity:0}45%,65%{opacity:1}90%,100%{transform:translateX(50%) rotate(-4deg);opacity:0}}
+@keyframes orbitFloat{to{transform:translate3d(-4%,5%,0) rotate(8deg) scale(1.04)}}
+@keyframes sandWave{from{transform:rotateX(67deg) skewX(-12deg) translate3d(-2%,0,0) scaleY(.92)}to{transform:rotateX(62deg) skewX(-7deg) translate3d(3%,-12px,0) scaleY(1.08)}}
+@keyframes workGlow{to{transform:translate3d(8vw,6%,0) scale(1.12);opacity:.65}}
+@media(max-width:767px){.luxury-ambient{opacity:.3}.hero-orbit{width:92vw;right:-58%;top:12%}.sand-mesh{inset:10% -45% 0 18%;opacity:.32}.problem-card:hover,.portfolio-motion:hover,.process-row:hover{transform:none}.luxury-noise{opacity:.018}}
+@media(prefers-reduced-motion:reduce){.luxury-ambient i,.hero-lux>img,.hero-prism,.hero-orbit,.sand-mesh i,.luxury-work:before{animation:none!important}.problem-card,.portfolio-motion,.process-row{transition-duration:.01ms!important}}
