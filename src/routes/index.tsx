@@ -30,7 +30,7 @@ const problems = [
   ["NU AI IDEI?", "Găsim unghiul care merită filmat.", "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1400&q=82"],
   ["NU ȘTII CE SĂ SPUI?", "Transformăm expertiza ta în hook-uri și scenarii naturale.", "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=82"],
   ["NU ȘTII CUM SĂ FILMEZI?", "Venim la locație și construim cadrele pentru tine.", "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1400&q=82"],
-  ["NU VREI SĂ EDITEZI?", "Din material brut facem content care ține atenția.", "https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1400&q=82"],
+  ["NU VREI SĂ EDITEZI?", "Din material brut facem content care ține atenția.", "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1400&q=82"],
   ["NU ȘTII CÂND SĂ POSTEZI?", "Construim un calendar clar pentru ritmul businessului.", "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=1400&q=82"],
   ["NU AI TIMP SĂ POSTEZI?", "Putem administra publicarea, ca tu să rămâi în business.", "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1400&q=82"],
 ] as const;
