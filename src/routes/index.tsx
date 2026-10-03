@@ -8,7 +8,7 @@ import { SiteHeader } from "@/components/noire/SiteHeader";
 import { VideoPlaceholder } from "@/components/noire/VideoPlaceholder";
 import heroImage from "@/assets/noire-hero.jpg";
 
-const metaDescription = "NOIRE creează content video pentru businessuri din București și Brașov: strategie, scenarii, filmare, editare și planificare pentru TikTok, Instagram Reels și YouTube Shorts.";
+const metaDescription = "SANS RETOUR construiește sisteme complete de content pentru businessuri: strategie, idei, scripturi, filmare, editare și publicare pentru Reels, TikTok și Shorts.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -116,10 +116,10 @@ function Index() {
           <SectionHeading label="INDUSTRII">CONTENT CREAT PENTRU<br />BUSINESSUL TĂU.</SectionHeading>
           <div className="mt-11 border-t border-border sm:mt-16">
             {industries.map((industry, index) => (
-              <div key={industry} className="group grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-4 border-b border-border py-6 transition-colors hover:text-gold sm:py-8">
+              <div key={industry} className="reveal-row cinematic-hover group grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-4 gap-y-2 border-b border-border py-5 transition-colors hover:text-gold sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:py-8">
                 <span className="text-[0.6rem] text-muted-foreground">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="truncate font-display text-[clamp(1.55rem,4vw,4.5rem)]">{industry}</h3>
-                <span className="flex items-center gap-2 text-[0.55rem] tracking-[0.15em] text-muted-foreground"><Circle className="size-2 fill-current" /> SPAȚIU VIDEO</span>
+                <h3 className="min-w-0 truncate font-display text-[clamp(1.28rem,5.8vw,2rem)] sm:text-[clamp(1.8rem,3.6vw,3.8rem)]">{industry}</h3>
+                <span className="col-start-2 flex items-center gap-2 text-[0.5rem] tracking-[0.12em] text-muted-foreground sm:col-start-auto sm:text-[0.55rem] sm:tracking-[0.15em]"><Circle className="size-2 fill-current" /> SPAȚIU VIDEO</span>
               </div>
             ))}
           </div>
