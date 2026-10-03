@@ -7,8 +7,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { submitLead, type LeadInput } from "@/lib/leads.functions";
+import { submitLeadForm } from "@/lib/lead-form-client";
 
-const fieldClass = "h-12 rounded-none border-x-0 border-t-0 border-border bg-transparent px-0 focus-visible:ring-0 focus-visible:border-gold";
+const fieldClass = "h-12 rounded-none border-x-0 border-t-0 border-input bg-transparent px-0 text-foreground placeholder:text-muted-foreground focus-visible:border-gold focus-visible:ring-0";
 
 function FormStatus({ state }: { state: "idle" | "sending" | "success" | "error" }) {
   if (state === "success") return <p role="status" className="mt-5 text-sm text-gold">Solicitarea a fost trimisă. Revenim cu un răspuns.</p>;
@@ -27,7 +28,7 @@ export function IdeasForm() {
     const values = new FormData(form);
     setState("sending");
     try {
-      await sendLead({ data: {
+      await submitLeadForm({
         formType: "free_ideas",
         name: String(values.get("name") ?? ""),
         businessName: String(values.get("businessName") ?? ""),
@@ -38,7 +39,7 @@ export function IdeasForm() {
         phone: String(values.get("phone") ?? ""),
         consent: true,
         websiteTrap: String(values.get("companyWebsite") ?? ""),
-      } satisfies LeadInput });
+      } satisfies LeadInput, sendLead);
       form.reset();
       setConsent(false);
       setState("success");
@@ -82,7 +83,7 @@ export function ContactForm() {
     const values = new FormData(form);
     setState("sending");
     try {
-      await sendLead({ data: {
+      await submitLeadForm({
         formType: "contact",
         name: String(values.get("name") ?? ""),
         businessName: String(values.get("businessName") ?? ""),
@@ -91,7 +92,7 @@ export function ContactForm() {
         message: String(values.get("message") ?? ""),
         consent: true,
         websiteTrap: String(values.get("companyWebsite") ?? ""),
-      } satisfies LeadInput });
+      } satisfies LeadInput, sendLead);
       form.reset();
       setConsent(false);
       setState("success");

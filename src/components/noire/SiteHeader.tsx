@@ -22,7 +22,7 @@ export function SiteHeader() {
 
   return (
     <header className={cn("fixed inset-x-0 top-0 z-50 border-b border-transparent transition-all duration-500", scrolled || open ? "border-border bg-background/95 backdrop-blur-lg" : "bg-transparent")}>
-      <div className="mx-auto grid h-20 max-w-[1500px] grid-cols-[minmax(0,1fr)_auto] items-center px-5 sm:px-8 lg:h-24 lg:grid-cols-[auto_1fr_auto] lg:px-12">
+      <div className="mx-auto grid h-16 max-w-[1500px] grid-cols-[minmax(0,1fr)_auto] items-center px-5 sm:h-20 sm:px-8 lg:h-24 lg:grid-cols-[auto_1fr_auto] lg:px-12">
         <a href="#acasa" className="w-fit" onClick={() => setOpen(false)}><Logo /></a>
         <nav aria-label="Navigație principală" className="hidden items-center justify-center gap-7 lg:flex">
           {navItems.map(([label, href]) => <a key={href} href={href} className="text-[0.68rem] tracking-[0.16em] text-muted-foreground transition-colors hover:text-foreground">{label.toUpperCase()}</a>)}
