@@ -1,0 +1,123 @@
+import { useState, type FormEvent } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { ArrowUpRight, Check } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { submitLead, type LeadInput } from "@/lib/leads.functions";
+
+const fieldClass = "h-12 rounded-none border-x-0 border-t-0 border-border bg-transparent px-0 focus-visible:ring-0 focus-visible:border-gold";
+
+function FormStatus({ state }: { state: "idle" | "sending" | "success" | "error" }) {
+  if (state === "success") return <p role="status" className="mt-5 text-sm text-gold">Solicitarea a fost trimisă. Revenim cu un răspuns.</p>;
+  if (state === "error") return <p role="alert" className="mt-5 text-sm text-destructive">Nu am putut trimite solicitarea. Verifică datele și încearcă din nou.</p>;
+  return null;
+}
+
+export function IdeasForm() {
+  const sendLead = useServerFn(submitLead);
+  const [consent, setConsent] = useState(false);
+  const [state, setState] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const values = new FormData(form);
+    setState("sending");
+    try {
+      await sendLead({ data: {
+        formType: "free_ideas",
+        name: String(values.get("name") ?? ""),
+        businessName: String(values.get("businessName") ?? ""),
+        industry: String(values.get("industry") ?? ""),
+        city: String(values.get("city") ?? ""),
+        socialHandle: String(values.get("socialHandle") ?? ""),
+        website: String(values.get("website") ?? ""),
+        phone: String(values.get("phone") ?? ""),
+        consent,
+        websiteTrap: String(values.get("companyWebsite") ?? ""),
+      } satisfies LeadInput });
+      form.reset();
+      setConsent(false);
+      setState("success");
+    } catch {
+      setState("error");
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="grid gap-x-8 gap-y-5 md:grid-cols-2">
+      <Input className={fieldClass} name="name" placeholder="Nume *" required minLength={2} maxLength={100} autoComplete="name" />
+      <Input className={fieldClass} name="businessName" placeholder="Numele businessului *" required maxLength={120} />
+      <Input className={fieldClass} name="industry" placeholder="Domeniu de activitate *" required maxLength={120} />
+      <Input className={fieldClass} name="city" placeholder="Oraș *" required maxLength={100} autoComplete="address-level2" />
+      <Input className={fieldClass} name="socialHandle" placeholder="Instagram / TikTok *" required maxLength={200} />
+      <Input className={fieldClass} name="website" placeholder="Website (opțional, cu https://)" type="url" maxLength={300} />
+      <Input className={fieldClass} name="phone" placeholder="Telefon / WhatsApp *" required type="tel" maxLength={40} autoComplete="tel" />
+      <div className="hidden" aria-hidden="true"><Input name="companyWebsite" tabIndex={-1} autoComplete="off" /></div>
+      <div className="md:col-span-2 mt-2 flex items-start gap-3">
+        <Checkbox id="ideas-consent" checked={consent} onCheckedChange={(checked) => setConsent(checked === true)} required />
+        <Label htmlFor="ideas-consent" className="font-normal leading-relaxed text-muted-foreground">Sunt de acord să fiu contactat în legătură cu solicitarea mea.</Label>
+      </div>
+      <div className="md:col-span-2">
+        <Button type="submit" size="lg" disabled={state === "sending" || !consent} className="h-13 rounded-none px-7 tracking-[0.12em]">
+          {state === "sending" ? "SE TRIMITE..." : "VREAU CELE 3 IDEI"}<ArrowUpRight />
+        </Button>
+        <FormStatus state={state} />
+      </div>
+    </form>
+  );
+}
+
+export function ContactForm() {
+  const sendLead = useServerFn(submitLead);
+  const [consent, setConsent] = useState(false);
+  const [state, setState] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const values = new FormData(form);
+    setState("sending");
+    try {
+      await sendLead({ data: {
+        formType: "contact",
+        name: String(values.get("name") ?? ""),
+        businessName: String(values.get("businessName") ?? ""),
+        email: String(values.get("email") ?? ""),
+        phone: String(values.get("phone") ?? ""),
+        message: String(values.get("message") ?? ""),
+        consent,
+        websiteTrap: String(values.get("companyWebsite") ?? ""),
+      } satisfies LeadInput });
+      form.reset();
+      setConsent(false);
+      setState("success");
+    } catch {
+      setState("error");
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <Input className={fieldClass} name="name" placeholder="Nume *" required minLength={2} maxLength={100} autoComplete="name" />
+      <Input className={fieldClass} name="businessName" placeholder="Numele businessului" maxLength={120} />
+      <div className="grid gap-5 sm:grid-cols-2">
+        <Input className={fieldClass} name="email" placeholder="Email *" required type="email" maxLength={255} autoComplete="email" />
+        <Input className={fieldClass} name="phone" placeholder="Telefon" type="tel" maxLength={40} autoComplete="tel" />
+      </div>
+      <Textarea name="message" placeholder="Spune-ne pe scurt despre business și ce vrei să obții." required maxLength={2000} className="min-h-32 rounded-none border-x-0 border-t-0 px-0 focus-visible:ring-0 focus-visible:border-gold" />
+      <div className="hidden" aria-hidden="true"><Input name="companyWebsite" tabIndex={-1} autoComplete="off" /></div>
+      <div className="flex items-start gap-3">
+        <Checkbox id="contact-consent" checked={consent} onCheckedChange={(checked) => setConsent(checked === true)} required />
+        <Label htmlFor="contact-consent" className="font-normal leading-relaxed text-muted-foreground">Sunt de acord să fiu contactat în legătură cu solicitarea mea.</Label>
+      </div>
+      <Button type="submit" size="lg" disabled={state === "sending" || !consent} className="h-13 rounded-none px-7 tracking-[0.12em]">
+        {state === "sending" ? "SE TRIMITE..." : "TRIMITE SOLICITAREA"}{state === "success" ? <Check /> : <ArrowUpRight />}
+      </Button>
+      <FormStatus state={state} />
+    </form>
+  );
+}
