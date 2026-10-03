@@ -183,7 +183,7 @@
 
 @utility section-title {
   font-family: var(--font-display);
-  font-size: clamp(1.42rem, 5.8vw, 1.9rem);
+  font-size: clamp(1.28rem, 5.2vw, 1.7rem);
   line-height: 0.96;
   letter-spacing: 0;
   word-break: normal;
@@ -196,7 +196,7 @@
 
 @utility hero-title {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 7.2vw, 2.35rem);
+  font-size: clamp(1.6rem, 6.5vw, 2.1rem);
   line-height: 0.9;
   letter-spacing: 0;
   word-break: normal;
@@ -225,8 +225,22 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .reveal, .reveal-row { opacity: 0; transform: translateY(26px); transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1); }
-  .reveal.is-visible, .reveal-row.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal, .reveal-row, .reveal-copy, .reveal-card { opacity: 0; transform: translateY(30px); transition: opacity .85s cubic-bezier(.22,1,.36,1), transform .85s cubic-bezier(.22,1,.36,1); }
+  .reveal-card { transform: translateY(36px) scale(.985); }
+  .reveal.is-visible, .reveal-row.is-visible, .reveal-copy.is-visible, .reveal-card.is-visible { opacity: 1; transform: translateY(0) scale(1); }
+  .reveal-copy.is-visible { transition-delay: 90ms; }
+  .reveal-card:nth-child(2n).is-visible { transition-delay: 80ms; }
+  .reveal-card:nth-child(3n).is-visible { transition-delay: 140ms; }
+  .section-title { transition: letter-spacing .7s cubic-bezier(.22,1,.36,1); }
+  .reveal.is-visible .section-title { letter-spacing: -.018em; }
+  a svg { transition: transform .3s cubic-bezier(.22,1,.36,1); }
+  a:hover svg { transform: translate(3px,-3px); }
+  .portfolio-motion { transition: transform .8s cubic-bezier(.22,1,.36,1), filter .8s ease; }
+  .portfolio-motion:hover { transform: translateY(-6px) scale(1.012); }
+  @media (max-width: 767px) {
+    .reveal, .reveal-row, .reveal-copy, .reveal-card { transform: translateY(20px); transition-duration: .65s; }
+    .reveal-card { transform: translateY(22px) scale(.99); }
+  }
   .reveal-row:nth-child(2n).is-visible { transition-delay: 70ms; }
   .cinematic-hover { transition: transform .55s cubic-bezier(.22,1,.36,1), background-color .55s ease, color .35s ease; }
   .cinematic-hover:hover { transform: translateX(8px); }
