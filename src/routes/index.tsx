@@ -122,8 +122,8 @@ function Index() {
             {process.map(([title, copy], index) => (
               <article key={title} className="reveal-row process-row relative grid grid-cols-[3rem_1fr] gap-x-4 gap-y-2 border-b border-border/80 px-0 py-5 sm:grid-cols-[4rem_0.7fr_1fr] sm:gap-8 sm:py-10">
                 <span className="relative z-10 grid size-9 place-items-center rounded-full border border-gold bg-background text-[0.6rem] text-gold sm:size-12">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="font-display text-[1.45rem] leading-none sm:text-4xl">{title}</h3>
-                <p className="col-start-2 max-w-lg text-[0.92rem] leading-6 text-muted-foreground sm:col-start-3 sm:pt-2 sm:text-base">{copy}</p>
+                <h3 className="font-display text-[1.08rem] leading-none sm:text-2xl lg:text-3xl">{title}</h3>
+                <p className="col-start-2 max-w-lg text-[0.78rem] leading-5 text-muted-foreground sm:col-start-3 sm:pt-1 sm:text-[0.92rem] sm:leading-6 lg:text-base">{copy}</p>
               </article>
             ))}
           </div>
