@@ -183,27 +183,27 @@
 
 @utility section-title {
   font-family: var(--font-display);
-  font-size: clamp(2.15rem, 10vw, 3.15rem);
+  font-size: clamp(1.9rem, 8.2vw, 2.65rem);
   line-height: 0.96;
   letter-spacing: 0;
   word-break: normal;
   overflow-wrap: normal;
   @media (min-width: 768px) {
-    font-size: clamp(3.7rem, 6.5vw, 7rem);
+    font-size: clamp(3rem, 4.7vw, 5.25rem);
     line-height: 0.92;
   }
 }
 
 @utility hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.65rem, 12.5vw, 4rem);
+  font-size: clamp(2.25rem, 10vw, 3.25rem);
   line-height: 0.9;
   letter-spacing: 0;
   word-break: normal;
   overflow-wrap: normal;
   @media (min-width: 768px) {
-    font-size: clamp(4.5rem, 8vw, 8.8rem);
-    line-height: 0.87;
+    font-size: clamp(3.7rem, 6vw, 6.6rem);
+    line-height: 0.91;
   }
 }
 
@@ -213,6 +213,15 @@
 
 @utility bg-placeholder {
   background: linear-gradient(145deg, oklch(0.24 0.012 70), oklch(0.12 0.004 70) 60%), repeating-linear-gradient(125deg, transparent 0 28px, oklch(0.71 0.057 76 / 4%) 29px 30px);
+}
+
+@media (max-width: 767px) {
+  .section-title, .hero-title { text-wrap: balance; hyphens: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
