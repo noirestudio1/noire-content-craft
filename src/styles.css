@@ -314,3 +314,28 @@
 @media (max-width: 767px) {
   .problem-card::before { width: 7rem; height: 7rem; right: -3.5rem; top: -3.5rem; }
 }
+
+.problem-image {
+  opacity: .18;
+  filter: grayscale(1) sepia(.22) contrast(1.12);
+  transform: scale(1.04);
+  transition: opacity .8s ease, transform 1.2s cubic-bezier(.22,1,.36,1), filter .8s ease;
+}
+.problem-shade {
+  background:
+    linear-gradient(90deg, oklch(0.135 0.004 70 / .98) 0%, oklch(0.135 0.004 70 / .84) 52%, oklch(0.135 0.004 70 / .46) 100%),
+    linear-gradient(0deg, oklch(0.135 0.004 70 / .8), transparent 65%);
+}
+.problem-card:hover .problem-image,
+.problem-card.is-visible .problem-image {
+  opacity: .34;
+  transform: scale(1);
+  filter: grayscale(.72) sepia(.2) contrast(1.08);
+}
+@media (max-width: 767px) {
+  .problem-image { opacity: .16; }
+  .problem-card.is-visible .problem-image { opacity: .27; }
+  .problem-shade {
+    background: linear-gradient(90deg, oklch(0.135 0.004 70 / .97), oklch(0.135 0.004 70 / .65));
+  }
+}
