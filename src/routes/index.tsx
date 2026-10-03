@@ -40,7 +40,15 @@ const process = [
 ];
 
 const projects = ["AUTOMOTIVE", "BEAUTY", "RESTAURANT", "FITNESS", "MEDICAL", "REAL ESTATE"];
-const industries = ["BEAUTY & AESTHETICS", "MEDICAL", "RESTAURANTS", "AUTOMOTIVE", "FITNESS", "REAL ESTATE", "LOCAL BUSINESS"];
+const industries = [
+  ["BEAUTY & AESTHETICS", "Portrete, servicii și transformări cu imagine premium."],
+  ["MEDICAL", "Expertiză explicată clar, uman și credibil."],
+  ["RESTAURANTS", "Povești, atmosferă și produs — Lucky Beans intră aici."],
+  ["AUTOMOTIVE", "Detaliu, mișcare și cadre construite pentru pasiune."],
+  ["FITNESS", "Energie, progres și comunitate transformate în content."],
+  ["REAL ESTATE", "Spații prezentate cinematic, nu ca simple anunțuri."],
+  ["LOCAL BUSINESS", "Oameni reali și businessuri locale cu povești care merită văzute."],
+] as const;
 const contentSystem = ["Strategie lunară", "Idei de content", "Hook-uri și scenarii", "Sesiune de filmare", "Editare profesională", "Reels / TikTok / Shorts", "Calendar editorial"];
 const fullSocial = [...contentSystem, "Administrarea publicării", "Captions", "Programarea postărilor", "Optimizarea strategiei", "Raportare lunară"];
 
@@ -99,7 +107,7 @@ function Index() {
               {problems.map(([title, copy], index) => (
                 <article key={title} className="reveal-card group min-h-48 border-b border-r border-border p-6 transition-colors duration-500 hover:bg-surface sm:min-h-56 sm:p-8">
                   <span className="text-xs tracking-[0.2em] text-gold">{String(index + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-9 break-normal font-display text-[1.35rem] leading-[1.02] [overflow-wrap:normal] sm:mt-16 sm:text-3xl">{title}</h3>
+                  <h3 className="mt-8 break-normal font-display text-[1.16rem] leading-[1.02] [overflow-wrap:normal] sm:mt-16 sm:text-3xl">{title}</h3>
                   <p className="mt-3 text-[0.92rem] leading-6 text-muted-foreground sm:text-base">{copy}</p>
                 </article>
               ))}
@@ -125,7 +133,7 @@ function Index() {
           <div className="section-shell">
             <SectionHeading label="SELECTED WORK">CONTENT CARE MERITĂ<br />SĂ FIE VĂZUT.</SectionHeading>
             <div className="mt-11 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 sm:mt-16 sm:gap-5 md:grid-cols-3 lg:ml-[15%]">
-              {projects.map((category, index) => <VideoPlaceholder key={category} project={`PROJECT ${String(index + 1).padStart(3, "0")}`} category={category} className={`reveal-card portfolio-motion ${index % 3 === 1 ? "md:translate-y-12" : ""}`} />)}
+              {projects.map((category, index) => <div id={`work-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} key={category} className={index % 3 === 1 ? "md:translate-y-12" : ""}><VideoPlaceholder project={`PROJECT ${String(index + 1).padStart(3, "0")}`} category={category} className="reveal-card portfolio-motion" /></div>)}
             </div>
             <p className="mt-12 border-t border-border pt-6 text-xs tracking-[0.14em] text-muted-foreground sm:mt-20 sm:tracking-[0.18em]">PROIECTELE NOASTRE VOR APĂREA AICI ÎN CURÂND.</p>
           </div>
@@ -134,12 +142,20 @@ function Index() {
         <section className="section-shell py-16 sm:py-28 lg:py-36">
           <SectionHeading label="INDUSTRII">CONTENT CREAT PENTRU<br />BUSINESSUL TĂU.</SectionHeading>
           <div className="mt-11 border-t border-border sm:mt-16">
-            {industries.map((industry, index) => (
-              <div key={industry} className="reveal-row cinematic-hover group grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-4 gap-y-2 border-b border-border py-5 transition-colors hover:text-gold sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:py-8">
+            {industries.map(([industry, industryCopy], index) => (
+              <a key={industry} href={`#work-${industry.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className="reveal-row cinematic-hover industry-row group relative grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-4 gap-y-2 overflow-hidden border-b border-border py-5 transition-colors hover:text-gold sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:py-8">
                 <span className="text-[0.6rem] text-muted-foreground">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="min-w-0 truncate font-display text-[clamp(.98rem,4.35vw,1.3rem)] sm:text-[clamp(1.8rem,3.6vw,3.8rem)]">{industry}</h3>
-                <span className="col-start-2 flex items-center gap-2 text-[0.5rem] tracking-[0.12em] text-muted-foreground sm:col-start-auto sm:text-[0.55rem] sm:tracking-[0.15em]"><Circle className="size-2 fill-current" /> SPAȚIU VIDEO</span>
-              </div>
+                <div className="min-w-0">
+                  <h3 className="min-w-0 truncate font-display text-[clamp(.98rem,4.35vw,1.3rem)] sm:text-[clamp(1.8rem,3.6vw,3.8rem)]">{industry}</h3>
+                  <p className="mt-1 max-w-xl text-[0.72rem] leading-5 text-muted-foreground sm:hidden">{industryCopy}</p>
+                </div>
+                <span className="col-start-2 flex items-center gap-2 text-[0.5rem] tracking-[0.12em] text-muted-foreground sm:col-start-auto sm:text-[0.55rem] sm:tracking-[0.15em]"><Circle className="size-2 fill-current" /> PREVIEW / CASE STUDY</span>
+                <div className="industry-preview pointer-events-none absolute right-4 top-1/2 hidden aspect-video w-[min(30vw,360px)] -translate-y-1/2 overflow-hidden border border-border bg-background/95 shadow-2xl lg:block">
+                  <div className="absolute inset-0 bg-placeholder" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4"><p className="text-[0.55rem] tracking-[0.2em] text-gold">PREVIEW VIDEO · MUTED</p><p className="mt-1 font-display text-xl text-foreground">{industry}</p></div>
+                </div>
+              </a>
             ))}
           </div>
         </section>
