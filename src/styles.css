@@ -407,3 +407,26 @@
 @keyframes workGlow{to{transform:translate3d(8vw,6%,0) scale(1.12);opacity:.65}}
 @media(max-width:767px){.luxury-ambient{opacity:.3}.hero-orbit{width:92vw;right:-58%;top:12%}.sand-mesh{inset:10% -45% 0 18%;opacity:.32}.problem-card:hover,.portfolio-motion:hover,.process-row:hover{transform:none}.luxury-noise{opacity:.018}}
 @media(prefers-reduced-motion:reduce){.luxury-ambient i,.hero-lux>img,.hero-prism,.hero-orbit,.sand-mesh i,.luxury-work:before{animation:none!important}.problem-card,.portfolio-motion,.process-row{transition-duration:.01ms!important}}
+
+/* Premium mobile navigation — intentionally lightweight */
+.mobile-lux-menu{
+  background:
+    radial-gradient(circle at 86% 8%,rgba(190,151,96,.12),transparent 31%),
+    radial-gradient(circle at 12% 78%,rgba(114,82,48,.08),transparent 35%),
+    linear-gradient(145deg,#100e0b 0%,#090908 52%,#0d0b09 100%);
+  box-shadow:inset 0 1px 0 rgba(226,194,145,.08);
+}
+.mobile-menu-aura{
+  position:absolute;right:-7rem;top:4rem;width:16rem;height:16rem;border:1px solid rgba(210,173,116,.13);
+  border-radius:50%;box-shadow:inset 0 0 55px rgba(191,151,91,.035),0 0 70px rgba(191,151,91,.025);
+  pointer-events:none;
+}
+.mobile-menu-aura:before,.mobile-menu-aura:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(210,173,116,.07)}
+.mobile-menu-aura:before{inset:18%}.mobile-menu-aura:after{inset:36%}
+.mobile-menu-link{position:relative;transition:padding-left .35s cubic-bezier(.22,1,.36,1),background .35s ease,color .35s ease}
+.mobile-menu-link:after{content:"";position:absolute;left:2rem;right:100%;bottom:-1px;height:1px;background:linear-gradient(90deg,rgba(219,181,122,.9),transparent);transition:right .5s cubic-bezier(.22,1,.36,1)}
+.mobile-menu-link:active,.mobile-menu-link:focus-visible{padding-left:.4rem;background:linear-gradient(90deg,rgba(194,158,108,.07),transparent 72%);outline:none}
+.mobile-menu-link:active:after,.mobile-menu-link:focus-visible:after{right:18%}
+.mobile-menu-arrow{transition:transform .35s ease,opacity .35s ease}
+.mobile-menu-link:active .mobile-menu-arrow,.mobile-menu-link:focus-visible .mobile-menu-arrow{transform:translate(2px,-2px);opacity:1}
+.mobile-menu-cta{box-shadow:0 10px 40px rgba(190,151,96,.08);border:1px solid rgba(239,213,172,.12)}
