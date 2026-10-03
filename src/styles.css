@@ -245,3 +245,31 @@
   .cinematic-hover { transition: transform .55s cubic-bezier(.22,1,.36,1), background-color .55s ease, color .35s ease; }
   .cinematic-hover:hover { transform: translateX(8px); }
 }
+
+@media (max-width: 767px) {
+  .problem-card {
+    background:
+      radial-gradient(circle at 88% 12%, oklch(0.71 0.057 76 / 7%), transparent 34%),
+      linear-gradient(145deg, oklch(0.19 0.006 70 / 55%), transparent 65%);
+  }
+  .process-panel {
+    background:
+      radial-gradient(circle at 8% 18%, oklch(0.71 0.057 76 / 8%), transparent 30%),
+      radial-gradient(circle at 94% 76%, oklch(0.935 0.016 84 / 4%), transparent 34%),
+      linear-gradient(180deg, oklch(0.18 0.006 70 / 62%), oklch(0.145 0.004 70));
+  }
+  .process-row {
+    min-height: 10.5rem;
+    align-content: center;
+  }
+  .process-row::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, transparent 0 74%, oklch(0.71 0.057 76 / 3%) 100%);
+    opacity: 0;
+    transition: opacity .45s ease;
+  }
+  .process-row.is-visible::after { opacity: 1; }
+}
