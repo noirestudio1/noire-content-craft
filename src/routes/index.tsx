@@ -46,7 +46,7 @@ const fullSocial = [...contentSystem, "Administrarea publicării", "Captions", "
 
 function Index() {
   useEffect(() => {
-    const nodes = Array.from(document.querySelectorAll<HTMLElement>(".reveal, .reveal-row"));
+    const nodes = Array.from(document.querySelectorAll<HTMLElement>(".reveal, .reveal-row, .reveal-copy, .reveal-card"));
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       nodes.forEach((node) => node.classList.add("is-visible"));
       return;
@@ -87,8 +87,8 @@ function Index() {
         <section className="section-shell py-16 sm:py-28 lg:py-36">
           <SectionHeading label="SANS RETOUR · CONTENT STUDIO">TU CONDUCI BUSINESSUL.<br /><span className="text-ivory-muted">NOI NE OCUPĂM DE CONTENT.</span></SectionHeading>
           <div className="mt-11 grid gap-8 border-t border-border pt-7 sm:mt-16 sm:gap-10 sm:pt-8 md:grid-cols-2 lg:mt-24">
-            <p className="max-w-xl text-xl leading-relaxed sm:text-2xl">Serile tale nu ar trebui să se termine căutând idei pentru TikTok sau rescriind un script care nu sună natural.</p>
-            <p className="max-w-lg text-base leading-7 text-muted-foreground md:justify-self-end">Construim întregul sistem de content: de la prima idee până la clipul editat și calendarul de publicare. Tu vii cu expertiza. Noi o facem vizibilă.</p>
+            <p className="reveal-copy max-w-xl text-xl leading-relaxed sm:text-2xl">Serile tale nu ar trebui să se termine căutând idei pentru TikTok sau rescriind un script care nu sună natural.</p>
+            <p className="reveal-copy max-w-lg text-base leading-7 text-muted-foreground md:justify-self-end">Construim întregul sistem de content: de la prima idee până la clipul editat și calendarul de publicare. Tu vii cu expertiza. Noi o facem vizibilă.</p>
           </div>
         </section>
 
@@ -97,7 +97,7 @@ function Index() {
             <SectionHeading label="MAI PUȚINĂ PRESIUNE. MAI MULTĂ CLARITATE.">CONTENTUL <span className="whitespace-nowrap">N-AR</span> TREBUI<br /><span className="whitespace-nowrap">SĂ-ȚI</span> CONSUME TIMPUL.</SectionHeading>
             <div className="mt-11 grid border-l border-t border-border sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
               {problems.map(([title, copy], index) => (
-                <article key={title} className="group min-h-48 border-b border-r border-border p-6 transition-colors duration-500 hover:bg-surface sm:min-h-56 sm:p-8">
+                <article key={title} className="reveal-card group min-h-48 border-b border-r border-border p-6 transition-colors duration-500 hover:bg-surface sm:min-h-56 sm:p-8">
                   <span className="text-xs tracking-[0.2em] text-gold">{String(index + 1).padStart(2, "0")}</span>
                   <h3 className="mt-12 break-normal font-display text-2xl [overflow-wrap:normal] sm:mt-16 sm:text-3xl">{title}</h3>
                   <p className="mt-3 text-muted-foreground">{copy}</p>
@@ -112,7 +112,7 @@ function Index() {
           <div className="relative mt-12 sm:mt-20 lg:ml-[22%]">
             <div className="absolute bottom-0 left-[1.15rem] top-0 w-px bg-border sm:left-[1.65rem]" />
             {process.map(([title, copy], index) => (
-              <article key={title} className="relative grid grid-cols-[3rem_1fr] gap-4 border-b border-border py-6 sm:grid-cols-[4rem_0.7fr_1fr] sm:gap-8 sm:py-10">
+              <article key={title} className="reveal-row relative grid grid-cols-[3rem_1fr] gap-4 border-b border-border py-6 sm:grid-cols-[4rem_0.7fr_1fr] sm:gap-8 sm:py-10">
                 <span className="relative z-10 grid size-9 place-items-center rounded-full border border-gold bg-background text-[0.6rem] text-gold sm:size-12">{String(index + 1).padStart(2, "0")}</span>
                 <h3 className="font-display text-2xl sm:text-4xl">{title}</h3>
                 <p className="col-start-2 max-w-lg text-muted-foreground sm:col-start-3 sm:pt-2">{copy}</p>
@@ -125,7 +125,7 @@ function Index() {
           <div className="section-shell">
             <SectionHeading label="SELECTED WORK">CONTENT CARE MERITĂ<br />SĂ FIE VĂZUT.</SectionHeading>
             <div className="mt-11 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 sm:mt-16 sm:gap-5 md:grid-cols-3 lg:ml-[15%]">
-              {projects.map((category, index) => <VideoPlaceholder key={category} project={`PROJECT ${String(index + 1).padStart(3, "0")}`} category={category} className={index % 3 === 1 ? "md:translate-y-12" : ""} />)}
+              {projects.map((category, index) => <VideoPlaceholder key={category} project={`PROJECT ${String(index + 1).padStart(3, "0")}`} category={category} className={`reveal-card portfolio-motion ${index % 3 === 1 ? "md:translate-y-12" : ""}`} />)}
             </div>
             <p className="mt-12 border-t border-border pt-6 text-xs tracking-[0.14em] text-muted-foreground sm:mt-20 sm:tracking-[0.18em]">PROIECTELE NOASTRE VOR APĂREA AICI ÎN CURÂND.</p>
           </div>
@@ -137,7 +137,7 @@ function Index() {
             {industries.map((industry, index) => (
               <div key={industry} className="reveal-row cinematic-hover group grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-4 gap-y-2 border-b border-border py-5 transition-colors hover:text-gold sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:py-8">
                 <span className="text-[0.6rem] text-muted-foreground">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="min-w-0 truncate font-display text-[clamp(1.05rem,4.8vw,1.45rem)] sm:text-[clamp(1.8rem,3.6vw,3.8rem)]">{industry}</h3>
+                <h3 className="min-w-0 truncate font-display text-[clamp(.98rem,4.35vw,1.3rem)] sm:text-[clamp(1.8rem,3.6vw,3.8rem)]">{industry}</h3>
                 <span className="col-start-2 flex items-center gap-2 text-[0.5rem] tracking-[0.12em] text-muted-foreground sm:col-start-auto sm:text-[0.55rem] sm:tracking-[0.15em]"><Circle className="size-2 fill-current" /> SPAȚIU VIDEO</span>
               </div>
             ))}
@@ -168,8 +168,8 @@ function Index() {
         <section id="despre" className="section-shell scroll-mt-20 py-20 sm:py-36 lg:py-48">
           <SectionHeading label="DESPRE SANS RETOUR">NU SUNTEM AICI<br /><span className="whitespace-nowrap">SĂ-ȚI</span> MAI DĂM TEME.</SectionHeading>
           <div className="mt-11 grid gap-8 border-t border-border pt-7 sm:mt-16 sm:gap-10 sm:pt-8 md:grid-cols-2">
-            <p className="font-display text-2xl leading-snug sm:text-4xl">SANS RETOUR a pornit dintr-o idee simplă:</p>
-            <div className="max-w-xl space-y-6 text-lg leading-relaxed text-muted-foreground"><p>Businessurile au nevoie de content, dar proprietarii nu ar trebui să devină peste noapte scenariști, cameramani și editori.</p><p className="text-foreground">Noi construim sistemul.<br />Tu apari și îți conduci businessul.</p></div>
+            <p className="reveal-copy font-display text-xl leading-snug sm:text-4xl">SANS RETOUR a pornit dintr-o idee simplă:</p>
+            <div className="reveal-copy max-w-xl space-y-6 text-lg leading-relaxed text-muted-foreground"><p>Businessurile au nevoie de content, dar proprietarii nu ar trebui să devină peste noapte scenariști, cameramani și editori.</p><p className="text-foreground">Noi construim sistemul.<br />Tu apari și îți conduci businessul.</p></div>
           </div>
         </section>
 
