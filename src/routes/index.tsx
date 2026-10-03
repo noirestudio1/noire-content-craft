@@ -104,11 +104,11 @@ function Index() {
           <div className="section-shell">
             <SectionHeading label="MAI PUȚINĂ PRESIUNE. MAI MULTĂ CLARITATE.">CONTENTUL <span className="whitespace-nowrap">N-AR</span> TREBUI<br /><span className="whitespace-nowrap">SĂ-ȚI</span> CONSUME TIMPUL.</SectionHeading>
             <div className="mt-11 grid border-l border-t border-border sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
-              {problems.map(([title, copy], index) => (
+              {problems.map(([title, copy, image], index) => (
                 <article key={title} className="reveal-card group min-h-48 border-b border-r border-border p-6 transition-colors duration-500 hover:bg-surface sm:min-h-56 sm:p-8">
                   <span className="text-xs tracking-[0.2em] text-gold">{String(index + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-8 break-normal font-display text-[1.16rem] leading-[1.02] [overflow-wrap:normal] sm:mt-16 sm:text-3xl">{title}</h3>
-                  <p className="mt-3 text-[0.92rem] leading-6 text-muted-foreground sm:text-base">{copy}</p>
+                  <h3 className="relative z-10 mt-8 break-normal font-display text-[1rem] leading-[1.04] [overflow-wrap:normal] sm:mt-16 sm:text-[1.7rem]">{title}</h3>
+                  <p className="relative z-10 mt-3 max-w-[28rem] text-[0.78rem] leading-5 text-foreground/65 sm:text-[0.92rem] sm:leading-6">{copy}</p>
                 </article>
               ))}
             </div>
