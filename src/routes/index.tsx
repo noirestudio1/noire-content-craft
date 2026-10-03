@@ -75,12 +75,12 @@ function Index() {
   }, []);
 
   return (
-    <div className="overflow-x-clip bg-background text-foreground">
+    <div className="luxury-site overflow-x-clip bg-background text-foreground"><div className="luxury-ambient" aria-hidden="true"><i /><i /><i /></div>
       <SiteHeader />
       <main>
-        <section id="acasa" className="relative flex min-h-[100svh] items-end overflow-hidden border-b border-border px-5 pb-10 pt-24 sm:px-8 sm:pb-14 sm:pt-32 lg:px-12 lg:pb-20">
+        <section id="acasa" className="hero-lux relative flex min-h-[100svh] items-end overflow-hidden border-b border-border px-5 pb-10 pt-24 sm:px-8 sm:pb-14 sm:pt-32 lg:px-12 lg:pb-20">
           <img src={heroImage} width={1920} height={1080} alt="Cameră cinematografică pregătită pentru producție video SANS RETOUR" className="absolute inset-0 h-full w-full object-cover object-center" />
-          <div className="absolute inset-0 bg-hero-overlay" />
+          <div className="absolute inset-0 bg-hero-overlay" /><div className="hero-prism" aria-hidden="true" /><div className="hero-orbit" aria-hidden="true" />
           <div className="relative z-10 mx-auto w-full max-w-[1500px]">
             <div className="mb-6 grid w-fit grid-cols-[2rem_minmax(0,1fr)] items-center gap-3 text-[0.56rem] tracking-[0.16em] text-gold sm:mb-8 sm:flex sm:text-[0.62rem] sm:tracking-[0.24em]"><span className="h-px w-8 bg-gold sm:w-10" />BUCUREȘTI · BRAȘOV / CONTENT STUDIO</div>
             <h1 className="hero-title max-w-6xl text-balance">NU MAI STA SĂ TE GÂNDEȘTI<br /><span className="text-ivory-muted">CE SĂ POSTEZI.</span></h1>
@@ -123,8 +123,8 @@ function Index() {
           </div>
         </section>
 
-        <section id="proces" className="section-shell scroll-mt-20 py-16 sm:py-28 lg:py-36">
-          <SectionHeading label="DE LA STRATEGIE LA PUBLICARE">O ZI DE FILMARE.<br /><span className="text-ivory-muted">O LUNĂ DE CONTENT.</span></SectionHeading>
+        <section id="proces" className="sand-luxury section-shell relative overflow-hidden scroll-mt-20 py-16 sm:py-28 lg:py-36">
+          <div className="sand-mesh" aria-hidden="true"><i /><i /><i /><i /><i /></div><div className="relative z-10"><SectionHeading label="DE LA STRATEGIE LA PUBLICARE">O ZI DE FILMARE.<br /><span className="text-ivory-muted">O LUNĂ DE CONTENT.</span></SectionHeading></div>
           <div className="process-panel relative mt-12 overflow-hidden border-y border-border/70 sm:mt-20 lg:ml-[22%]">
             <div className="absolute bottom-0 left-[1.15rem] top-0 w-px bg-gradient-to-b from-gold/70 via-border to-gold/20 sm:left-[1.65rem]" />
             {process.map(([title, copy], index) => (
@@ -208,6 +208,7 @@ function Index() {
           </div>
         </section>
       </main>
+      <div className="luxury-noise" aria-hidden="true" />
 
       <footer className="border-t border-border px-5 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-[1500px] gap-10 md:grid-cols-[1fr_auto] md:items-end">
