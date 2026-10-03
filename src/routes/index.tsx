@@ -36,10 +36,13 @@ const problems = [
 ] as const;
 
 const process = [
-  ["STRATEGIE", "Înțelegem businessul, publicul și obiectivele."], ["IDEI", "Construim concepte potrivite businessului."],
-  ["SCRIPT", "Creăm hook-urile și îți spunem exact ce să spui."], ["FILMARE", "Venim la locația ta și filmăm."],
-  ["EDITARE", "Transformăm materialul în Reels, TikToks și Shorts."], ["PLANIFICARE", "Construim calendarul de publicare."],
-  ["POSTARE", "Îți livrăm totul gata sau administrăm noi publicarea."],
+  ["STRATEGIE", "Înainte să pornim camera, trebuie să știm de ce ar rămâne cineva să se uite."],
+  ["IDEI", "Nu-ți cerem să vii cu ideile. Asta e treaba noastră."],
+  ["SCRIPT", "Știi ce spui înainte să apăsăm REC. Fără improvizații incomode."],
+  ["FILMARE", "Tu vii cu expertiza. Noi venim cu camera și te regizăm."],
+  ["EDITARE", "Tăiem ce plictisește. Păstrăm ce ține omul pe ecran."],
+  ["PLANIFICARE", "Fiecare clip are un loc și un moment. Nu postăm la întâmplare."],
+  ["POSTARE", "Contentul pleacă. Tu te întorci la business."],
 ];
 
 const projects = ["AUTOMOTIVE", "BEAUTY", "RESTAURANT", "FITNESS", "MEDICAL", "REAL ESTATE"];
@@ -123,7 +126,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="proces" className="section-shell scroll-mt-20 py-16 sm:py-28 lg:py-36">
+        <section id="proces" className="process-premium section-shell relative scroll-mt-20 overflow-hidden py-16 sm:py-28 lg:py-36"><div className="process-backdrop" aria-hidden="true" /><div className="relative z-10">
           <SectionHeading label="DE LA STRATEGIE LA PUBLICARE">O ZI DE FILMARE.<br /><span className="text-ivory-muted">O LUNĂ DE CONTENT.</span></SectionHeading>
           <div className="process-panel relative mt-12 overflow-hidden border-y border-border/70 sm:mt-20 lg:ml-[22%]">
             <div className="absolute bottom-0 left-[1.15rem] top-0 w-px bg-gradient-to-b from-gold/70 via-border to-gold/20 sm:left-[1.65rem]" />
@@ -134,6 +137,7 @@ function Index() {
                 <p className="col-start-2 max-w-lg text-[0.78rem] leading-5 text-muted-foreground sm:col-start-3 sm:pt-1 sm:text-[0.92rem] sm:leading-6 lg:text-base">{copy}</p>
               </article>
             ))}
+          </div>
           </div>
         </section>
 
