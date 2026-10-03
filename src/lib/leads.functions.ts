@@ -62,14 +62,14 @@ export const submitLead = createServerFn({ method: "POST" })
     const { error } = await supabaseAdmin.from("lead_submissions").insert({
       form_type: data.formType,
       name: data.name,
-      business_name: data.businessName,
-      industry: data.industry,
-      city: data.city,
-      social_handle: data.socialHandle,
-      website: data.website,
-      phone: data.phone,
-      email: data.email,
-      message: data.message,
+      business_name: data.businessName ?? null,
+      industry: data.industry ?? null,
+      city: data.city ?? null,
+      social_handle: data.socialHandle ?? null,
+      website: data.website ?? null,
+      phone: data.phone ?? null,
+      email: data.email ?? null,
+      message: data.message ?? null,
       consent: data.consent,
     });
 

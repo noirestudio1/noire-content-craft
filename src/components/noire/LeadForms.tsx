@@ -36,7 +36,7 @@ export function IdeasForm() {
         socialHandle: String(values.get("socialHandle") ?? ""),
         website: String(values.get("website") ?? ""),
         phone: String(values.get("phone") ?? ""),
-        consent,
+        consent: true,
         websiteTrap: String(values.get("companyWebsite") ?? ""),
       } satisfies LeadInput });
       form.reset();
@@ -89,7 +89,7 @@ export function ContactForm() {
         email: String(values.get("email") ?? ""),
         phone: String(values.get("phone") ?? ""),
         message: String(values.get("message") ?? ""),
-        consent,
+        consent: true,
         websiteTrap: String(values.get("companyWebsite") ?? ""),
       } satisfies LeadInput });
       form.reset();

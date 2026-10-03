@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
 
-const navItems = [
+const navItems: Array<[string, string]> = [
   ["Acasă", "#acasa"], ["Portofoliu", "#portofoliu"], ["Servicii", "#servicii"],
   ["Proces", "#proces"], ["Despre", "#despre"], ["Contact", "#contact"],
 ];
