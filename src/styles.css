@@ -339,3 +339,33 @@
     background: linear-gradient(90deg, oklch(0.135 0.004 70 / .97), oklch(0.135 0.004 70 / .65));
   }
 }
+
+/* Cinematic problem grid */
+.problem-card { isolation:isolate; background:#0c0b0a; }
+.problem-image {
+  z-index:-3; opacity:.22; filter:grayscale(1) sepia(.22) contrast(1.16);
+  transform:scale(1.09) translate3d(0,8px,0);
+  transition:transform 1.25s cubic-bezier(.22,1,.36,1),opacity .75s ease,filter .75s ease;
+}
+.problem-shadow {
+  z-index:-2;
+  background:linear-gradient(90deg,rgba(10,9,8,.96) 0%,rgba(10,9,8,.82) 48%,rgba(10,9,8,.42) 100%),
+             linear-gradient(0deg,rgba(8,7,6,.82),transparent 72%);
+  transition:transform 1s cubic-bezier(.22,1,.36,1),background .7s ease;
+}
+.problem-glow {
+  z-index:-1; opacity:.13;
+  background:radial-gradient(circle,rgba(205,169,116,.7),transparent 66%);
+  transform:translate3d(22px,-16px,0);
+  transition:transform 1.1s cubic-bezier(.22,1,.36,1),opacity .7s ease;
+}
+.problem-card:hover .problem-image,.problem-card.is-visible .problem-image {
+  opacity:.38; filter:grayscale(.72) sepia(.24) contrast(1.12); transform:scale(1.025) translate3d(0,0,0);
+}
+.problem-card:hover .problem-shadow { transform:translate3d(-8px,0,0); }
+.problem-card:hover .problem-glow,.problem-card.is-visible .problem-glow { opacity:.28; transform:translate3d(-10px,12px,0); }
+@media (max-width:767px){
+  .problem-image{opacity:.18}
+  .problem-card.is-visible .problem-image{opacity:.31}
+  .problem-shadow{background:linear-gradient(90deg,rgba(10,9,8,.95),rgba(10,9,8,.58)),linear-gradient(0deg,rgba(8,7,6,.86),transparent 75%)}
+}
