@@ -98,8 +98,8 @@ function Index() {
         <section className="section-shell py-16 sm:py-28 lg:py-36">
           <SectionHeading label="SANS RETOUR · CONTENT STUDIO">TU CONDUCI BUSINESSUL.<br /><span className="text-ivory-muted">NOI NE OCUPĂM DE CONTENT.</span></SectionHeading>
           <div className="mt-11 grid gap-8 border-t border-border pt-7 sm:mt-16 sm:gap-10 sm:pt-8 md:grid-cols-2 lg:mt-24">
-            <p className="reveal-copy max-w-xl text-[0.98rem] leading-6 sm:text-lg sm:leading-7 lg:text-xl">Serile tale nu ar trebui să se termine căutând idei pentru TikTok sau rescriind un script care nu sună natural.</p>
-            <p className="reveal-copy max-w-lg text-[0.84rem] leading-6 text-muted-foreground sm:text-[0.95rem] md:justify-self-end lg:text-base lg:leading-7">Construim întregul sistem de content: de la prima idee până la clipul editat și calendarul de publicare. Tu vii cu expertiza. Noi o facem vizibilă.</p>
+            <p className="reveal-copy max-w-xl text-[0.98rem] leading-6 sm:text-lg sm:leading-7 lg:text-xl">BUSINESSUL TĂU ARE DEJA CEVA DE SPUS. NOI ÎL TRANSFORMĂM ÎN CONTENT PE CARE OAMENII VOR SĂ-L URMĂREASCĂ.</p>
+            <p className="reveal-copy max-w-lg text-[0.84rem] leading-6 text-muted-foreground sm:text-[0.95rem] md:justify-self-end lg:text-base lg:leading-7">Strategie, concept, filmare și editare — construite în jurul brandului tău. Fără content generic. Fără postări făcute doar ca să existe.</p>
           </div>
         </section>
 
