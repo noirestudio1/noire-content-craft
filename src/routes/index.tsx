@@ -99,8 +99,8 @@ function Index() {
               {problems.map(([title, copy], index) => (
                 <article key={title} className="reveal-card group min-h-48 border-b border-r border-border p-6 transition-colors duration-500 hover:bg-surface sm:min-h-56 sm:p-8">
                   <span className="text-xs tracking-[0.2em] text-gold">{String(index + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-12 break-normal font-display text-2xl [overflow-wrap:normal] sm:mt-16 sm:text-3xl">{title}</h3>
-                  <p className="mt-3 text-muted-foreground">{copy}</p>
+                  <h3 className="mt-9 break-normal font-display text-[1.35rem] leading-[1.02] [overflow-wrap:normal] sm:mt-16 sm:text-3xl">{title}</h3>
+                  <p className="mt-3 text-[0.92rem] leading-6 text-muted-foreground sm:text-base">{copy}</p>
                 </article>
               ))}
             </div>
@@ -109,13 +109,13 @@ function Index() {
 
         <section id="proces" className="section-shell scroll-mt-20 py-16 sm:py-28 lg:py-36">
           <SectionHeading label="DE LA STRATEGIE LA PUBLICARE">O ZI DE FILMARE.<br /><span className="text-ivory-muted">O LUNĂ DE CONTENT.</span></SectionHeading>
-          <div className="relative mt-12 sm:mt-20 lg:ml-[22%]">
-            <div className="absolute bottom-0 left-[1.15rem] top-0 w-px bg-border sm:left-[1.65rem]" />
+          <div className="process-panel relative mt-12 overflow-hidden border-y border-border/70 sm:mt-20 lg:ml-[22%]">
+            <div className="absolute bottom-0 left-[1.15rem] top-0 w-px bg-gradient-to-b from-gold/70 via-border to-gold/20 sm:left-[1.65rem]" />
             {process.map(([title, copy], index) => (
-              <article key={title} className="reveal-row relative grid grid-cols-[3rem_1fr] gap-4 border-b border-border py-6 sm:grid-cols-[4rem_0.7fr_1fr] sm:gap-8 sm:py-10">
+              <article key={title} className="reveal-row process-row relative grid grid-cols-[3rem_1fr] gap-x-4 gap-y-2 border-b border-border/80 px-0 py-5 sm:grid-cols-[4rem_0.7fr_1fr] sm:gap-8 sm:py-10">
                 <span className="relative z-10 grid size-9 place-items-center rounded-full border border-gold bg-background text-[0.6rem] text-gold sm:size-12">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="font-display text-2xl sm:text-4xl">{title}</h3>
-                <p className="col-start-2 max-w-lg text-muted-foreground sm:col-start-3 sm:pt-2">{copy}</p>
+                <h3 className="font-display text-[1.45rem] leading-none sm:text-4xl">{title}</h3>
+                <p className="col-start-2 max-w-lg text-[0.92rem] leading-6 text-muted-foreground sm:col-start-3 sm:pt-2 sm:text-base">{copy}</p>
               </article>
             ))}
           </div>
