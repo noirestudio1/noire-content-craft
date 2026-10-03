@@ -183,7 +183,7 @@
 
 @utility section-title {
   font-family: var(--font-display);
-  font-size: clamp(1.72rem, 7vw, 2.25rem);
+  font-size: clamp(1.42rem, 5.8vw, 1.9rem);
   line-height: 0.96;
   letter-spacing: 0;
   word-break: normal;
@@ -196,7 +196,7 @@
 
 @utility hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 8.6vw, 2.8rem);
+  font-size: clamp(1.75rem, 7.2vw, 2.35rem);
   line-height: 0.9;
   letter-spacing: 0;
   word-break: normal;
@@ -225,11 +225,9 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .reveal { animation: reveal-up 0.8s cubic-bezier(.22,1,.36,1) both; animation-timeline: view(); animation-range: entry 5% cover 30%; }
-  .reveal-row { animation: reveal-row 0.7s cubic-bezier(.22,1,.36,1) both; animation-timeline: view(); animation-range: entry 0% cover 22%; }
-  .reveal-row:nth-child(2n) { animation-delay: 70ms; }
+  .reveal, .reveal-row { opacity: 0; transform: translateY(26px); transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1); }
+  .reveal.is-visible, .reveal-row.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal-row:nth-child(2n).is-visible { transition-delay: 70ms; }
   .cinematic-hover { transition: transform .55s cubic-bezier(.22,1,.36,1), background-color .55s ease, color .35s ease; }
   .cinematic-hover:hover { transform: translateX(8px); }
-  @keyframes reveal-up { from { opacity: 0; transform: translateY(24px); clip-path: inset(0 0 22% 0); } to { opacity: 1; transform: translateY(0); clip-path: inset(0); } }
-  @keyframes reveal-row { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 }
