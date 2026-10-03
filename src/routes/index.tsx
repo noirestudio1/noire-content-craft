@@ -27,10 +27,13 @@ export const Route = createFileRoute("/")({
 });
 
 const problems = [
-  ["NU AI IDEI?", "Le găsim noi."], ["NU ȘTII CE SĂ SPUI?", "Îți scriem noi scenariul."],
-  ["NU ȘTII CUM SĂ FILMEZI?", "Venim noi la locație."], ["NU VREI SĂ EDITEZI?", "Facem noi asta."],
-  ["NU ȘTII CÂND SĂ POSTEZI?", "Primești calendarul complet."], ["NU AI TIMP SĂ POSTEZI?", "O putem face noi."],
-];
+  ["NU AI IDEI?", "Găsim unghiul care merită filmat.", "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1400&q=82"],
+  ["NU ȘTII CE SĂ SPUI?", "Transformăm expertiza ta în hook-uri și scenarii naturale.", "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=82"],
+  ["NU ȘTII CUM SĂ FILMEZI?", "Venim la locație și construim cadrele pentru tine.", "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1400&q=82"],
+  ["NU VREI SĂ EDITEZI?", "Din material brut facem content care ține atenția.", "https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1400&q=82"],
+  ["NU ȘTII CÂND SĂ POSTEZI?", "Construim un calendar clar pentru ritmul businessului.", "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=1400&q=82"],
+  ["NU AI TIMP SĂ POSTEZI?", "Putem administra publicarea, ca tu să rămâi în business.", "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1400&q=82"],
+] as const;
 
 const process = [
   ["STRATEGIE", "Înțelegem businessul, publicul și obiectivele."], ["IDEI", "Construim concepte potrivite businessului."],
@@ -105,10 +108,15 @@ function Index() {
             <SectionHeading label="MAI PUȚINĂ PRESIUNE. MAI MULTĂ CLARITATE.">CONTENTUL <span className="whitespace-nowrap">N-AR</span> TREBUI<br /><span className="whitespace-nowrap">SĂ-ȚI</span> CONSUME TIMPUL.</SectionHeading>
             <div className="mt-11 grid border-l border-t border-border sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
               {problems.map(([title, copy, image], index) => (
-                <article key={title} className="reveal-card group min-h-48 border-b border-r border-border p-6 transition-colors duration-500 hover:bg-surface sm:min-h-56 sm:p-8">
-                  <span className="text-xs tracking-[0.2em] text-gold">{String(index + 1).padStart(2, "0")}</span>
-                  <h3 className="relative z-10 mt-8 break-normal font-display text-[1rem] leading-[1.04] [overflow-wrap:normal] sm:mt-16 sm:text-[1.7rem]">{title}</h3>
-                  <p className="relative z-10 mt-3 max-w-[28rem] text-[0.78rem] leading-5 text-foreground/65 sm:text-[0.92rem] sm:leading-6">{copy}</p>
+                <article key={title} className="reveal-card problem-card group relative min-h-44 overflow-hidden border-b border-r border-border p-5 sm:min-h-56 sm:p-7">
+                  <img src={image} alt="" loading="lazy" className="problem-image absolute inset-0 h-full w-full object-cover" />
+                  <div className="problem-shadow absolute inset-0" />
+                  <div className="problem-glow absolute -right-16 -top-16 h-40 w-40 rounded-full" />
+                  <span className="relative z-10 text-[0.62rem] tracking-[0.24em] text-gold sm:text-[0.68rem]">{String(index + 1).padStart(2, "0")}</span>
+                  <div className="relative z-10 mt-14 sm:mt-20">
+                    <h3 className="max-w-[23rem] font-display text-[0.96rem] leading-[1.08] sm:text-[1.28rem] lg:text-[1.48rem]">{title}</h3>
+                    <p className="mt-2 max-w-[24rem] text-[0.76rem] leading-5 text-foreground/60 sm:text-[0.86rem] sm:leading-5">{copy}</p>
+                  </div>
                 </article>
               ))}
             </div>
