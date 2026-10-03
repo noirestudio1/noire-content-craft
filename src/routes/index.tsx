@@ -13,9 +13,9 @@ const metaDescription = "NOIRE creează content video pentru businessuri din Buc
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "NOIRE Content Studio | Content pentru Business" },
+      { title: "SANS RETOUR — Content Studio | București & Brașov" },
       { name: "description", content: metaDescription },
-      { property: "og:title", content: "NOIRE Content Studio | Content pentru Business" },
+      { property: "og:title", content: "SANS RETOUR — Content Studio" },
       { property: "og:description", content: metaDescription },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -49,10 +49,10 @@ function Index() {
       <SiteHeader />
       <main>
         <section id="acasa" className="relative flex min-h-[100svh] items-end overflow-hidden border-b border-border px-5 pb-10 pt-24 sm:px-8 sm:pb-14 sm:pt-32 lg:px-12 lg:pb-20">
-          <img src={heroImage} width={1920} height={1080} alt="Cameră cinematografică pregătită pentru producție video NOIRE" className="absolute inset-0 h-full w-full object-cover object-center" />
+          <img src={heroImage} width={1920} height={1080} alt="Cameră cinematografică pregătită pentru producție video SANS RETOUR" className="absolute inset-0 h-full w-full object-cover object-center" />
           <div className="absolute inset-0 bg-hero-overlay" />
           <div className="relative z-10 mx-auto w-full max-w-[1500px]">
-            <div className="mb-6 grid w-fit grid-cols-[2rem_minmax(0,1fr)] items-center gap-3 text-[0.56rem] tracking-[0.16em] text-gold sm:mb-8 sm:flex sm:text-[0.62rem] sm:tracking-[0.24em]"><span className="h-px w-8 bg-gold sm:w-10" />CONTENT VIDEO PENTRU BUSINESS</div>
+            <div className="mb-6 grid w-fit grid-cols-[2rem_minmax(0,1fr)] items-center gap-3 text-[0.56rem] tracking-[0.16em] text-gold sm:mb-8 sm:flex sm:text-[0.62rem] sm:tracking-[0.24em]"><span className="h-px w-8 bg-gold sm:w-10" />BUCUREȘTI · BRAȘOV / CONTENT STUDIO</div>
             <h1 className="hero-title max-w-6xl text-balance">NU MAI STA SĂ TE GÂNDEȘTI<br /><span className="text-ivory-muted">CE SĂ POSTEZI.</span></h1>
             <div className="mt-7 grid gap-6 sm:mt-9 sm:gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
               <p className="max-w-lg text-base leading-7 text-muted-foreground sm:text-lg">Noi venim cu ideea. Îți spunem ce să spui.<br /><span className="text-foreground">Filmăm. Edităm. Planificăm. Postăm.</span></p>
@@ -65,15 +65,15 @@ function Index() {
           <span className="absolute right-5 top-28 z-10 hidden border border-border bg-background/50 px-3 py-2 text-[0.55rem] tracking-[0.18em] text-muted-foreground backdrop-blur-sm sm:right-8 sm:block lg:right-12">SHOWREEL — PLACEHOLDER VIDEO</span>
         </section>
 
-        <section className="section-shell py-20 sm:py-36 lg:py-48">
-          <SectionHeading label="NOIRE CONTENT STUDIO">TU CONDUCI BUSINESSUL.<br /><span className="text-ivory-muted">NOI NE OCUPĂM DE CONTENT.</span></SectionHeading>
+        <section className="section-shell py-16 sm:py-28 lg:py-36">
+          <SectionHeading label="SANS RETOUR · CONTENT STUDIO">TU CONDUCI BUSINESSUL.<br /><span className="text-ivory-muted">NOI NE OCUPĂM DE CONTENT.</span></SectionHeading>
           <div className="mt-11 grid gap-8 border-t border-border pt-7 sm:mt-16 sm:gap-10 sm:pt-8 md:grid-cols-2 lg:mt-24">
             <p className="max-w-xl text-xl leading-relaxed sm:text-2xl">Serile tale nu ar trebui să se termine căutând idei pentru TikTok sau rescriind un script care nu sună natural.</p>
             <p className="max-w-lg text-base leading-7 text-muted-foreground md:justify-self-end">Construim întregul sistem de content: de la prima idee până la clipul editat și calendarul de publicare. Tu vii cu expertiza. Noi o facem vizibilă.</p>
           </div>
         </section>
 
-        <section className="border-y border-border bg-surface-subtle py-20 sm:py-36">
+        <section className="border-y border-border bg-surface-subtle py-16 sm:py-28">
           <div className="section-shell">
             <SectionHeading label="MAI PUȚINĂ PRESIUNE. MAI MULTĂ CLARITATE.">CONTENTUL <span className="whitespace-nowrap">N-AR</span> TREBUI<br /><span className="whitespace-nowrap">SĂ-ȚI</span> CONSUME TIMPUL.</SectionHeading>
             <div className="mt-11 grid border-l border-t border-border sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
@@ -88,7 +88,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="proces" className="section-shell scroll-mt-20 py-20 sm:py-36 lg:py-48">
+        <section id="proces" className="section-shell scroll-mt-20 py-16 sm:py-28 lg:py-36">
           <SectionHeading label="DE LA STRATEGIE LA PUBLICARE">O ZI DE FILMARE.<br /><span className="text-ivory-muted">O LUNĂ DE CONTENT.</span></SectionHeading>
           <div className="relative mt-12 sm:mt-20 lg:ml-[22%]">
             <div className="absolute bottom-0 left-[1.15rem] top-0 w-px bg-border sm:left-[1.65rem]" />
@@ -102,7 +102,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="portofoliu" className="scroll-mt-20 border-y border-border bg-surface-subtle py-20 sm:py-36">
+        <section id="portofoliu" className="scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28">
           <div className="section-shell">
             <SectionHeading label="SELECTED WORK">CONTENT CARE MERITĂ<br />SĂ FIE VĂZUT.</SectionHeading>
             <div className="mt-11 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 sm:mt-16 sm:gap-5 md:grid-cols-3 lg:ml-[15%]">
@@ -112,7 +112,7 @@ function Index() {
           </div>
         </section>
 
-        <section className="section-shell py-20 sm:py-36 lg:py-48">
+        <section className="section-shell py-16 sm:py-28 lg:py-36">
           <SectionHeading label="INDUSTRII">CONTENT CREAT PENTRU<br />BUSINESSUL TĂU.</SectionHeading>
           <div className="mt-11 border-t border-border sm:mt-16">
             {industries.map((industry, index) => (
@@ -125,7 +125,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="servicii" className="scroll-mt-20 border-y border-border bg-surface-subtle py-20 sm:py-36">
+        <section id="servicii" className="scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28">
           <div className="section-shell">
             <SectionHeading label="SERVICII">NOI FACEM CONTENTUL.<br /><span className="text-ivory-muted">TU ÎȚI CONDUCI BUSINESSUL.</span></SectionHeading>
             <div className="mt-11 grid gap-px bg-border sm:mt-16 lg:grid-cols-2">
@@ -138,27 +138,27 @@ function Index() {
         <section id="idei" className="scroll-mt-20 border-y border-border bg-background py-20 sm:py-28 lg:py-32">
           <div className="section-shell grid overflow-hidden border border-border bg-surface lg:grid-cols-[0.85fr_1.15fr]">
             <div className="relative isolate min-h-96 overflow-hidden p-7 sm:p-10 lg:min-h-full lg:p-14">
-              <img src={heroImage} width={1920} height={1080} loading="lazy" alt="Producție video NOIRE în lumină cinematografică" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-35" />
+              <img src={heroImage} width={1920} height={1080} loading="lazy" alt="Producție video SANS RETOUR în lumină cinematografică" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-35" />
               <div className="absolute inset-0 -z-10 bg-background/75" />
-              <div className="flex h-full flex-col justify-end"><p className="eyebrow">GRATUIT</p><h2 className="section-title max-w-xl">NU ȘTII CE AI PUTEA POSTA?</h2><p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground sm:mt-8 sm:text-lg">Îți trimitem 3 idei de clipuri create special pentru businessul tău.</p></div>
+              <div className="flex h-full flex-col justify-end"><p className="eyebrow">GRATUIT</p><h2 className="section-title max-w-xl">3 IDEI GRATUITE PENTRU BUSINESSUL TĂU.</h2><p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground sm:mt-8 sm:text-lg">Îți trimitem 3 concepte de clipuri create special pentru businessul tău.</p><p className="mt-3 max-w-md text-sm text-muted-foreground">Fără obligații. Doar idei pe care chiar le poți filma.</p></div>
             </div>
             <div className="relative border-t border-border bg-surface-subtle p-7 sm:p-10 lg:border-l lg:border-t-0 lg:p-14"><div className="absolute right-7 top-7 grid size-10 place-items-center border border-border text-gold sm:right-10 sm:top-10"><span className="h-px w-5 rotate-45 bg-gold/50" /></div><div className="pt-14 sm:pt-16"><IdeasForm /></div></div>
           </div>
         </section>
 
         <section id="despre" className="section-shell scroll-mt-20 py-20 sm:py-36 lg:py-48">
-          <SectionHeading label="DESPRE NOIRE">NU SUNTEM AICI<br /><span className="whitespace-nowrap">SĂ-ȚI</span> MAI DĂM TEME.</SectionHeading>
+          <SectionHeading label="DESPRE SANS RETOUR">NU SUNTEM AICI<br /><span className="whitespace-nowrap">SĂ-ȚI</span> MAI DĂM TEME.</SectionHeading>
           <div className="mt-11 grid gap-8 border-t border-border pt-7 sm:mt-16 sm:gap-10 sm:pt-8 md:grid-cols-2">
-            <p className="font-display text-2xl leading-snug sm:text-4xl">NOIRE a pornit dintr-o idee simplă:</p>
+            <p className="font-display text-2xl leading-snug sm:text-4xl">SANS RETOUR a pornit dintr-o idee simplă:</p>
             <div className="max-w-xl space-y-6 text-lg leading-relaxed text-muted-foreground"><p>Businessurile au nevoie de content, dar proprietarii nu ar trebui să devină peste noapte scenariști, cameramani și editori.</p><p className="text-foreground">Noi construim sistemul.<br />Tu apari și îți conduci businessul.</p></div>
           </div>
         </section>
 
-        <section className="border-y border-border bg-surface-subtle py-20 text-center sm:py-40">
+        <section className="border-y border-border bg-surface-subtle py-16 text-center sm:py-28">
           <div className="section-shell"><h2 className="section-title mx-auto max-w-6xl">URMĂTOAREA TA LUNĂ<br /><span className="text-ivory-muted">DE CONTENT ÎNCEPE AICI.</span></h2><div className="mt-8 flex flex-col justify-center gap-3 sm:mt-10 sm:flex-row"><Button asChild size="lg" className="h-12 rounded-none px-7 sm:h-13"><a href="#contact">HAI SĂ VORBIM <ArrowUpRight /></a></Button><Button asChild variant="outline" size="lg" className="h-12 rounded-none bg-transparent px-5 sm:h-13 sm:px-7"><a href="#idei">PRIMEȘTE 3 IDEI GRATUITE</a></Button></div></div>
         </section>
 
-        <section id="contact" className="section-shell scroll-mt-20 py-20 sm:py-36">
+        <section id="contact" className="section-shell scroll-mt-20 py-16 sm:py-28">
           <div className="grid gap-16 lg:grid-cols-[0.85fr_1.15fr]">
             <div><p className="eyebrow">CONTACT</p><h2 className="section-title">SPUNE-NE CE<br />VREI SĂ CREȘTI.</h2><p className="mt-8 max-w-md leading-7 text-muted-foreground">Povestește-ne despre businessul tău. Construim de aici conversația potrivită.</p><div className="mt-12 space-y-4 border-t border-border pt-6 text-sm text-muted-foreground"><p>Instagram — <span className="text-foreground">de adăugat</span></p><p>TikTok — <span className="text-foreground">de adăugat</span></p><p>Email — <span className="text-foreground">de adăugat</span></p><p>WhatsApp — <span className="text-foreground">de adăugat</span></p></div></div>
             <ContactForm />
@@ -171,7 +171,7 @@ function Index() {
           <div><Logo /><p className="mt-8 text-xs tracking-[0.18em] text-muted-foreground">BUCUREȘTI · BRAȘOV · ROMÂNIA</p></div>
           <div className="grid gap-5 text-xs tracking-[0.12em] text-muted-foreground sm:grid-cols-3"><span>INSTAGRAM — ÎN CURÂND</span><span>TIKTOK — ÎN CURÂND</span><a href="#contact" className="hover:text-foreground">CONTACT</a></div>
         </div>
-        <div className="mx-auto mt-12 flex max-w-[1500px] flex-col gap-4 border-t border-border pt-6 text-[0.65rem] text-muted-foreground sm:flex-row sm:items-center sm:justify-between"><span>© 2026 NOIRE CONTENT STUDIO</span><div className="flex gap-5"><a href="/politica-de-confidentialitate" className="hover:text-foreground">POLITICA DE CONFIDENȚIALITATE</a><a href="/politica-de-cookies" className="hover:text-foreground">POLITICA DE COOKIES</a></div></div>
+        <div className="mx-auto mt-12 flex max-w-[1500px] flex-col gap-4 border-t border-border pt-6 text-[0.65rem] text-muted-foreground sm:flex-row sm:items-center sm:justify-between"><span>© 2026 SANS RETOUR · CONTENT STUDIO</span><div className="flex gap-5"><a href="/politica-de-confidentialitate" className="hover:text-foreground">POLITICA DE CONFIDENȚIALITATE</a><a href="/politica-de-cookies" className="hover:text-foreground">POLITICA DE COOKIES</a></div></div>
       </footer>
     </div>
   );
