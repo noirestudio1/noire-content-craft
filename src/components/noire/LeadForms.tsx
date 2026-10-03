@@ -64,7 +64,7 @@ export function IdeasForm() {
       </div>
       <div className="md:col-span-2">
         <Button type="submit" size="lg" disabled={state === "sending" || !consent} className="h-13 rounded-none px-7 tracking-[0.12em]">
-          {state === "sending" ? "SE TRIMITE..." : "VREAU CELE 3 IDEI"}<ArrowUpRight />
+          {state === "sending" ? "SE TRIMITE..." : "PRIMEȘTE CELE 3 IDEI"}<ArrowUpRight />
         </Button>
         <FormStatus state={state} />
       </div>
