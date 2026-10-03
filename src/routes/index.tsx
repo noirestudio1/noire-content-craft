@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { ArrowDown, ArrowUpRight, Check, Circle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ContactForm, IdeasForm } from "@/components/noire/LeadForms";
@@ -44,6 +45,24 @@ const contentSystem = ["Strategie lunară", "Idei de content", "Hook-uri și sce
 const fullSocial = [...contentSystem, "Administrarea publicării", "Captions", "Programarea postărilor", "Optimizarea strategiei", "Raportare lunară"];
 
 function Index() {
+  useEffect(() => {
+    const nodes = Array.from(document.querySelectorAll<HTMLElement>(".reveal, .reveal-row"));
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      nodes.forEach((node) => node.classList.add("is-visible"));
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          (entry.target as HTMLElement).classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="overflow-x-clip bg-background text-foreground">
       <SiteHeader />
@@ -118,7 +137,7 @@ function Index() {
             {industries.map((industry, index) => (
               <div key={industry} className="reveal-row cinematic-hover group grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-4 gap-y-2 border-b border-border py-5 transition-colors hover:text-gold sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:py-8">
                 <span className="text-[0.6rem] text-muted-foreground">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="min-w-0 truncate font-display text-[clamp(1.28rem,5.8vw,2rem)] sm:text-[clamp(1.8rem,3.6vw,3.8rem)]">{industry}</h3>
+                <h3 className="min-w-0 truncate font-display text-[clamp(1.05rem,4.8vw,1.45rem)] sm:text-[clamp(1.8rem,3.6vw,3.8rem)]">{industry}</h3>
                 <span className="col-start-2 flex items-center gap-2 text-[0.5rem] tracking-[0.12em] text-muted-foreground sm:col-start-auto sm:text-[0.55rem] sm:tracking-[0.15em]"><Circle className="size-2 fill-current" /> SPAȚIU VIDEO</span>
               </div>
             ))}
