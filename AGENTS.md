@@ -11,3 +11,4 @@
 
 - Keep NOIRE as a single-page, anchor-navigated marketing experience; this preserves its cinematic narrative and direct conversion flow.
 - Store all public enquiries through validated server functions in the private lead_submissions table; this prevents exposing lead data to anonymous visitors.
+- Keep lead form UI submission-provider agnostic through a client adapter with an optional public endpoint and the existing server fallback; this preserves independent deployment portability.

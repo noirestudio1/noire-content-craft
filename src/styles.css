@@ -66,6 +66,8 @@
   --color-surface: var(--surface);
   --color-surface-subtle: var(--surface-subtle);
   --color-ivory-muted: var(--ivory-muted);
+  --color-premium-ivory: var(--premium-ivory);
+  --color-premium-ivory-foreground: var(--premium-ivory-foreground);
 }
 
 :root {
@@ -94,6 +96,8 @@
   --surface: oklch(0.19 0.006 70);
   --surface-subtle: oklch(0.165 0.005 70);
   --ivory-muted: oklch(0.72 0.015 80);
+  --premium-ivory: oklch(0.875 0.018 82);
+  --premium-ivory-foreground: oklch(0.18 0.008 70);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -179,9 +183,28 @@
 
 @utility section-title {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 6.5vw, 7rem);
-  line-height: 0.92;
+  font-size: clamp(2.15rem, 10vw, 3.15rem);
+  line-height: 0.96;
   letter-spacing: 0;
+  word-break: normal;
+  overflow-wrap: normal;
+  @media (min-width: 768px) {
+    font-size: clamp(3.7rem, 6.5vw, 7rem);
+    line-height: 0.92;
+  }
+}
+
+@utility hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.65rem, 12.5vw, 4rem);
+  line-height: 0.9;
+  letter-spacing: 0;
+  word-break: normal;
+  overflow-wrap: normal;
+  @media (min-width: 768px) {
+    font-size: clamp(4.5rem, 8vw, 8.8rem);
+    line-height: 0.87;
+  }
 }
 
 @utility bg-hero-overlay {
