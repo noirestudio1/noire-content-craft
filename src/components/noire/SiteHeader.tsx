@@ -31,20 +31,21 @@ export function SiteHeader() {
         <Button variant="ghost" size="icon" className="rounded-none lg:hidden" aria-label={open ? "Închide meniul" : "Deschide meniul"} onClick={() => setOpen((value) => !value)}>{open ? <X /> : <Menu />}</Button>
       </div>
       {open ? (
-        <nav aria-label="Navigație mobilă" className="mobile-editorial-menu border-t border-white/[0.06] px-5 pb-7 pt-5 lg:hidden">
-          <div className="mb-7 flex items-center justify-between">
-            <span className="text-[0.55rem] tracking-[0.24em] text-muted-foreground">NAVIGATION</span>
-            <span className="text-[0.52rem] tracking-[0.22em] text-gold/70">CONTENT STUDIO</span>
+        <nav aria-label="Navigație mobilă" className="mobile-couture-menu lg:hidden">
+          <div className="mobile-couture-aura" aria-hidden="true" />
+          <div className="mobile-couture-head">
+            <div className="mobile-couture-brand"><Logo /></div>
+            <button type="button" className="mobile-couture-close" aria-label="Închide meniul" onClick={() => setOpen(false)}><X /></button>
           </div>
-          <div className="mobile-editorial-links">
-            {navItems.map(([label, href]) => (
-              <a key={href} href={href} onClick={() => setOpen(false)} className="mobile-editorial-link">
-                {label}
+          <div className="mobile-couture-links">
+            {navItems.map(([label, href], index) => (
+              <a key={href} href={href} onClick={() => setOpen(false)} className={cn("mobile-couture-link", index === 0 && "is-active")}>
+                <span>{label}</span>
               </a>
             ))}
           </div>
-          <div className="mobile-editorial-footer">
-            <a href="#contact" onClick={() => setOpen(false)} className="mobile-editorial-cta"><span>ÎNCEPE UN PROIECT</span><i aria-hidden="true">→</i></a>
+          <div className="mobile-couture-bottom">
+            <a href="#contact" onClick={() => setOpen(false)} className="mobile-couture-cta"><span>ÎNCEPE UN PROIECT</span><i aria-hidden="true">→</i></a>
             <p>BUCUREȘTI · BRAȘOV</p>
           </div>
         </nav>
