@@ -174,16 +174,6 @@ function Index() {
           </div>
         </section>
 
-        <section className="luxury-kinetic" aria-label="SANS RETOUR production system">
-          <div className="luxury-kinetic-track">
-            <p className="luxury-kinetic-word luxury-kinetic-word--1">IDEA.</p>
-            <p className="luxury-kinetic-word luxury-kinetic-word--2">SCRIPT.</p>
-            <p className="luxury-kinetic-word luxury-kinetic-word--3">SHOOT.</p>
-            <p className="luxury-kinetic-word luxury-kinetic-word--4">EDIT.</p>
-            <div className="luxury-kinetic-signature"><span>THE SYSTEM BEHIND THE CONTENT</span><strong>SANS RETOUR.</strong></div>
-          </div>
-        </section>
-
         <section className="champagne-industries section-shell relative overflow-hidden py-16 sm:py-28 lg:py-36"><div className="champagne-industry-visual" aria-hidden="true"><img src={cinematicIndustries} alt="" /></div>
           <SectionHeading label="INDUSTRII">CONTENT CREAT PENTRU<br />BUSINESSUL TĂU.</SectionHeading>
           <div className="mt-11 border-t border-border sm:mt-16">
