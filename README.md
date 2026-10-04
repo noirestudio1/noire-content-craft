@@ -1,13 +1,13 @@
-# NOIRE Studio Launch
+# SANS RETOUR Studio Launch
 
-Create a complete premium website for a Romanian short-form content production agency called NOIRE.
+Create a complete premium website for a Romanian short-form content production agency called SANS RETOUR.
 
 BRAND:
-Name: NOIRE
+Name: SANS RETOUR
 Descriptor: CONTENT STUDIO
-Future domain: noirestudio.ro
+Future domain: TBD
 
-NOIRE is NOT a traditional digital marketing agency.
+SANS RETOUR is NOT a traditional digital marketing agency.
 We specialize in creating organic short-form video content for businesses.
 
 Our service:
@@ -68,8 +68,8 @@ luxury fashion editorial + modern creative studio.
 
 Use large typography and dramatic spacing.
 
-NOIRE logo should simply be:
-NOIRE
+SANS RETOUR logo should simply be:
+SANS RETOUR
 with CONTENT STUDIO underneath in small spaced-out uppercase letters.
 
 SITE EXPERIENCE:
@@ -91,7 +91,7 @@ Build the site MOBILE-FIRST but make the desktop version visually impressive.
 
 NAVIGATION:
 
-NOIRE logo
+SANS RETOUR logo
 
 Acasă
 Portofoliu
@@ -134,7 +134,7 @@ Do not use cheesy stock photography.
 SECTION 2 — POSITIONING
 
 Small gold label:
-NOIRE CONTENT STUDIO
+SANS RETOUR CONTENT STUDIO
 
 Large headline:
 
@@ -349,7 +349,7 @@ SĂ-ȚI MAI DĂM TEME.
 
 Copy:
 
-NOIRE a pornit dintr-o idee simplă:
+SANS RETOUR a pornit dintr-o idee simplă:
 businessurile au nevoie de content, dar proprietarii nu ar trebui să devină peste noapte scenariști, cameramani și editori.
 
 Noi construim sistemul.
@@ -384,7 +384,7 @@ We will add real details later.
 
 Footer:
 
-NOIRE
+SANS RETOUR
 CONTENT STUDIO
 
 București · Brașov · România
@@ -393,7 +393,7 @@ Instagram
 TikTok
 Contact
 
-© 2026 NOIRE Content Studio
+© 2026 SANS RETOUR Content Studio
 
 Add links/placeholders for:
 Politica de confidențialitate
@@ -408,10 +408,10 @@ Prioritize mobile experience.
 Use semantic HTML and SEO-friendly structure.
 
 Create appropriate page title:
-NOIRE Content Studio | Content pentru Business
+SANS RETOUR Content Studio | Content pentru Business
 
 Meta description:
-NOIRE creează content video pentru businessuri din București și Brașov: strategie, scenarii, filmare, editare și planificare pentru TikTok, Instagram Reels și YouTube Shorts.
+SANS RETOUR creează content video pentru businessuri din București și Brașov: strategie, scenarii, filmare, editare și planificare pentru TikTok, Instagram Reels și YouTube Shorts.
 
 Optimize loading performance.
 
@@ -445,9 +445,9 @@ The primary goal is lead generation.
 
 The visitor should understand within 5 seconds:
 
-1. NOIRE creates social video content for businesses.
+1. SANS RETOUR creates social video content for businesses.
 2. The client does not need to come up with ideas or scripts.
-3. NOIRE handles the production process.
+3. SANS RETOUR handles the production process.
 4. There is a clear way to request an offer or receive 3 free content ideas.
 
 Before completing, check the entire site for:
