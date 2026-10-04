@@ -204,7 +204,7 @@ function Index() {
           <div className="section-shell">
             <SectionHeading label="SELECTED WORK">CONTENT CARE MERITĂ<br />SĂ FIE VĂZUT.</SectionHeading>
             <div className="mt-11 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 sm:mt-16 sm:gap-5 md:grid-cols-3 lg:ml-[15%]">
-              {projects.map((project, index) => <div id={`work-${project.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} key={project.category} className={index % 3 === 1 ? "md:translate-y-12" : ""}><VideoPlaceholder project={project.title} category={project.category} className="reveal-card portfolio-motion" /></div>)}
+              {projects.map((project, index) => <div id={`work-${project.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} key={project.category} className={index % 3 === 1 ? "md:translate-y-12" : ""}><VideoPlaceholder project={project.title} category={project.category} videoUrl={project.videoUrl} poster={project.poster} className="reveal-card portfolio-motion" /></div>)}
             </div>
             <p className="mt-12 border-t border-border pt-6 text-xs tracking-[0.14em] text-muted-foreground sm:mt-20 sm:tracking-[0.18em]">PROIECTELE NOASTRE VOR APĂREA AICI ÎN CURÂND.</p>
           </div>
