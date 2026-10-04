@@ -531,3 +531,72 @@
   .hero-cinematic-content { opacity:1; }
   .hero-scene-wipe { display:none; }
 }
+
+
+/* SANS RETOUR — CHAMPAGNE MODE BELOW LOCKED HERO. No hero selectors below. */
+.champagne-intro,.champagne-problems,.champagne-process,.champagne-work,.champagne-industries,.champagne-services,.champagne-lead,.champagne-about{isolation:isolate}
+.champagne-intro:after,.champagne-problems:before,.champagne-work:before,.champagne-services:before,.champagne-lead:before,.champagne-about:before{content:"";position:absolute;pointer-events:none;z-index:0}
+
+/* Intro: slow champagne light crossing the editorial image. */
+.champagne-intro:after{inset:-25% -35%;background:linear-gradient(112deg,transparent 40%,rgba(218,181,123,.035) 47%,rgba(255,239,207,.105) 50%,rgba(218,181,123,.03) 54%,transparent 61%);animation:champagneSweep 11s ease-in-out infinite}
+.champagne-intro .intro-cinematic-image{transition:opacity .8s ease,filter .8s ease}
+.champagne-intro:hover .intro-cinematic-image{opacity:.28;filter:contrast(1.04)}
+
+/* Problems: cards feel like individual luxury film frames. */
+.champagne-problems{position:relative;overflow:hidden;background:radial-gradient(circle at 84% 8%,rgba(196,155,96,.065),transparent 27%),var(--color-surface-subtle)}
+.champagne-problems:before{width:34rem;height:34rem;right:-18rem;top:-15rem;border:1px solid rgba(219,180,121,.11);border-radius:50%;box-shadow:inset 0 0 90px rgba(195,151,89,.025)}
+.champagne-problems .problem-card{transform-style:preserve-3d}
+.champagne-problems .problem-card:after{height:100%;background:linear-gradient(112deg,transparent 22%,rgba(230,196,143,.08) 48%,transparent 72%);transform:translateX(-120%);opacity:1;transition:transform .9s cubic-bezier(.22,1,.36,1)}
+.champagne-problems .problem-card:hover:after{transform:translateX(120%)}
+.champagne-problems .problem-card:hover{border-color:rgba(219,180,121,.3);box-shadow:0 30px 90px rgba(0,0,0,.42),inset 0 0 0 1px rgba(223,187,131,.04)}
+
+/* Process: animated champagne timeline and breathing halo. */
+.champagne-process:before{content:"";position:absolute;pointer-events:none;width:38rem;height:38rem;left:-24rem;top:18%;border-radius:50%;background:radial-gradient(circle,rgba(197,153,92,.095),rgba(197,153,92,.02) 40%,transparent 68%);filter:blur(10px);animation:champagneBreathe 8s ease-in-out infinite alternate}
+.champagne-process .process-panel:after{content:"";position:absolute;left:0;top:0;width:2px;height:24%;background:linear-gradient(180deg,transparent,#d5aa6b,transparent);box-shadow:0 0 20px rgba(213,170,107,.5);animation:timelineScan 6.5s ease-in-out infinite}
+.champagne-process .process-row h3{transition:color .35s ease,transform .55s cubic-bezier(.22,1,.36,1)}
+.champagne-process .process-row:hover h3{color:#e3c28f;transform:translateX(5px)}
+.champagne-process .process-row:hover>span{box-shadow:0 0 0 5px rgba(205,166,105,.06),0 0 24px rgba(205,166,105,.18)}
+
+/* Work: subtle moving projector light across the whole gallery. */
+.champagne-work{position:relative;overflow:hidden;isolation:isolate}
+.champagne-work:before{inset:-40% -25%;background:linear-gradient(118deg,transparent 43%,rgba(221,185,128,.045) 49%,rgba(250,225,184,.075) 51%,transparent 58%);animation:workProjector 14s ease-in-out infinite}
+.champagne-work>.section-shell{position:relative;z-index:1}
+.champagne-work .portfolio-motion{position:relative}
+.champagne-work .portfolio-motion:hover{box-shadow:0 35px 110px rgba(0,0,0,.48),0 0 45px rgba(190,149,90,.07)}
+
+/* Industries: each row becomes a moving editorial strip. */
+.champagne-industries:before{content:"";position:absolute;pointer-events:none;right:-15rem;top:7rem;width:30rem;height:30rem;border:1px solid rgba(214,175,115,.09);border-radius:50%;box-shadow:inset 0 0 100px rgba(214,175,115,.025)}
+.champagne-industries .industry-row{z-index:1}
+.champagne-industries .industry-row:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(201,160,100,.065),transparent 55%);transform:scaleX(0);transform-origin:left;transition:transform .65s cubic-bezier(.22,1,.36,1);z-index:-1}
+.champagne-industries .industry-row:hover:after{transform:scaleX(1)}
+.champagne-industries .industry-row:hover h3{text-shadow:0 0 32px rgba(220,180,120,.15)}
+
+/* Services + lead: restrained metallic shimmer, not neon. */
+.champagne-services,.champagne-lead{position:relative;overflow:hidden}
+.champagne-services:before{left:8%;right:8%;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(230,197,145,.55),transparent);animation:champagneLine 7s ease-in-out infinite}
+.champagne-services article{transition:transform .65s cubic-bezier(.22,1,.36,1),box-shadow .65s ease}
+.champagne-services article:hover{transform:translateY(-6px);box-shadow:0 34px 100px rgba(0,0,0,.28)}
+.champagne-lead:before{width:28rem;height:28rem;right:-13rem;bottom:-14rem;border-radius:50%;background:radial-gradient(circle,rgba(208,167,105,.11),transparent 66%);animation:champagneBreathe 9s ease-in-out infinite alternate}
+.champagne-lead>.section-shell{position:relative;z-index:1}
+
+/* About: oversized ghost ring gives depth while copy remains clean. */
+.champagne-about:before{width:min(62vw,52rem);aspect-ratio:1;right:-30%;top:2%;border-radius:50%;border:1px solid rgba(215,176,116,.085);box-shadow:inset 0 0 100px rgba(193,151,91,.02);animation:ghostOrbit 16s ease-in-out infinite alternate}
+
+@keyframes champagneSweep{0%,18%{transform:translateX(-34%);opacity:0}40%,66%{opacity:1}88%,100%{transform:translateX(34%);opacity:0}}
+@keyframes champagneBreathe{from{transform:scale(.92);opacity:.55}to{transform:scale(1.12) translate3d(3%,2%,0);opacity:1}}
+@keyframes timelineScan{0%{transform:translateY(-120%);opacity:0}12%{opacity:1}82%{opacity:1}100%{transform:translateY(420%);opacity:0}}
+@keyframes workProjector{0%,15%{transform:translateX(-26%);opacity:0}38%,68%{opacity:1}90%,100%{transform:translateX(28%);opacity:0}}
+@keyframes champagneLine{0%,100%{transform:scaleX(.25);opacity:.25}50%{transform:scaleX(1);opacity:1}}
+@keyframes ghostOrbit{to{transform:translate3d(-7%,8%,0) scale(1.08)}}
+
+@media(max-width:767px){
+ .champagne-intro:after{animation-duration:13s}
+ .champagne-problems:before{width:18rem;height:18rem;right:-12rem;top:-8rem}
+ .champagne-process:before{width:20rem;height:20rem;left:-14rem}
+ .champagne-problems .problem-card:hover,.champagne-services article:hover{transform:none}
+ .champagne-industries:before{width:18rem;height:18rem;right:-12rem}
+ .champagne-about:before{width:25rem;right:-18rem;opacity:.7}
+}
+@media(prefers-reduced-motion:reduce){
+ .champagne-intro:after,.champagne-process:before,.champagne-process .process-panel:after,.champagne-work:before,.champagne-services:before,.champagne-lead:before,.champagne-about:before{animation:none!important}
+}
