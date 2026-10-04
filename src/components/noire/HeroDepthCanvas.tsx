@@ -2,6 +2,12 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
 
+const depthPlanes = [
+  { position: [-3.8, 1.8, -2.5] as const, scale: 3.4 },
+  { position: [3.7, -1.5, -1.5] as const, scale: 2.7 },
+  { position: [0.8, 2.4, -3.5] as const, scale: 2.1 },
+] as const;
+
 function DepthField() {
   const group = useRef<THREE.Group>(null);
   useFrame(({ pointer }, rawDelta) => {
@@ -13,8 +19,8 @@ function DepthField() {
   });
   return (
     <group ref={group}>
-      {[[-3.8, 1.8, -2.5, 3.4], [3.7, -1.5, -1.5, 2.7], [0.8, 2.4, -3.5, 2.1]].map(([x, y, z, scale], index) => (
-        <mesh key={index} position={[x, y, z]} scale={scale} rotation-z={index % 2 ? -0.2 : 0.16}>
+      {depthPlanes.map(({ position, scale }, index) => (
+        <mesh key={index} position={position} scale={scale} rotation-z={index % 2 ? -0.2 : 0.16}>
           <planeGeometry args={[1, 1, 20, 20]} />
           <meshPhysicalMaterial color={index === 1 ? "#b59261" : "#d7c5a8"} transparent opacity={0.08} roughness={0.3} metalness={0.65} transmission={0.18} />
         </mesh>
