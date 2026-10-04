@@ -74,8 +74,78 @@ export const submitLead = createServerFn({ method: "POST" })
     });
 
     if (error) {
-      console.error("NOIRE lead submission failed", error.message);
+      console.error("SANS RETOUR lead submission failed", error.message);
       throw new Error("Solicitarea nu a putut fi trimisă. Încearcă din nou.");
+    }
+
+    const resendApiKey = process.env.RESEND_API_KEY;
+    if (!resendApiKey) {
+      console.error("SANS RETOUR email notification skipped: RESEND_API_KEY is not configured.");
+      throw new Error("Notificarea pe email nu este configurată.");
+    }
+
+    const subject =
+      data.formType === "free_ideas"
+        ? "Cerere nouă — 3 idei gratuite | SANS RETOUR"
+        : data.formType === "quote"
+          ? "Cerere nouă de ofertă | SANS RETOUR"
+          : "Solicitare nouă | SANS RETOUR";
+
+    const fields = [
+      ["Nume", data.name],
+      ["Business", data.businessName],
+      ["Domeniu", data.industry],
+      ["Oraș", data.city],
+      ["Instagram / TikTok", data.socialHandle],
+      ["Website", data.website],
+      ["Telefon / WhatsApp", data.phone],
+      ["Email", data.email],
+      ["Mesaj", data.message],
+    ].filter(([, value]) => value);
+
+    const escapeHtml = (value: string) =>
+      value.replace(/[&<>"']/g, (character) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;",
+      })[character] ?? character);
+
+    const html = `
+      <div style="font-family:Arial,sans-serif;max-width:680px;margin:auto;color:#171717">
+        <h1 style="font-size:22px">SANS RETOUR — solicitare nouă</h1>
+        <p style="color:#666">Formular: ${escapeHtml(data.formType)}</p>
+        <table style="width:100%;border-collapse:collapse">
+          ${fields.map(([label, value]) => `
+            <tr>
+              <td style="padding:10px 8px;border-bottom:1px solid #eee;font-weight:700;vertical-align:top">${escapeHtml(label!)}</td>
+              <td style="padding:10px 8px;border-bottom:1px solid #eee;white-space:pre-wrap">${escapeHtml(value!)}</td>
+            </tr>
+          `).join("")}
+        </table>
+      </div>
+    `;
+
+    const emailResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${resendApiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "SANS RETOUR Website <onboarding@resend.dev>",
+        to: ["sansretourstudio@gmail.com"],
+        reply_to: data.email || undefined,
+        subject,
+        html,
+      }),
+    });
+
+    if (!emailResponse.ok) {
+      const details = await emailResponse.text();
+      console.error("SANS RETOUR email notification failed", details);
+      throw new Error("Solicitarea a fost salvată, dar notificarea pe email nu a putut fi trimisă.");
     }
 
     return { success: true };
