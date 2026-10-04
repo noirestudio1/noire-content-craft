@@ -6,6 +6,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { submitLead, type LeadInput } from "@/lib/leads.functions";
 import { submitLeadForm } from "@/lib/lead-form-client";
 
@@ -74,6 +75,7 @@ export function IdeasForm() {
 
 export function ContactForm() {
   const sendLead = useServerFn(submitLead);
+  const [interest, setInterest] = useState("clasic");
   const [consent, setConsent] = useState(false);
   const [state, setState] = useState<"idle" | "sending" | "success" | "error">("idle");
 
@@ -85,6 +87,7 @@ export function ContactForm() {
     try {
       await submitLeadForm({
         formType: "contact",
+        interest,
         name: String(values.get("name") ?? ""),
         businessName: String(values.get("businessName") ?? ""),
         email: String(values.get("email") ?? ""),
@@ -94,6 +97,7 @@ export function ContactForm() {
         websiteTrap: String(values.get("companyWebsite") ?? ""),
       } satisfies LeadInput, sendLead);
       form.reset();
+      setInterest("clasic");
       setConsent(false);
       setState("success");
     } catch {
@@ -105,6 +109,20 @@ export function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-5">
       <Input className={fieldClass} name="name" placeholder="Nume *" required minLength={2} maxLength={100} autoComplete="name" />
       <Input className={fieldClass} name="businessName" placeholder="Numele businessului" maxLength={120} />
+      <div>
+        <Label className="mb-2 block text-xs tracking-[0.12em] text-muted-foreground">CE TE INTERESEAZĂ?</Label>
+        <Select value={interest} onValueChange={setInterest}>
+          <SelectTrigger className="h-12 rounded-none border-x-0 border-t-0 bg-transparent px-0 focus:ring-0">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="clasic">CONTENT SYSTEM / CLASIC</SelectItem>
+            <SelectItem value="full_social">FULL SOCIAL</SelectItem>
+            <SelectItem value="free_ideas">3 IDEI GRATUITE</SelectItem>
+            <SelectItem value="unsure">NU SUNT SIGUR — VREAU SĂ DISCUTĂM</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
       <div className="grid gap-5 sm:grid-cols-2">
         <Input className={fieldClass} name="email" placeholder="Email *" required type="email" maxLength={255} autoComplete="email" />
         <Input className={fieldClass} name="phone" placeholder="Telefon" type="tel" maxLength={40} autoComplete="tel" />
