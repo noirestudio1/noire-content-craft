@@ -44,7 +44,7 @@ export function SiteHeader() {
             ))}
           </div>
           <div className="mobile-editorial-footer">
-            <a href="#contact" onClick={() => setOpen(false)} className="mobile-editorial-cta">ÎNCEPE UN PROIECT <span aria-hidden="true">→</span></a>
+            <a href="#contact" onClick={() => setOpen(false)} className="mobile-editorial-cta"><span>ÎNCEPE UN PROIECT</span><i aria-hidden="true">→</i></a>
             <p>BUCUREȘTI · BRAȘOV</p>
           </div>
         </nav>
