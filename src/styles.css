@@ -921,3 +921,14 @@
  .mobile-couture-links{margin-top:1.5rem}
 }
 @media(prefers-reduced-motion:reduce){.mobile-couture-link.is-active span:after,.mobile-couture-cta:after{animation:none}}
+
+/* Mobile couture entrance — restrained 500ms stagger. */
+.mobile-couture-menu{animation:coutureMenuIn .28s ease-out both}
+.mobile-couture-head,.mobile-couture-link,.mobile-couture-bottom{animation:coutureItemIn .46s cubic-bezier(.22,1,.36,1) both}
+.mobile-couture-head{animation-delay:.03s}
+.mobile-couture-link:nth-child(1){animation-delay:.06s}.mobile-couture-link:nth-child(2){animation-delay:.09s}.mobile-couture-link:nth-child(3){animation-delay:.12s}
+.mobile-couture-link:nth-child(4){animation-delay:.15s}.mobile-couture-link:nth-child(5){animation-delay:.18s}.mobile-couture-link:nth-child(6){animation-delay:.21s}
+.mobile-couture-bottom{animation-delay:.24s}
+@keyframes coutureMenuIn{from{opacity:0}to{opacity:1}}
+@keyframes coutureItemIn{from{opacity:0;transform:translateY(.55rem)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.mobile-couture-menu,.mobile-couture-head,.mobile-couture-link,.mobile-couture-bottom{animation:none!important}}

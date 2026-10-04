@@ -20,7 +20,7 @@ const metaDescription = "SANS RETOUR construiește sisteme complete de content p
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SANS RETOUR — Content Studio | București & Brașov" },
+      { title: "SANS RETOUR | Content Studio București & Brașov" },
       { name: "description", content: metaDescription },
       { property: "og:title", content: "SANS RETOUR — Content Studio" },
       { property: "og:description", content: metaDescription },
@@ -51,11 +51,18 @@ const process = [
   ["POSTARE", "Contentul pleacă. Tu te întorci la business."],
 ];
 
-const projects = ["AUTOMOTIVE", "BEAUTY", "RESTAURANT", "FITNESS", "MEDICAL", "REAL ESTATE"];
+const projects = [
+  { title: "PROJECT 001", category: "AUTOMOTIVE", videoUrl: null, poster: null },
+  { title: "PROJECT 002", category: "BEAUTY", videoUrl: null, poster: null },
+  { title: "PROJECT 003", category: "RESTAURANT", videoUrl: null, poster: null },
+  { title: "PROJECT 004", category: "FITNESS", videoUrl: null, poster: null },
+  { title: "PROJECT 005", category: "MEDICAL", videoUrl: null, poster: null },
+  { title: "PROJECT 006", category: "REAL ESTATE", videoUrl: null, poster: null },
+] as const;
 const industries = [
   ["BEAUTY & AESTHETICS", "Portrete, servicii și transformări cu imagine premium."],
   ["MEDICAL", "Expertiză explicată clar, uman și credibil."],
-  ["RESTAURANTS", "Povești, atmosferă și produs — Lucky Beans intră aici."],
+  ["RESTAURANTS", "Povești, atmosferă și produs, filmate cinematic."],
   ["AUTOMOTIVE", "Detaliu, mișcare și cadre construite pentru pasiune."],
   ["FITNESS", "Energie, progres și comunitate transformate în content."],
   ["REAL ESTATE", "Spații prezentate cinematic, nu ca simple anunțuri."],
@@ -197,7 +204,7 @@ function Index() {
           <div className="section-shell">
             <SectionHeading label="SELECTED WORK">CONTENT CARE MERITĂ<br />SĂ FIE VĂZUT.</SectionHeading>
             <div className="mt-11 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 sm:mt-16 sm:gap-5 md:grid-cols-3 lg:ml-[15%]">
-              {projects.map((category, index) => <div id={`work-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} key={category} className={index % 3 === 1 ? "md:translate-y-12" : ""}><VideoPlaceholder project={`PROJECT ${String(index + 1).padStart(3, "0")}`} category={category} className="reveal-card portfolio-motion" /></div>)}
+              {projects.map((project, index) => <div id={`work-${project.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} key={project.category} className={index % 3 === 1 ? "md:translate-y-12" : ""}><VideoPlaceholder project={project.title} category={project.category} videoUrl={project.videoUrl} poster={project.poster} className="reveal-card portfolio-motion" /></div>)}
             </div>
             <p className="mt-12 border-t border-border pt-6 text-xs tracking-[0.14em] text-muted-foreground sm:mt-20 sm:tracking-[0.18em]">PROIECTELE NOASTRE VOR APĂREA AICI ÎN CURÂND.</p>
           </div>
@@ -226,7 +233,7 @@ function Index() {
                   <h3 className="min-w-0 truncate font-display text-[clamp(.98rem,4.35vw,1.3rem)] sm:text-[clamp(1.8rem,3.6vw,3.8rem)]">{industry}</h3>
                   <p className="mt-1 max-w-xl text-[0.72rem] leading-5 text-muted-foreground sm:hidden">{industryCopy}</p>
                 </div>
-                <span className="col-start-2 flex items-center gap-2 text-[0.5rem] tracking-[0.12em] text-muted-foreground sm:col-start-auto sm:text-[0.55rem] sm:tracking-[0.15em]"><Circle className="size-2 fill-current" /> PREVIEW / CASE STUDY</span>
+                <span className="col-start-2 flex items-center gap-2 text-[0.5rem] tracking-[0.12em] text-muted-foreground sm:col-start-auto sm:text-[0.55rem] sm:tracking-[0.15em]"><Circle className="size-2 fill-current" /> VIDEO ÎN CURÂND</span>
                 <div className="industry-preview pointer-events-none absolute right-4 top-1/2 hidden aspect-video w-[min(30vw,360px)] -translate-y-1/2 overflow-hidden border border-border bg-background/95 shadow-2xl lg:block">
                   <div className="absolute inset-0 bg-placeholder" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
