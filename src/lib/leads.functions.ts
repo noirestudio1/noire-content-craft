@@ -12,7 +12,7 @@ const optionalText = (max: number) =>
 const leadSchema = z
   .object({
     formType: z.enum(["free_ideas", "contact", "quote"]),
-    interest: z.enum(["clasic", "full_social", "free_ideas", "unsure"]).optional(),
+    interest: z.enum(["start", "clasic", "full_social", "free_ideas", "unsure"]).optional(),
     name: z.string().trim().min(2, "Completează numele.").max(100),
     businessName: optionalText(120),
     industry: optionalText(120),
@@ -86,10 +86,11 @@ export const submitLead = createServerFn({ method: "POST" })
     }
 
     const interestLabels = {
-      clasic: "CONTENT SYSTEM / CLASIC",
-      full_social: "FULL SOCIAL",
+      start: "CONTENT START — 1.500 LEI",
+      clasic: "CONTENT SYSTEM — 2.500 LEI",
+      full_social: "FULL SOCIAL — 4.500 LEI",
       free_ideas: "3 IDEI GRATUITE",
-      unsure: "NEHOTĂRÂT / VREA DISCUȚIE",
+      unsure: "VREAU SĂ DISCUTĂM",
     } as const;
     const selectedInterest = data.interest ? interestLabels[data.interest] : undefined;
     const subject = selectedInterest
