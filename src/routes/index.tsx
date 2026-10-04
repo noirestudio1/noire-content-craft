@@ -103,7 +103,7 @@ function Index() {
             <div className="mb-6 grid w-fit grid-cols-[2rem_minmax(0,1fr)] items-center gap-3 text-[0.56rem] tracking-[0.16em] text-gold sm:mb-8 sm:flex sm:text-[0.62rem] sm:tracking-[0.24em]"><span className="h-px w-8 bg-gold sm:w-10" />BUCUREȘTI · BRAȘOV / CONTENT STUDIO</div>
             <h1 className="hero-title hero-cinematic-title max-w-6xl text-balance">NU MAI STA SĂ TE GÂNDEȘTI<br /><span className="text-ivory-muted">CE SĂ POSTEZI.</span></h1>
             <div className="mt-7 grid gap-6 sm:mt-9 sm:gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-              <p className="hero-support max-w-lg text-base leading-7 sm:text-lg">Noi venim cu ideea. Îți spunem ce să spui.<br /><span>Filmăm. Edităm. Planificăm. Postăm.</span></p>
+              <p className="max-w-lg text-base leading-7 text-muted-foreground sm:text-lg">Noi venim cu ideea. Îți spunem ce să spui.<br /><span className="text-foreground">Filmăm. Edităm. Planificăm. Postăm.</span></p>
               <div className="grid gap-3 sm:flex sm:flex-row">
                 <Button asChild size="lg" className="h-12 w-full rounded-none px-5 text-[0.68rem] tracking-[0.1em] sm:h-13 sm:w-auto sm:px-6 sm:tracking-[0.12em]"><a href="#contact">ÎNCEPE UN PROIECT <ArrowUpRight /></a></Button>
                 <Button asChild variant="outline" size="lg" className="h-12 w-full rounded-none bg-transparent px-5 text-[0.68rem] tracking-[0.1em] sm:h-13 sm:w-auto sm:px-6 sm:tracking-[0.12em]"><a href="#proces">VEZI CUM LUCRĂM <ArrowDown /></a></Button>
@@ -147,7 +147,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="proces" className="process-premium section-shell relative scroll-mt-20 overflow-hidden py-16 sm:py-28 lg:py-36"><div className="process-filmstrip" aria-hidden="true"><img src={cinematicProduction} alt="" /><img src={cinematicSocial} alt="" /><img src={heroImage} alt="" /></div><div className="process-backdrop" aria-hidden="true" /><div className="relative z-10">
+        <section id="proces" className="process-premium section-shell relative scroll-mt-20 overflow-hidden py-16 sm:py-28 lg:py-36"><div className="process-backdrop" aria-hidden="true" /><div className="relative z-10">
           <SectionHeading label="DE LA STRATEGIE LA PUBLICARE">O ZI DE FILMARE.<br /><span className="text-ivory-muted">O LUNĂ DE CONTENT.</span></SectionHeading>
           <div className="process-panel relative mt-12 overflow-hidden border-y border-border/70 sm:mt-20 lg:ml-[22%]">
             <div className="absolute bottom-0 left-[1.15rem] top-0 w-px bg-gradient-to-b from-gold/70 via-border to-gold/20 sm:left-[1.65rem]" />
@@ -162,7 +162,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="portofoliu" className="portfolio-cinematic scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28"><div className="portfolio-cinematic-bg" aria-hidden="true"><img src={cinematicProduction} alt="" /></div>
+        <section id="portofoliu" className="scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28">
           <div className="section-shell">
             <SectionHeading label="SELECTED WORK">CONTENT CARE MERITĂ<br />SĂ FIE VĂZUT.</SectionHeading>
             <div className="mt-11 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 sm:mt-16 sm:gap-5 md:grid-cols-3 lg:ml-[15%]">
@@ -172,7 +172,7 @@ function Index() {
           </div>
         </section>
 
-        <section className="industries-cinematic section-shell relative overflow-hidden py-16 sm:py-28 lg:py-36"><div className="industries-cinematic-frame" aria-hidden="true"><img src={cinematicSocial} alt="" /></div>
+        <section className="section-shell py-16 sm:py-28 lg:py-36">
           <SectionHeading label="INDUSTRII">CONTENT CREAT PENTRU<br />BUSINESSUL TĂU.</SectionHeading>
           <div className="mt-11 border-t border-border sm:mt-16">
             {industries.map(([industry, industryCopy], index) => (
