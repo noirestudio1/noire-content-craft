@@ -14,6 +14,8 @@ import cinematicProduction from "@/assets/cinematic-production.jpg";
 import cinematicSocial from "@/assets/cinematic-social.jpg";
 import cinematicProcess from "@/assets/cinematic-process.jpg";
 import cinematicIndustries from "@/assets/cinematic-industries.jpg";
+import problemEditing from "@/assets/problem-editing.png";
+import problemPlanning from "@/assets/problem-planning.png";
 
 const metaDescription = "SANS RETOUR construiește sisteme complete de content pentru businessuri: strategie, idei, scripturi, filmare, editare și publicare pentru Reels, TikTok și Shorts.";
 
@@ -36,9 +38,9 @@ const problems = [
   ["NU AI IDEI?", "Noi avem. Tu ai un business de condus.", cinematicProduction],
   ["NU ȘTII CE SĂ SPUI?", "Te ghidăm cadru cu cadru — ce spui, cum o spui, intonație, mimică și prezență. Ca un regizor.", cinematicSocial],
   ["NU ȘTII CUM SĂ FILMEZI?", "Venim la locație și construim cadrele pentru tine.", cinematicProcess],
-  ["NU VREI SĂ EDITEZI?", "Din material brut facem content care ține atenția.", cinematicProcess],
-  ["NU ȘTII CÂND SĂ POSTEZI?", "Construim un calendar clar pentru ritmul businessului.", cinematicIndustries],
-  ["NU AI TIMP SĂ POSTEZI?", "Putem administra publicarea, ca tu să rămâi în business.", heroImage],
+  ["NU VREI SĂ EDITEZI?", "Din material brut facem content care ține atenția.", problemEditing],
+  ["NU ȘTII CÂND SĂ POSTEZI?", "Construim un calendar clar pentru ritmul businessului.", problemPlanning],
+  ["NU AI TIMP SĂ POSTEZI?", "Putem administra publicarea, ca tu să rămâi în business.", cinematicIndustries],
 ] as const;
 
 const process = [
