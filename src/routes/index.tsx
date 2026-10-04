@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { ArrowDown, ArrowUpRight, Check, Circle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ContactForm, IdeasForm } from "@/components/noire/LeadForms";
@@ -80,7 +80,36 @@ function Index() {
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
     nodes.forEach((node) => observer.observe(node));
-    return () => observer.disconnect();
+    useEffect(() => {
+    const section = kineticRef.current;
+    if (!section) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      section.style.setProperty("--kinetic-progress", "0.72");
+      return;
+    }
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const rect = section.getBoundingClientRect();
+      const travel = Math.max(1, section.offsetHeight - window.innerHeight);
+      const progress = Math.min(1, Math.max(0, -rect.top / travel));
+      section.style.setProperty("--kinetic-progress", progress.toFixed(4));
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  return () => observer.disconnect();
   }, []);
 
   return (
@@ -171,6 +200,19 @@ function Index() {
               {projects.map((category, index) => <div id={`work-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} key={category} className={index % 3 === 1 ? "md:translate-y-12" : ""}><VideoPlaceholder project={`PROJECT ${String(index + 1).padStart(3, "0")}`} category={category} className="reveal-card portfolio-motion" /></div>)}
             </div>
             <p className="mt-12 border-t border-border pt-6 text-xs tracking-[0.14em] text-muted-foreground sm:mt-20 sm:tracking-[0.18em]">PROIECTELE NOASTRE VOR APĂREA AICI ÎN CURÂND.</p>
+          </div>
+        </section>
+
+        <section ref={kineticRef} className="kinetic-film" aria-label="Sistemul SANS RETOUR">
+          <div className="kinetic-film-stage">
+            <div className="kinetic-film-light" aria-hidden="true" />
+            <div className="kinetic-film-grain" aria-hidden="true" />
+            <div className="kinetic-film-frame kinetic-film-frame--idea"><span>01 · STRATEGIE</span><strong>IDEA.</strong></div>
+            <div className="kinetic-film-frame kinetic-film-frame--script"><span>02 · CREAȚIE</span><strong>SCRIPT.</strong></div>
+            <div className="kinetic-film-frame kinetic-film-frame--shoot"><span>03 · PRODUCȚIE</span><strong>SHOOT.</strong></div>
+            <div className="kinetic-film-frame kinetic-film-frame--edit"><span>04 · POST-PRODUCȚIE</span><strong>EDIT.</strong></div>
+            <div className="kinetic-film-signature"><span>THE SYSTEM BEHIND THE CONTENT</span><strong>SANS RETOUR.</strong></div>
+            <div className="kinetic-film-progress" aria-hidden="true"><i /></div>
           </div>
         </section>
 
