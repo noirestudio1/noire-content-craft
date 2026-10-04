@@ -707,3 +707,58 @@
  .champagne-process-visual img{filter:saturate(.86) sepia(.06) contrast(1.04) brightness(1.25)}
  .champagne-process .process-panel{background:linear-gradient(90deg,rgba(8,7,6,.74),rgba(8,7,6,.34),rgba(8,7,6,.06))}
 }
+
+
+/* LUXURY PASS III — editorial motion below the locked hero. */
+.luxury-kinetic{position:relative;height:280svh;background:#080706;border-block:1px solid var(--color-border)}
+.luxury-kinetic-track{position:sticky;top:0;height:100svh;overflow:hidden;display:grid;place-items:center;isolation:isolate}
+.luxury-kinetic-track:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 52% 45%,rgba(205,165,104,.12),transparent 34%),linear-gradient(115deg,transparent 35%,rgba(236,208,164,.035) 49%,transparent 62%);pointer-events:none}
+.luxury-kinetic-track:after{content:"";position:absolute;inset:0;opacity:.035;pointer-events:none;mix-blend-mode:soft-light;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.luxury-kinetic-word{position:absolute;margin:0;font-family:var(--font-display);font-size:clamp(4.6rem,15vw,14rem);line-height:.78;letter-spacing:-.055em;color:#f0eadf;opacity:.08;transform:translate3d(0,3rem,0) scale(.94);transition:opacity .7s ease}
+.luxury-kinetic-word--1{left:7%;top:16%}.luxury-kinetic-word--2{right:6%;top:34%;color:#d9b277}.luxury-kinetic-word--3{left:12%;top:53%}.luxury-kinetic-word--4{right:11%;top:69%;color:#d9b277}
+.luxury-kinetic-signature{position:absolute;left:50%;bottom:8%;width:min(86%,78rem);transform:translateX(-50%);display:flex;align-items:end;justify-content:space-between;border-top:1px solid rgba(217,178,119,.34);padding-top:1rem}
+.luxury-kinetic-signature span{font-size:.58rem;letter-spacing:.24em;color:var(--color-muted-foreground)}
+.luxury-kinetic-signature strong{font-family:var(--font-display);font-size:clamp(1.4rem,3vw,3rem);font-weight:400;color:#e3c18d}
+@supports(animation-timeline:view()){
+ .luxury-kinetic-word{animation:kineticReveal linear both;animation-timeline:view();animation-range:entry 5% cover 72%}
+ .luxury-kinetic-word--2{animation-range:entry 12% cover 76%}.luxury-kinetic-word--3{animation-range:entry 20% cover 82%}.luxury-kinetic-word--4{animation-range:entry 28% cover 88%}
+}
+@keyframes kineticReveal{0%{opacity:.05;transform:translate3d(0,4rem,0) scale(.92);filter:blur(5px)}45%,72%{opacity:.92;transform:translate3d(0,0,0) scale(1);filter:blur(0)}100%{opacity:.14;transform:translate3d(0,-2rem,0) scale(1.035);filter:blur(2px)}}
+
+/* Process becomes a production journey instead of a static list. */
+.champagne-process .process-stage{opacity:.58;transform-origin:left center}
+.champagne-process .process-stage.is-visible{opacity:1}
+.champagne-process .process-stage.is-visible h3{text-shadow:0 0 34px rgba(220,180,120,.08)}
+.champagne-process .process-stage.is-visible>span{border-color:rgba(222,183,124,.8);box-shadow:0 0 0 5px rgba(205,166,105,.045)}
+@supports(animation-timeline:view()){
+ .champagne-process .process-stage{animation:processFocus linear both;animation-timeline:view();animation-range:entry 15% cover 48%}
+}
+@keyframes processFocus{0%{opacity:.38;transform:translateX(-.5rem)}55%,100%{opacity:1;transform:translateX(0)}}
+
+/* Work feels like framed editorial pieces, with a moving champagne edge. */
+.champagne-work .portfolio-motion:after{content:"";position:absolute;inset:0;pointer-events:none;border:1px solid transparent;background:linear-gradient(115deg,transparent 35%,rgba(231,197,145,.4),transparent 64%) border-box;mask:linear-gradient(#000 0 0) padding-box,linear-gradient(#000 0 0);mask-composite:exclude;opacity:0;transition:opacity .55s ease}
+.champagne-work .portfolio-motion:hover:after{opacity:1}
+.champagne-work .portfolio-motion:hover{filter:brightness(1.08) saturate(1.05)}
+
+/* Cinematic finale — darkens like end credits, then reveals the CTA. */
+.luxury-finale{position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(180deg,#0c0a08,#070605)}
+.luxury-finale:before{content:"SANS RETOUR";position:absolute;z-index:-1;left:50%;top:50%;transform:translate(-50%,-52%);white-space:nowrap;font-family:var(--font-display);font-size:clamp(5rem,17vw,16rem);letter-spacing:-.05em;color:rgba(220,180,120,.045)}
+.luxury-finale-light{position:absolute;z-index:-1;left:50%;top:-45%;width:min(80vw,70rem);height:150%;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(216,177,116,.15),rgba(216,177,116,.025) 42%,transparent 70%);animation:finaleBreathe 7s ease-in-out infinite alternate;pointer-events:none}
+.luxury-finale .section-title{text-shadow:0 1.5rem 5rem rgba(0,0,0,.7)}
+.luxury-finale a{transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s ease}
+.luxury-finale a:hover{transform:translateY(-2px);box-shadow:0 16px 55px rgba(208,168,106,.12)}
+@keyframes finaleBreathe{to{transform:translateX(-50%) scale(1.1);opacity:.72}}
+
+@media(max-width:767px){
+ .luxury-kinetic{height:220svh}
+ .luxury-kinetic-word{font-size:clamp(3.6rem,20vw,7rem)}
+ .luxury-kinetic-word--1{left:6%;top:18%}.luxury-kinetic-word--2{right:5%;top:35%}.luxury-kinetic-word--3{left:7%;top:52%}.luxury-kinetic-word--4{right:7%;top:68%}
+ .luxury-kinetic-signature{bottom:7%;display:block}.luxury-kinetic-signature strong{display:block;margin-top:.6rem}
+ .champagne-work .portfolio-motion:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .luxury-kinetic{height:auto;min-height:100svh}
+ .luxury-kinetic-track{position:relative}
+ .luxury-kinetic-word{opacity:.78;transform:none;filter:none;animation:none!important}
+ .luxury-finale-light{animation:none}
+}
