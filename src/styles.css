@@ -679,3 +679,31 @@
    filter:saturate(.76) sepia(.1) contrast(1.06) brightness(1.05);
  }
 }
+
+
+/* Exposure pass III — +5%, with a dedicated lift for the Process scene. */
+.champagne-intro .intro-cinematic-image img,
+.champagne-problems .problem-image,
+.champagne-industry-visual img,
+.champagne-lead img{
+  filter:saturate(.8) sepia(.08) contrast(1.06) brightness(1.07);
+}
+.champagne-process-visual{opacity:.46}
+.champagne-process-visual img{
+  filter:saturate(.84) sepia(.08) contrast(1.05) brightness(1.2);
+}
+.champagne-process-visual:after{
+  background:linear-gradient(90deg,var(--color-background) 0%,color-mix(in oklch,var(--color-background) 58%,transparent) 28%,transparent 62%),linear-gradient(0deg,color-mix(in oklch,var(--color-background) 72%,transparent),transparent 36%);
+}
+.champagne-process .process-panel{
+  background:linear-gradient(90deg,rgba(8,7,6,.72),rgba(8,7,6,.38),rgba(8,7,6,.08));
+}
+@media(max-width:767px){
+ .champagne-intro .intro-cinematic-image img,
+ .champagne-problems .problem-image,
+ .champagne-industry-visual img,
+ .champagne-lead img{filter:saturate(.8) sepia(.08) contrast(1.05) brightness(1.1)}
+ .champagne-process-visual{opacity:.52}
+ .champagne-process-visual img{filter:saturate(.86) sepia(.06) contrast(1.04) brightness(1.25)}
+ .champagne-process .process-panel{background:linear-gradient(90deg,rgba(8,7,6,.74),rgba(8,7,6,.34),rgba(8,7,6,.06))}
+}
