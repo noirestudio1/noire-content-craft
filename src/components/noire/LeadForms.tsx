@@ -129,9 +129,9 @@ export function ContactForm() {
           onChange={(event) => setInterest(event.target.value)}
           className="h-12 w-full rounded-none border-x-0 border-t-0 border-input bg-transparent px-0 text-sm text-foreground outline-none focus:border-gold"
         >
-          <option value="start">CONTENT START — 1.500 LEI</option>
-          <option value="clasic">CONTENT SYSTEM — 2.500 LEI</option>
-          <option value="full_social">FULL SOCIAL — 4.500 LEI</option>
+          <option value="start">ESSENTIAL — 1.500 LEI</option>
+          <option value="clasic">ELITE — 2.500 LEI</option>
+          <option value="full_social">BLACK ROYAL — 4.500 LEI</option>
           <option value="free_ideas">3 IDEI GRATUITE</option>
           <option value="unsure">VREAU SĂ DISCUTĂM</option>
         </select>
