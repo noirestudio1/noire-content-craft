@@ -301,11 +301,7 @@ function Index() {
 }
 
 function ServiceCard({ index, title, price, features, cta, interest, tone, badge }: { index: string; title: string; price: string; features: string[]; cta: string; interest: "start" | "clasic" | "full_social"; tone: "essential" | "elite" | "royal"; badge?: string }) {
-  const cardClass = tone === "elite"
-    ? "bg-[#9A7A42] p-7 text-[#17130D] sm:p-8"
-    : tone === "royal"
-      ? "bg-[#090909] p-7 text-[#F2E9D8] sm:p-8"
-      : "bg-[#211D19] p-7 text-[#F2E9D8] sm:p-8";
+  const cardClass = `package-card package-card--${tone} p-7 sm:p-8`;
   const mutedClass = tone === "elite" ? "text-[#17130D]/60" : "text-[#F2E9D8]/55";
   const buttonVariant = tone === "elite" ? "secondary" : "outline";
   return <article className={cardClass}><div className="flex items-center justify-between"><span className={`text-xs tracking-[0.2em] ${tone === "elite" ? "text-[#241B0E]" : "text-gold"}`}>{index}</span>{badge ? <span className={`text-[0.55rem] tracking-[0.18em] ${mutedClass}`}>{badge}</span> : null}</div><h3 className="mt-8 break-normal font-display text-3xl [overflow-wrap:normal] sm:mt-10 sm:text-4xl">{title}</h3><p className={`mt-4 font-display text-2xl ${tone === "elite" ? "text-[#241B0E]" : "text-gold"}`}>{price}<span className={`ml-2 font-sans text-[0.6rem] tracking-[0.14em] ${mutedClass}`}>/ LUNĂ</span></p><ul className="mt-8 space-y-3 sm:mt-9">{features.map((feature) => <li key={feature} className="flex items-center gap-3 text-sm"><Check className={`size-3 shrink-0 ${tone === "elite" ? "text-[#241B0E]" : "text-gold"}`} />{feature}</li>)}</ul><Button asChild variant={buttonVariant} className={`mt-10 h-12 rounded-none px-5 sm:mt-12 ${tone === "royal" ? "border-gold/60 text-[#F2E9D8] hover:bg-gold hover:text-[#090909]" : ""}`}><a href={`?interest=${interest}#contact`} onClick={(event) => { event.preventDefault(); window.history.replaceState(null, "", `?interest=${interest}#contact`); window.dispatchEvent(new CustomEvent("sans-retour-interest", { detail: interest })); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}>{cta}<ArrowUpRight /></a></Button></article>;
