@@ -531,36 +531,3 @@
   .hero-cinematic-content { opacity:1; }
   .hero-scene-wipe { display:none; }
 }
-
-
-/* Beast-mode hero reel: three cinematic frames rotate behind the persistent hero copy. */
-.hero-reel{position:absolute;inset:0;z-index:-6;overflow:hidden;background:#090807}
-.hero-reel-frame{position:absolute;inset:-2%;opacity:0;will-change:opacity,transform;animation:heroReel 18s cubic-bezier(.45,0,.2,1) infinite}
-.hero-reel-frame img{width:100%;height:100%;object-fit:cover;filter:saturate(.78) contrast(1.12) brightness(.7);transform:scale(1.035);animation:heroReelDrift 6s ease-out infinite alternate}
-.hero-reel-frame--old{animation-delay:0s}
-.hero-reel-frame--production{animation-delay:6s}
-.hero-reel-frame--social{animation-delay:12s}
-.hero-reel-frame--old img{object-position:center}
-.hero-reel-frame--production img{object-position:58% center}
-.hero-reel-frame--social img{object-position:center 42%}
-.hero-reel:after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(90deg,rgba(8,7,6,.94) 0%,rgba(8,7,6,.7) 40%,rgba(8,7,6,.12) 78%),linear-gradient(0deg,rgba(8,7,6,.92) 0%,transparent 52%)}
-@keyframes heroReel{
-  0%{opacity:0;transform:scale(1.07)}
-  5%{opacity:1}
-  28%{opacity:1}
-  33.333%{opacity:0;transform:scale(1)}
-  100%{opacity:0;transform:scale(1)}
-}
-@keyframes heroReelDrift{from{transform:scale(1.035) translate3d(0,0,0)}to{transform:scale(1.09) translate3d(-1.2%,-.7%,0)}}
-@media(max-width:767px){
-  .hero-reel-frame img{filter:saturate(.72) contrast(1.1) brightness(.58)}
-  .hero-reel-frame--old img{object-position:56% center}
-  .hero-reel-frame--production img{object-position:62% center}
-  .hero-reel-frame--social img{object-position:52% center}
-  .hero-reel:after{background:linear-gradient(90deg,rgba(8,7,6,.88),rgba(8,7,6,.38)),linear-gradient(0deg,rgba(8,7,6,.94) 0%,rgba(8,7,6,.58) 42%,transparent 78%)}
-}
-@media(prefers-reduced-motion:reduce){
-  .hero-reel-frame{animation:none;opacity:0}
-  .hero-reel-frame--old{opacity:1}
-  .hero-reel-frame img{animation:none;transform:none}
-}
