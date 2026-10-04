@@ -31,24 +31,21 @@ export function SiteHeader() {
         <Button variant="ghost" size="icon" className="rounded-none lg:hidden" aria-label={open ? "Închide meniul" : "Deschide meniul"} onClick={() => setOpen((value) => !value)}>{open ? <X /> : <Menu />}</Button>
       </div>
       {open ? (
-        <nav aria-label="Navigație mobilă" className="mobile-lux-menu relative overflow-hidden border-t border-border/60 px-5 pb-8 pt-5 lg:hidden">
-          <div className="mobile-menu-aura" aria-hidden="true" />
-          <div className="relative z-10 mb-6 flex items-center justify-between border-b border-gold/20 pb-4">
-            <span className="text-[0.58rem] tracking-[0.28em] text-gold">SANS RETOUR / MENU</span>
-            <span className="text-[0.55rem] tracking-[0.2em] text-muted-foreground">CONTENT STUDIO</span>
+        <nav aria-label="Navigație mobilă" className="mobile-editorial-menu border-t border-white/[0.06] px-5 pb-7 pt-5 lg:hidden">
+          <div className="mb-7 flex items-center justify-between">
+            <span className="text-[0.55rem] tracking-[0.24em] text-muted-foreground">NAVIGATION</span>
+            <span className="text-[0.52rem] tracking-[0.22em] text-gold/70">CONTENT STUDIO</span>
           </div>
-          <div className="relative z-10">
-            {navItems.map(([label, href], index) => (
-              <a key={href} href={href} onClick={() => setOpen(false)} className="mobile-menu-link group grid grid-cols-[2rem_1fr_auto] items-center gap-3 border-b border-white/10 py-[1.15rem]">
-                <span className="text-[0.55rem] tracking-[0.18em] text-gold/70">{String(index + 1).padStart(2, "0")}</span>
-                <span className="font-display text-[1.7rem] leading-none tracking-[-0.025em]">{label}</span>
-                <span className="mobile-menu-arrow text-sm text-gold/70">↗</span>
+          <div className="mobile-editorial-links">
+            {navItems.map(([label, href]) => (
+              <a key={href} href={href} onClick={() => setOpen(false)} className="mobile-editorial-link">
+                {label}
               </a>
             ))}
           </div>
-          <div className="relative z-10 mt-7">
-            <Button asChild className="mobile-menu-cta h-12 w-full rounded-none"><a href="#contact" onClick={() => setOpen(false)}>ÎNCEPE UN PROIECT</a></Button>
-            <p className="mt-4 text-center text-[0.52rem] tracking-[0.2em] text-muted-foreground">BUCUREȘTI · BRAȘOV</p>
+          <div className="mobile-editorial-footer">
+            <a href="#contact" onClick={() => setOpen(false)} className="mobile-editorial-cta">ÎNCEPE UN PROIECT <span aria-hidden="true">→</span></a>
+            <p>BUCUREȘTI · BRAȘOV</p>
           </div>
         </nav>
       ) : null}
