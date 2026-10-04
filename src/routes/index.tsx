@@ -65,6 +65,8 @@ const contentSystem = ["Strategie lunară", "Idei de content", "Hook-uri și sce
 const fullSocial = [...contentSystem, "Administrarea publicării", "Captions", "Programarea postărilor", "Optimizarea strategiei", "Raportare lunară"];
 
 function Index() {
+  const kineticRef = useRef<HTMLElement | null>(null);
+
   useEffect(() => {
     const nodes = Array.from(document.querySelectorAll<HTMLElement>(".reveal, .reveal-row, .reveal-copy, .reveal-card"));
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -80,7 +82,10 @@ function Index() {
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
     nodes.forEach((node) => observer.observe(node));
-    useEffect(() => {
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     const section = kineticRef.current;
     if (!section) return;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -96,9 +101,7 @@ function Index() {
       const progress = Math.min(1, Math.max(0, -rect.top / travel));
       section.style.setProperty("--kinetic-progress", progress.toFixed(4));
     };
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update);
-    };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
@@ -107,9 +110,6 @@ function Index() {
       window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, []);
-
-  return () => observer.disconnect();
   }, []);
 
   return (
