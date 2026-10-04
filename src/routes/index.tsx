@@ -116,7 +116,7 @@ function Index() {
           </div>
         </CinematicScene>
 
-        <section className="intro-cinematic relative overflow-hidden border-b border-border">
+        <section className="intro-cinematic champagne-intro relative overflow-hidden border-b border-border">
           <div className="intro-cinematic-image" aria-hidden="true"><img src={cinematicSocial} alt="" loading="lazy" decoding="async" /></div>
           <div className="section-shell relative z-10 py-16 sm:py-28 lg:py-36">
             <SectionHeading label="SANS RETOUR · CONTENT STUDIO">TU CONDUCI BUSINESSUL.<br /><span className="text-ivory-muted">NOI NE OCUPĂM DE CONTENT.</span></SectionHeading>
@@ -127,7 +127,7 @@ function Index() {
           </div>
         </section>
 
-        <section className="border-y border-border bg-surface-subtle py-16 sm:py-28">
+        <section className="champagne-problems border-y border-border bg-surface-subtle py-16 sm:py-28">
           <div className="section-shell">
             <SectionHeading label="MAI PUȚINĂ PRESIUNE. MAI MULTĂ CLARITATE.">CONTENTUL <span className="whitespace-nowrap">N-AR</span> TREBUI<br /><span className="whitespace-nowrap">SĂ-ȚI</span> CONSUME TIMPUL.</SectionHeading>
             <div className="mt-11 grid border-l border-t border-border sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
@@ -147,7 +147,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="proces" className="process-premium section-shell relative scroll-mt-20 overflow-hidden py-16 sm:py-28 lg:py-36"><div className="process-backdrop" aria-hidden="true" /><div className="relative z-10">
+        <section id="proces" className="process-premium champagne-process section-shell relative scroll-mt-20 overflow-hidden py-16 sm:py-28 lg:py-36"><div className="process-backdrop" aria-hidden="true" /><div className="relative z-10">
           <SectionHeading label="DE LA STRATEGIE LA PUBLICARE">O ZI DE FILMARE.<br /><span className="text-ivory-muted">O LUNĂ DE CONTENT.</span></SectionHeading>
           <div className="process-panel relative mt-12 overflow-hidden border-y border-border/70 sm:mt-20 lg:ml-[22%]">
             <div className="absolute bottom-0 left-[1.15rem] top-0 w-px bg-gradient-to-b from-gold/70 via-border to-gold/20 sm:left-[1.65rem]" />
@@ -162,7 +162,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="portofoliu" className="scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28">
+        <section id="portofoliu" className="champagne-work scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28">
           <div className="section-shell">
             <SectionHeading label="SELECTED WORK">CONTENT CARE MERITĂ<br />SĂ FIE VĂZUT.</SectionHeading>
             <div className="mt-11 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 sm:mt-16 sm:gap-5 md:grid-cols-3 lg:ml-[15%]">
@@ -172,7 +172,7 @@ function Index() {
           </div>
         </section>
 
-        <section className="section-shell py-16 sm:py-28 lg:py-36">
+        <section className="champagne-industries section-shell relative overflow-hidden py-16 sm:py-28 lg:py-36">
           <SectionHeading label="INDUSTRII">CONTENT CREAT PENTRU<br />BUSINESSUL TĂU.</SectionHeading>
           <div className="mt-11 border-t border-border sm:mt-16">
             {industries.map(([industry, industryCopy], index) => (
@@ -193,7 +193,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="servicii" className="scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28">
+        <section id="servicii" className="champagne-services scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28">
           <div className="section-shell">
             <SectionHeading label="SERVICII">NOI FACEM CONTENTUL.<br /><span className="text-ivory-muted">TU ÎȚI CONDUCI BUSINESSUL.</span></SectionHeading>
             <div className="mt-11 grid gap-px bg-border sm:mt-16 lg:grid-cols-2">
@@ -203,7 +203,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="idei" className="scroll-mt-20 border-y border-border bg-background py-20 sm:py-28 lg:py-32">
+        <section id="idei" className="champagne-lead scroll-mt-20 border-y border-border bg-background py-20 sm:py-28 lg:py-32">
           <div className="section-shell grid overflow-hidden border border-border bg-surface lg:grid-cols-[0.85fr_1.15fr]">
             <div className="relative isolate min-h-96 overflow-hidden p-7 sm:p-10 lg:min-h-full lg:p-14">
               <img src={heroImage} width={1920} height={1080} loading="lazy" alt="Producție video SANS RETOUR în lumină cinematografică" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-35" />
@@ -214,7 +214,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="despre" className="section-shell scroll-mt-20 py-20 sm:py-36 lg:py-48">
+        <section id="despre" className="champagne-about section-shell relative overflow-hidden scroll-mt-20 py-20 sm:py-36 lg:py-48">
           <SectionHeading label="DESPRE SANS RETOUR">NU SUNTEM AICI<br /><span className="whitespace-nowrap">SĂ-ȚI</span> MAI DĂM TEME.</SectionHeading>
           <div className="mt-11 grid gap-8 border-t border-border pt-7 sm:mt-16 sm:gap-10 sm:pt-8 md:grid-cols-2">
             <p className="reveal-copy font-display text-xl leading-snug sm:text-4xl">SANS RETOUR a pornit dintr-o idee simplă:</p>
