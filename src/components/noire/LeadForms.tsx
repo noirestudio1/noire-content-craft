@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -76,6 +76,16 @@ export function IdeasForm() {
 export function ContactForm() {
   const sendLead = useServerFn(submitLead);
   const [interest, setInterest] = useState("clasic");
+
+  useEffect(() => {
+    const syncInterest = () => {
+      const selected = new URLSearchParams(window.location.search).get("interest");
+      if (selected && ["clasic", "full_social", "free_ideas", "unsure"].includes(selected)) setInterest(selected);
+    };
+    syncInterest();
+    window.addEventListener("sans-retour-interest", syncInterest);
+    return () => window.removeEventListener("sans-retour-interest", syncInterest);
+  }, []);
   const [consent, setConsent] = useState(false);
   const [state, setState] = useState<"idle" | "sending" | "success" | "error">("idle");
 
@@ -121,7 +131,7 @@ export function ContactForm() {
           <option value="clasic">CONTENT SYSTEM / CLASIC</option>
           <option value="full_social">FULL SOCIAL</option>
           <option value="free_ideas">3 IDEI GRATUITE</option>
-          <option value="unsure">NU SUNT SIGUR — VREAU SĂ DISCUTĂM</option>
+          <option value="unsure">VREAU SĂ DISCUTĂM</option>
         </select>
       </div>
       <div className="grid gap-5 sm:grid-cols-2">
