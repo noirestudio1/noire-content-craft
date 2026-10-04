@@ -83,7 +83,17 @@ export function SiteHeader() {
             ))}
           </div>
           <div className="mobile-couture-bottom">
-            <a href="#contact" onClick={() => setOpen(false)} className="mobile-couture-cta"><span>ÎNCEPE UN PROIECT</span><i aria-hidden="true">→</i></a>
+            <a
+              href="?interest=unsure#contact"
+              onClick={(event) => {
+                event.preventDefault();
+                setOpen(false);
+                window.history.replaceState(null, "", "?interest=unsure#contact");
+                window.dispatchEvent(new Event("sans-retour-interest"));
+                window.setTimeout(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }), 0);
+              }}
+              className="mobile-couture-cta"
+            ><span>ÎNCEPE UN PROIECT</span><i aria-hidden="true">→</i></a>
             <p>BUCUREȘTI · BRAȘOV</p>
           </div>
         </nav>
