@@ -33,12 +33,12 @@ export const Route = createFileRoute("/")({
 });
 
 const problems = [
-  ["NU AI IDEI?", "Noi avem. Tu ai un business de condus.", "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1400&q=82"],
-  ["NU ȘTII CE SĂ SPUI?", "Te ghidăm cadru cu cadru — ce spui, cum o spui, intonație, mimică și prezență. Ca un regizor.", "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=82"],
-  ["NU ȘTII CUM SĂ FILMEZI?", "Venim la locație și construim cadrele pentru tine.", "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1400&q=82"],
-  ["NU VREI SĂ EDITEZI?", "Din material brut facem content care ține atenția.", "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1400&q=82"],
-  ["NU ȘTII CÂND SĂ POSTEZI?", "Construim un calendar clar pentru ritmul businessului.", "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=1400&q=82"],
-  ["NU AI TIMP SĂ POSTEZI?", "Putem administra publicarea, ca tu să rămâi în business.", "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1400&q=82"],
+  ["NU AI IDEI?", "Noi avem. Tu ai un business de condus.", cinematicProduction],
+  ["NU ȘTII CE SĂ SPUI?", "Te ghidăm cadru cu cadru — ce spui, cum o spui, intonație, mimică și prezență. Ca un regizor.", cinematicSocial],
+  ["NU ȘTII CUM SĂ FILMEZI?", "Venim la locație și construim cadrele pentru tine.", cinematicProcess],
+  ["NU VREI SĂ EDITEZI?", "Din material brut facem content care ține atenția.", "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1600&q=88"],
+  ["NU ȘTII CÂND SĂ POSTEZI?", "Construim un calendar clar pentru ritmul businessului.", cinematicIndustries],
+  ["NU AI TIMP SĂ POSTEZI?", "Putem administra publicarea, ca tu să rămâi în business.", heroImage],
 ] as const;
 
 const process = [
@@ -129,7 +129,7 @@ function Index() {
           </div>
         </section>
 
-        <section className="champagne-problems border-y border-border bg-surface-subtle py-16 sm:py-28"><div className="champagne-scene champagne-scene--problems" aria-hidden="true"><img src={cinematicIndustries} alt="" /></div>
+        <section className="champagne-problems border-y border-border bg-surface-subtle py-16 sm:py-28">
           <div className="section-shell">
             <SectionHeading label="MAI PUȚINĂ PRESIUNE. MAI MULTĂ CLARITATE.">CONTENTUL <span className="whitespace-nowrap">N-AR</span> TREBUI<br /><span className="whitespace-nowrap">SĂ-ȚI</span> CONSUME TIMPUL.</SectionHeading>
             <div className="mt-11 grid border-l border-t border-border sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
