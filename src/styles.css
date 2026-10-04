@@ -762,3 +762,55 @@
  .luxury-kinetic-word{opacity:.78;transform:none;filter:none;animation:none!important}
  .luxury-finale-light{animation:none}
 }
+
+
+/* KINETIC FILM v2 — JS scroll progress; isolated below the locked hero. */
+.kinetic-film{--kinetic-progress:0;position:relative;height:320svh;background:#080706;border-block:1px solid var(--color-border)}
+.kinetic-film-stage{position:sticky;top:0;height:100svh;overflow:hidden;isolation:isolate;background:radial-gradient(circle at 50% 46%,rgba(211,171,109,.1),transparent 38%),#080706}
+.kinetic-film-light{position:absolute;inset:-25%;background:linear-gradient(108deg,transparent 36%,rgba(238,211,168,.07) 49%,transparent 62%);transform:translate3d(calc((var(--kinetic-progress) - .5) * 42%),0,0);pointer-events:none}
+.kinetic-film-grain{position:absolute;inset:0;opacity:.03;pointer-events:none;mix-blend-mode:soft-light;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='kg'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23kg)'/%3E%3C/svg%3E")}
+.kinetic-film-frame{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:8vw;opacity:0;will-change:transform,opacity;pointer-events:none}
+.kinetic-film-frame span{margin-bottom:1rem;font-size:clamp(.56rem,.8vw,.72rem);letter-spacing:.25em;color:#d6ad70}
+.kinetic-film-frame strong{font-family:var(--font-display);font-weight:400;font-size:clamp(5rem,18vw,17rem);line-height:.75;letter-spacing:-.06em;color:#f0ebe2;text-shadow:0 1.5rem 5rem rgba(0,0,0,.6)}
+.kinetic-film-frame--idea{opacity:clamp(0,calc(1 - var(--kinetic-progress) * 5),1);transform:translate3d(calc(var(--kinetic-progress) * -22%),0,0)}
+.kinetic-film-frame--script{opacity:clamp(0,calc(1 - max(calc((var(--kinetic-progress) - .31) * 7),calc((.31 - var(--kinetic-progress)) * 7))),1);transform:translate3d(calc((.31 - var(--kinetic-progress)) * 38%),0,0)}
+.kinetic-film-frame--shoot{opacity:clamp(0,calc(1 - max(calc((var(--kinetic-progress) - .57) * 7),calc((.57 - var(--kinetic-progress)) * 7))),1);transform:translate3d(0,calc((.57 - var(--kinetic-progress)) * 32%),0)}
+.kinetic-film-frame--edit{opacity:clamp(0,calc(1 - max(calc((var(--kinetic-progress) - .79) * 8),calc((.79 - var(--kinetic-progress)) * 8))),1);transform:translate3d(calc((.79 - var(--kinetic-progress)) * -32%),0,0)}
+.kinetic-film-frame--script strong,.kinetic-film-frame--edit strong{color:#dfbd87}
+.kinetic-film-signature{position:absolute;left:8vw;right:8vw;bottom:8vh;display:flex;align-items:end;justify-content:space-between;border-top:1px solid rgba(216,176,113,.3);padding-top:1rem;opacity:clamp(0,calc((var(--kinetic-progress) - .84) * 7),1);transform:translateY(calc((1 - var(--kinetic-progress)) * 2rem))}
+.kinetic-film-signature span{font-size:.58rem;letter-spacing:.22em;color:var(--color-muted-foreground)}
+.kinetic-film-signature strong{font-family:var(--font-display);font-size:clamp(1.5rem,3.4vw,3.5rem);font-weight:400;color:#e3c18d}
+.kinetic-film-progress{position:absolute;left:8vw;right:8vw;bottom:4vh;height:1px;background:rgba(255,255,255,.08)}
+.kinetic-film-progress i{display:block;width:calc(var(--kinetic-progress) * 100%);height:100%;background:linear-gradient(90deg,#a77a43,#e3c18d);box-shadow:0 0 16px rgba(227,193,141,.22)}
+
+/* Final exposure lift requested: clearer imagery, same champagne grade. */
+.champagne-intro .intro-cinematic-image img,
+.champagne-problems .problem-image,
+.champagne-industry-visual img,
+.champagne-lead img{filter:saturate(.84) sepia(.06) contrast(1.045) brightness(1.14)}
+.champagne-process-visual{opacity:.56}
+.champagne-process-visual img{filter:saturate(.9) sepia(.05) contrast(1.035) brightness(1.32)}
+.champagne-problems .problem-shadow{background:linear-gradient(90deg,rgba(7,6,5,.78) 0%,rgba(7,6,5,.52) 46%,rgba(7,6,5,.12) 100%),linear-gradient(0deg,rgba(7,6,5,.72),transparent 72%)}
+
+@media(max-width:767px){
+ .kinetic-film{height:270svh}
+ .kinetic-film-frame{padding:1.25rem}
+ .kinetic-film-frame strong{font-size:clamp(4.2rem,24vw,8rem)}
+ .kinetic-film-signature{left:1.25rem;right:1.25rem;bottom:8vh;display:block}
+ .kinetic-film-signature strong{display:block;margin-top:.65rem}
+ .kinetic-film-progress{left:1.25rem;right:1.25rem}
+ .champagne-intro .intro-cinematic-image img,
+ .champagne-problems .problem-image,
+ .champagne-industry-visual img,
+ .champagne-lead img{filter:saturate(.84) sepia(.05) contrast(1.04) brightness(1.17)}
+ .champagne-process-visual{opacity:.6}
+ .champagne-process-visual img{filter:saturate(.9) sepia(.04) contrast(1.03) brightness(1.36)}
+}
+@media(prefers-reduced-motion:reduce){
+ .kinetic-film{height:auto;min-height:100svh}
+ .kinetic-film-stage{position:relative}
+ .kinetic-film-frame{display:none}
+ .kinetic-film-frame--shoot{display:flex;opacity:1;transform:none}
+ .kinetic-film-signature{opacity:1;transform:none}
+ .kinetic-film-light{transform:none}
+}
