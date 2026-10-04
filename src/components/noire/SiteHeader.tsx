@@ -5,8 +5,8 @@ import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
 
 const navItems: Array<[string, string]> = [
-  ["Acasă", "#acasa"], ["Portofoliu", "#portofoliu"], ["Servicii", "#servicii"],
-  ["Proces", "#proces"], ["Despre", "#despre"], ["Contact", "#contact"],
+  ["Acasă", "#acasa"], ["Despre Noi", "#despre"], ["Servicii", "#servicii"],
+  ["Portofoliu", "#portofoliu"], ["Blog", "/blog"], ["Contact", "#contact"],
 ];
 
 export function SiteHeader() {
