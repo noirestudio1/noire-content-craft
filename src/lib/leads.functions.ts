@@ -12,6 +12,7 @@ const optionalText = (max: number) =>
 const leadSchema = z
   .object({
     formType: z.enum(["free_ideas", "contact", "quote"]),
+    interest: z.enum(["clasic", "full_social", "free_ideas", "unsure"]).optional(),
     name: z.string().trim().min(2, "Completează numele.").max(100),
     businessName: optionalText(120),
     industry: optionalText(120),
@@ -69,7 +70,7 @@ export const submitLead = createServerFn({ method: "POST" })
       website: data.website ?? null,
       phone: data.phone ?? null,
       email: data.email ?? null,
-      message: data.message ?? null,
+      message: data.interest ? `[Interes: ${data.interest}]${data.message ? `\n${data.message}` : ""}` : data.message ?? null,
       consent: data.consent,
     });
 
@@ -84,14 +85,23 @@ export const submitLead = createServerFn({ method: "POST" })
       throw new Error("Notificarea pe email nu este configurată.");
     }
 
-    const subject =
-      data.formType === "free_ideas"
-        ? "Cerere nouă — 3 idei gratuite | SANS RETOUR"
+    const interestLabels = {
+      clasic: "CONTENT SYSTEM / CLASIC",
+      full_social: "FULL SOCIAL",
+      free_ideas: "3 IDEI GRATUITE",
+      unsure: "NEHOTĂRÂT / VREA DISCUȚIE",
+    } as const;
+    const selectedInterest = data.interest ? interestLabels[data.interest] : undefined;
+    const subject = selectedInterest
+      ? `[${selectedInterest}] Solicitare nouă | SANS RETOUR`
+      : data.formType === "free_ideas"
+        ? "[3 IDEI GRATUITE] Solicitare nouă | SANS RETOUR"
         : data.formType === "quote"
-          ? "Cerere nouă de ofertă | SANS RETOUR"
+          ? "[OFERTĂ] Solicitare nouă | SANS RETOUR"
           : "Solicitare nouă | SANS RETOUR";
 
     const fields = [
+      ["Interes", selectedInterest],
       ["Nume", data.name],
       ["Business", data.businessName],
       ["Domeniu", data.industry],
