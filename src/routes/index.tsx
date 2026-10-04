@@ -36,7 +36,7 @@ const problems = [
   ["NU AI IDEI?", "Noi avem. Tu ai un business de condus.", cinematicProduction],
   ["NU ȘTII CE SĂ SPUI?", "Te ghidăm cadru cu cadru — ce spui, cum o spui, intonație, mimică și prezență. Ca un regizor.", cinematicSocial],
   ["NU ȘTII CUM SĂ FILMEZI?", "Venim la locație și construim cadrele pentru tine.", cinematicProcess],
-  ["NU VREI SĂ EDITEZI?", "Din material brut facem content care ține atenția.", "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1600&q=88"],
+  ["NU VREI SĂ EDITEZI?", "Din material brut facem content care ține atenția.", cinematicProcess],
   ["NU ȘTII CÂND SĂ POSTEZI?", "Construim un calendar clar pentru ritmul businessului.", cinematicIndustries],
   ["NU AI TIMP SĂ POSTEZI?", "Putem administra publicarea, ca tu să rămâi în business.", heroImage],
 ] as const;
