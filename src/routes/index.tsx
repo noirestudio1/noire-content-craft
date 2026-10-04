@@ -154,7 +154,7 @@ function Index() {
           <div className="process-panel relative mt-12 overflow-hidden border-y border-border/70 sm:mt-20 lg:ml-[22%]">
             <div className="absolute bottom-0 left-[1.15rem] top-0 w-px bg-gradient-to-b from-gold/70 via-border to-gold/20 sm:left-[1.65rem]" />
             {process.map(([title, copy], index) => (
-              <article key={title} className="reveal-row process-row relative grid grid-cols-[3rem_1fr] gap-x-4 gap-y-2 border-b border-border/80 px-0 py-5 sm:grid-cols-[4rem_0.7fr_1fr] sm:gap-8 sm:py-10">
+              <article key={title} className="reveal-row process-row process-stage relative grid grid-cols-[3rem_1fr] gap-x-4 gap-y-2 border-b border-border/80 px-0 py-5 sm:grid-cols-[4rem_0.7fr_1fr] sm:gap-8 sm:py-10">
                 <span className="relative z-10 grid size-9 place-items-center rounded-full border border-gold bg-background text-[0.6rem] text-gold sm:size-12">{String(index + 1).padStart(2, "0")}</span>
                 <h3 className="font-display text-[1.08rem] leading-none sm:text-2xl lg:text-3xl">{title}</h3>
                 <p className="col-start-2 max-w-lg text-[0.78rem] leading-5 text-muted-foreground sm:col-start-3 sm:pt-1 sm:text-[0.92rem] sm:leading-6 lg:text-base">{copy}</p>
@@ -171,6 +171,16 @@ function Index() {
               {projects.map((category, index) => <div id={`work-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} key={category} className={index % 3 === 1 ? "md:translate-y-12" : ""}><VideoPlaceholder project={`PROJECT ${String(index + 1).padStart(3, "0")}`} category={category} className="reveal-card portfolio-motion" /></div>)}
             </div>
             <p className="mt-12 border-t border-border pt-6 text-xs tracking-[0.14em] text-muted-foreground sm:mt-20 sm:tracking-[0.18em]">PROIECTELE NOASTRE VOR APĂREA AICI ÎN CURÂND.</p>
+          </div>
+        </section>
+
+        <section className="luxury-kinetic" aria-label="SANS RETOUR production system">
+          <div className="luxury-kinetic-track">
+            <p className="luxury-kinetic-word luxury-kinetic-word--1">IDEA.</p>
+            <p className="luxury-kinetic-word luxury-kinetic-word--2">SCRIPT.</p>
+            <p className="luxury-kinetic-word luxury-kinetic-word--3">SHOOT.</p>
+            <p className="luxury-kinetic-word luxury-kinetic-word--4">EDIT.</p>
+            <div className="luxury-kinetic-signature"><span>THE SYSTEM BEHIND THE CONTENT</span><strong>SANS RETOUR.</strong></div>
           </div>
         </section>
 
@@ -224,7 +234,7 @@ function Index() {
           </div>
         </section>
 
-        <section className="border-y border-border bg-surface-subtle py-16 text-center sm:py-28">
+        <section className="luxury-finale border-y border-border bg-surface-subtle py-16 text-center sm:py-28"><div className="luxury-finale-light" aria-hidden="true" />
           <div className="section-shell"><h2 className="section-title mx-auto max-w-6xl">URMĂTOAREA TA LUNĂ<br /><span className="text-ivory-muted">DE CONTENT ÎNCEPE AICI.</span></h2><div className="mt-8 flex flex-col justify-center gap-3 sm:mt-10 sm:flex-row"><Button asChild size="lg" className="h-12 rounded-none px-7 sm:h-13"><a href="#contact">HAI SĂ VORBIM <ArrowUpRight /></a></Button><Button asChild variant="outline" size="lg" className="h-12 rounded-none bg-transparent px-5 sm:h-13 sm:px-7"><a href="#idei">PRIMEȘTE 3 IDEI GRATUITE</a></Button></div></div>
         </section>
 
