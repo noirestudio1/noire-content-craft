@@ -600,3 +600,50 @@
 @media(prefers-reduced-motion:reduce){
  .champagne-intro:after,.champagne-process:before,.champagne-process .process-panel:after,.champagne-work:before,.champagne-services:before,.champagne-lead:before,.champagne-about:before{animation:none!important}
 }
+
+
+/* BEAST MODE II — unmistakable visual scenes below the locked hero */
+.champagne-intro{filter:brightness(1.1)}
+.champagne-problems,.champagne-process,.champagne-work,.champagne-industries,.champagne-services,.champagne-lead,.champagne-about{filter:brightness(1.1)}
+
+.champagne-scene--problems{position:absolute;inset:0 0 auto 52%;height:100%;z-index:0;pointer-events:none;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 30%,#000)}
+.champagne-scene--problems img{width:100%;height:100%;object-fit:cover;opacity:.28;filter:saturate(.7) sepia(.18) contrast(1.12);transform:scale(1.12);animation:beastFloat 12s ease-in-out infinite alternate}
+.champagne-problems>.section-shell{position:relative;z-index:2}
+
+.champagne-process{min-height:120svh}
+.champagne-process-visual{position:absolute;right:-5%;top:15%;width:46%;height:64%;overflow:hidden;opacity:.28;clip-path:polygon(18% 0,100% 7%,88% 100%,0 91%);pointer-events:none}
+.champagne-process-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--color-background),transparent 42%),linear-gradient(0deg,var(--color-background),transparent 30%)}
+.champagne-process-visual img{width:100%;height:100%;object-fit:cover;filter:saturate(.75) sepia(.18) contrast(1.16);animation:beastFloat 10s ease-in-out infinite alternate}
+.champagne-process .process-panel{backdrop-filter:blur(3px);background:linear-gradient(90deg,rgba(8,7,6,.82),rgba(8,7,6,.5),rgba(8,7,6,.16))}
+.champagne-process .process-row{transition:padding .6s cubic-bezier(.22,1,.36,1),background .5s ease}
+.champagne-process .process-row:hover{padding-left:1rem;background:linear-gradient(90deg,rgba(209,169,107,.09),transparent 68%)}
+
+.champagne-work{padding-top:7rem!important}
+.champagne-work-marquee{position:absolute;top:1.5rem;left:0;right:0;overflow:hidden;white-space:nowrap;opacity:.12;pointer-events:none}
+.champagne-work-marquee span{display:inline-block;font-family:var(--font-display);font-size:clamp(3.5rem,9vw,9rem);line-height:1;color:#d8ae70;animation:beastMarquee 22s linear infinite}
+.champagne-work .portfolio-motion{transition:transform .8s cubic-bezier(.22,1,.36,1),filter .6s ease,box-shadow .6s ease}
+.champagne-work .portfolio-motion:hover{transform:translateY(-12px) scale(1.025)}
+
+.champagne-industry-visual{position:absolute;right:-6%;top:8%;width:42%;height:82%;z-index:0;overflow:hidden;opacity:.22;clip-path:polygon(25% 0,100% 0,82% 100%,0 88%);pointer-events:none}
+.champagne-industry-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--color-background),transparent 55%),linear-gradient(0deg,var(--color-background),transparent 30%)}
+.champagne-industry-visual img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) sepia(.22) contrast(1.14);animation:beastFloat 14s ease-in-out infinite alternate-reverse}
+.champagne-industries>h2,.champagne-industries>p,.champagne-industries>div:not(.champagne-industry-visual){position:relative;z-index:2}
+
+@keyframes beastFloat{from{transform:scale(1.08) translate3d(0,0,0)}to{transform:scale(1.17) translate3d(-2.5%,-2%,0)}}
+@keyframes beastMarquee{to{transform:translateX(-50%)}}
+
+@media(max-width:767px){
+ .champagne-intro,.champagne-problems,.champagne-process,.champagne-work,.champagne-industries,.champagne-services,.champagne-lead,.champagne-about{filter:brightness(1.1)}
+ .champagne-scene--problems{inset:0 -35% auto 25%;height:48%;opacity:.85}
+ .champagne-scene--problems img{opacity:.34}
+ .champagne-process{min-height:auto}
+ .champagne-process-visual{right:-28%;top:8%;width:92%;height:38%;opacity:.3}
+ .champagne-process .process-panel{background:linear-gradient(90deg,rgba(8,7,6,.9),rgba(8,7,6,.58))}
+ .champagne-work{padding-top:6rem!important}
+ .champagne-work-marquee{top:2rem}
+ .champagne-work-marquee span{font-size:4.5rem;opacity:.9}
+ .champagne-industry-visual{right:-38%;top:6%;width:105%;height:48%;opacity:.27}
+}
+@media(prefers-reduced-motion:reduce){
+ .champagne-scene--problems img,.champagne-process-visual img,.champagne-industry-visual img,.champagne-work-marquee span{animation:none!important}
+}
