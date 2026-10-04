@@ -1,2 +1,2 @@
-/** Heavy WebGL is intentionally opt-in until launch hardware testing is complete. */
-export const FULL_CINEMATIC_MODE = false;
+/** Full cinematic WebGL experience enabled for device testing. */
+export const FULL_CINEMATIC_MODE = true;
