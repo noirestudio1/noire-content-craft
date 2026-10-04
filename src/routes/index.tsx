@@ -70,8 +70,9 @@ const industries = [
   ["REAL ESTATE", "Spații prezentate cinematic, nu ca simple anunțuri."],
   ["LOCAL BUSINESS", "Oameni reali și businessuri locale cu povești care merită văzute."],
 ] as const;
-const contentSystem = ["Strategie lunară", "Idei de content", "Hook-uri și scenarii", "Sesiune de filmare", "Editare profesională", "Reels / TikTok / Shorts", "Calendar editorial"];
-const fullSocial = [...contentSystem, "Administrarea publicării", "Captions", "Programarea postărilor", "Optimizarea strategiei", "Raportare lunară"];
+const contentStart = ["5 clipuri verticale / lună", "5 fotografii editate", "1 sesiune de producție", "Strategie lunară", "Idei & concepte", "Scripturi și hook-uri", "Regie la filmare", "Filmare + editare", "Calendar de content", "Captions", "Audit inițial", "Raport lunar"];
+const contentSystem = ["10 clipuri verticale / lună", "10 fotografii editate", "2 sesiuni de producție", "Strategie lunară", "Idei & concepte", "Scripturi și hook-uri", "Regie la filmare", "Filmare + editare", "Calendar de content", "Captions", "Audit inițial", "Analiză & optimizare", "Trend Research & Adaptare", "Analiză competiție", "Raport lunar"];
+const fullSocial = ["20 clipuri verticale / lună", "15 fotografii editate", "3 sesiuni de producție", "Strategie lunară", "Idei & concepte", "Scripturi și hook-uri", "Regie la filmare", "Filmare + editare", "Calendar de content", "Captions", "Audit inițial", "Analiză & optimizare", "Trend Research & Adaptare", "Analiză competiție", "Publicare multi-platformă", "Administrare social media", "Community management", "Optimizare profil", "Trend Response", "Raport lunar"];
 
 function Index() {
   const kineticRef = useRef<HTMLElement | null>(null);
@@ -249,10 +250,12 @@ function Index() {
         <section id="servicii" className="champagne-services scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28">
           <div className="section-shell">
             <SectionHeading label="SERVICII">NOI FACEM CONTENTUL.<br /><span className="text-ivory-muted">TU ÎȚI CONDUCI BUSINESSUL.</span></SectionHeading>
-            <div className="mt-11 grid gap-px bg-border sm:mt-16 lg:grid-cols-2">
-              <ServiceCard index="01" title="CONTENT SYSTEM" features={contentSystem} cta="CERE OFERTĂ" interest="clasic" />
-              <ServiceCard index="02" title="FULL SOCIAL" features={fullSocial} cta="VREAU FULL SOCIAL" interest="full_social" featured />
+            <div className="mt-11 grid gap-px bg-border sm:mt-16 lg:grid-cols-3">
+              <ServiceCard index="01" title="CONTENT START" price="1.500 LEI" features={contentStart} cta="ÎNCEPE CU START" interest="start" />
+              <ServiceCard index="02" title="CONTENT SYSTEM" price="2.500 LEI" features={contentSystem} cta="VREAU CONTENT SYSTEM" interest="clasic" featured badge="CEL MAI ALES" />
+              <ServiceCard index="03" title="FULL SOCIAL" price="4.500 LEI" features={fullSocial} cta="VREAU FULL SOCIAL" interest="full_social" badge="SISTEM COMPLET" />
             </div>
+            <p className="mt-7 text-center text-xs tracking-[0.08em] text-muted-foreground">AI NEVOIE DE UN VOLUM DIFERIT? CONSTRUIM O OFERTĂ ADAPTATĂ BUSINESSULUI TĂU.</p>
           </div>
         </section>
 
@@ -297,6 +300,6 @@ function Index() {
   );
 }
 
-function ServiceCard({ index, title, features, cta, interest, featured = false }: { index: string; title: string; features: string[]; cta: string; interest: "clasic" | "full_social"; featured?: boolean }) {
-  return <article className={featured ? "bg-premium-ivory p-7 text-premium-ivory-foreground sm:p-10" : "bg-background p-7 sm:p-10"}><div className="flex items-center justify-between"><span className="text-xs tracking-[0.2em] text-gold">{index}</span>{featured ? <span className="text-[0.55rem] tracking-[0.18em] text-premium-ivory-foreground/60">SISTEM COMPLET</span> : null}</div><h3 className="mt-8 break-normal font-display text-4xl [overflow-wrap:normal] sm:mt-10 sm:text-5xl">{title}</h3><ul className="mt-8 space-y-4 sm:mt-10">{features.map((feature) => <li key={feature} className="flex items-center gap-3 text-sm"><Check className="size-3 shrink-0 text-gold" />{feature}</li>)}</ul><Button asChild variant={featured ? "secondary" : "outline"} className="mt-10 h-12 rounded-none px-6 sm:mt-12"><a href={`?interest=${interest}#contact`} onClick={() => window.dispatchEvent(new Event("sans-retour-interest"))}>{cta}<ArrowUpRight /></a></Button></article>;
+function ServiceCard({ index, title, price, features, cta, interest, featured = false, badge }: { index: string; title: string; price: string; features: string[]; cta: string; interest: "start" | "clasic" | "full_social"; featured?: boolean; badge?: string }) {
+  return <article className={featured ? "bg-premium-ivory p-7 text-premium-ivory-foreground sm:p-8" : "bg-background p-7 sm:p-8"}><div className="flex items-center justify-between"><span className="text-xs tracking-[0.2em] text-gold">{index}</span>{badge ? <span className={featured ? "text-[0.55rem] tracking-[0.18em] text-premium-ivory-foreground/60" : "text-[0.55rem] tracking-[0.18em] text-muted-foreground"}>{badge}</span> : null}</div><h3 className="mt-8 break-normal font-display text-3xl [overflow-wrap:normal] sm:mt-10 sm:text-4xl">{title}</h3><p className="mt-4 font-display text-2xl text-gold">{price}<span className={featured ? "ml-2 font-sans text-[0.6rem] tracking-[0.14em] text-premium-ivory-foreground/50" : "ml-2 font-sans text-[0.6rem] tracking-[0.14em] text-muted-foreground"}>/ LUNĂ</span></p><ul className="mt-8 space-y-3 sm:mt-9">{features.map((feature) => <li key={feature} className="flex items-center gap-3 text-sm"><Check className="size-3 shrink-0 text-gold" />{feature}</li>)}</ul><Button asChild variant={featured ? "secondary" : "outline"} className="mt-10 h-12 rounded-none px-5 sm:mt-12"><a href={`?interest=${interest}#contact`} onClick={(event) => { event.preventDefault(); window.history.replaceState(null, "", `?interest=${interest}#contact`); window.dispatchEvent(new CustomEvent("sans-retour-interest", { detail: interest })); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}>{cta}<ArrowUpRight /></a></Button></article>;
 }
