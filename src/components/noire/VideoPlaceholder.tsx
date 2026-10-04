@@ -4,15 +4,18 @@ import { cn } from "@/lib/utils";
 export function VideoPlaceholder({
   project,
   category,
+  image,
   className,
 }: {
   project: string;
   category: string;
+  image?: string;
   className?: string;
 }) {
   return (
     <article className={cn("group relative isolate aspect-[9/16] overflow-hidden bg-surface", className)}>
-      <div className="absolute inset-0 bg-placeholder transition-transform duration-700 group-hover:scale-105" />
+      {image ? <img src={image} alt="" loading="lazy" width={1536} height={1920} className="portfolio-image absolute inset-0 h-full w-full object-cover" /> : <div className="absolute inset-0 bg-placeholder transition-transform duration-700 group-hover:scale-105" />}
+      <div className="portfolio-shade absolute inset-0" />
       <div className="absolute inset-x-0 top-0 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 p-4 text-[0.6rem] tracking-[0.18em] text-muted-foreground sm:p-5 sm:tracking-[0.24em]">
         <span className="min-w-0 truncate">{project}</span>
         <span>9:16</span>
