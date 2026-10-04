@@ -12,6 +12,8 @@ import { CinematicImageLayer, CinematicMask, CinematicScene } from "@/components
 import heroImage from "@/assets/noire-hero.jpg";
 import cinematicProduction from "@/assets/cinematic-production.jpg";
 import cinematicSocial from "@/assets/cinematic-social.jpg";
+import cinematicProcess from "@/assets/cinematic-process.jpg";
+import cinematicIndustries from "@/assets/cinematic-industries.jpg";
 
 const metaDescription = "SANS RETOUR construiește sisteme complete de content pentru businessuri: strategie, idei, scripturi, filmare, editare și publicare pentru Reels, TikTok și Shorts.";
 
@@ -127,7 +129,7 @@ function Index() {
           </div>
         </section>
 
-        <section className="champagne-problems border-y border-border bg-surface-subtle py-16 sm:py-28">
+        <section className="champagne-problems border-y border-border bg-surface-subtle py-16 sm:py-28"><div className="champagne-scene champagne-scene--problems" aria-hidden="true"><img src={cinematicIndustries} alt="" /></div>
           <div className="section-shell">
             <SectionHeading label="MAI PUȚINĂ PRESIUNE. MAI MULTĂ CLARITATE.">CONTENTUL <span className="whitespace-nowrap">N-AR</span> TREBUI<br /><span className="whitespace-nowrap">SĂ-ȚI</span> CONSUME TIMPUL.</SectionHeading>
             <div className="mt-11 grid border-l border-t border-border sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
@@ -147,7 +149,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="proces" className="process-premium champagne-process section-shell relative scroll-mt-20 overflow-hidden py-16 sm:py-28 lg:py-36"><div className="process-backdrop" aria-hidden="true" /><div className="relative z-10">
+        <section id="proces" className="process-premium champagne-process section-shell relative scroll-mt-20 overflow-hidden py-16 sm:py-28 lg:py-36"><div className="champagne-process-visual" aria-hidden="true"><img src={cinematicProcess} alt="" /></div><div className="process-backdrop" aria-hidden="true" /><div className="relative z-10">
           <SectionHeading label="DE LA STRATEGIE LA PUBLICARE">O ZI DE FILMARE.<br /><span className="text-ivory-muted">O LUNĂ DE CONTENT.</span></SectionHeading>
           <div className="process-panel relative mt-12 overflow-hidden border-y border-border/70 sm:mt-20 lg:ml-[22%]">
             <div className="absolute bottom-0 left-[1.15rem] top-0 w-px bg-gradient-to-b from-gold/70 via-border to-gold/20 sm:left-[1.65rem]" />
@@ -162,7 +164,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="portofoliu" className="champagne-work scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28">
+        <section id="portofoliu" className="champagne-work scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28"><div className="champagne-work-marquee" aria-hidden="true"><span>SELECTED WORK · SANS RETOUR · SELECTED WORK · SANS RETOUR ·</span></div>
           <div className="section-shell">
             <SectionHeading label="SELECTED WORK">CONTENT CARE MERITĂ<br />SĂ FIE VĂZUT.</SectionHeading>
             <div className="mt-11 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 sm:mt-16 sm:gap-5 md:grid-cols-3 lg:ml-[15%]">
@@ -172,7 +174,7 @@ function Index() {
           </div>
         </section>
 
-        <section className="champagne-industries section-shell relative overflow-hidden py-16 sm:py-28 lg:py-36">
+        <section className="champagne-industries section-shell relative overflow-hidden py-16 sm:py-28 lg:py-36"><div className="champagne-industry-visual" aria-hidden="true"><img src={cinematicIndustries} alt="" /></div>
           <SectionHeading label="INDUSTRII">CONTENT CREAT PENTRU<br />BUSINESSUL TĂU.</SectionHeading>
           <div className="mt-11 border-t border-border sm:mt-16">
             {industries.map(([industry, industryCopy], index) => (
