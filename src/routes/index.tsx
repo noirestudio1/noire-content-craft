@@ -250,7 +250,7 @@ function Index() {
         <section id="servicii" className="champagne-services scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28">
           <div className="section-shell">
             <SectionHeading label="SERVICII">NOI FACEM CONTENTUL.<br /><span className="text-ivory-muted">TU ÎȚI CONDUCI BUSINESSUL.</span></SectionHeading>
-            <div className="mt-11 grid gap-px bg-border sm:mt-16 lg:grid-cols-3">
+            <div className="package-grid mt-11 grid gap-5 sm:mt-16 lg:grid-cols-3 lg:gap-6">
               <ServiceCard index="01" title="ESSENTIAL" price="1.500 LEI" features={contentStart} cta="ALEGE ESSENTIAL" interest="start" tone="essential" />
               <ServiceCard index="02" title="ELITE" price="2.500 LEI" features={contentSystem} cta="ALEGE ELITE" interest="clasic" tone="elite" badge="CEL MAI ALES" />
               <ServiceCard index="03" title="BLACK ROYAL" price="4.500 LEI" features={fullSocial} cta="ALEGE BLACK ROYAL" interest="full_social" tone="royal" badge="FULL SERVICE" />
