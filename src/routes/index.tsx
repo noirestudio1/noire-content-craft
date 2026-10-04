@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import { ArrowDown, ArrowUpRight, Check, Circle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ContactForm, IdeasForm } from "@/components/noire/LeadForms";
+import { ContactForm } from "@/components/noire/LeadForms";
 import { Logo } from "@/components/noire/Logo";
 import { SectionHeading } from "@/components/noire/SectionHeading";
 import { SiteHeader } from "@/components/noire/SiteHeader";
@@ -145,7 +145,7 @@ function Index() {
             <div className="mt-7 grid gap-6 sm:mt-9 sm:gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
               <p className="max-w-lg text-base leading-7 text-muted-foreground sm:text-lg">Noi venim cu ideea. Îți spunem ce să spui.<br /><span className="text-foreground">Filmăm. Edităm. Planificăm. Postăm.</span></p>
               <div className="grid gap-3 sm:flex sm:flex-row">
-                <Button asChild size="lg" className="h-12 w-full rounded-none px-5 text-[0.68rem] tracking-[0.1em] sm:h-13 sm:w-auto sm:px-6 sm:tracking-[0.12em]"><a href="#contact">ÎNCEPE UN PROIECT <ArrowUpRight /></a></Button>
+                <Button asChild size="lg" className="h-12 w-full rounded-none px-5 text-[0.68rem] tracking-[0.1em] sm:h-13 sm:w-auto sm:px-6 sm:tracking-[0.12em]"><a href="?interest=unsure#contact" onClick={() => window.dispatchEvent(new Event("sans-retour-interest"))}>ÎNCEPE UN PROIECT <ArrowUpRight /></a></Button>
                 <Button asChild variant="outline" size="lg" className="h-12 w-full rounded-none bg-transparent px-5 text-[0.68rem] tracking-[0.1em] sm:h-13 sm:w-auto sm:px-6 sm:tracking-[0.12em]"><a href="#proces">VEZI CUM LUCRĂM <ArrowDown /></a></Button>
               </div>
             </div>
@@ -250,20 +250,19 @@ function Index() {
           <div className="section-shell">
             <SectionHeading label="SERVICII">NOI FACEM CONTENTUL.<br /><span className="text-ivory-muted">TU ÎȚI CONDUCI BUSINESSUL.</span></SectionHeading>
             <div className="mt-11 grid gap-px bg-border sm:mt-16 lg:grid-cols-2">
-              <ServiceCard index="01" title="CONTENT SYSTEM" features={contentSystem} cta="CERE OFERTĂ" />
-              <ServiceCard index="02" title="FULL SOCIAL" features={fullSocial} cta="VREAU FULL SOCIAL" featured />
+              <ServiceCard index="01" title="CONTENT SYSTEM" features={contentSystem} cta="CERE OFERTĂ" interest="clasic" />
+              <ServiceCard index="02" title="FULL SOCIAL" features={fullSocial} cta="VREAU FULL SOCIAL" interest="full_social" featured />
             </div>
           </div>
         </section>
 
         <section id="idei" className="champagne-lead scroll-mt-20 border-y border-border bg-background py-20 sm:py-28 lg:py-32">
-          <div className="section-shell grid overflow-hidden border border-border bg-surface lg:grid-cols-[0.85fr_1.15fr]">
-            <div className="relative isolate min-h-96 overflow-hidden p-7 sm:p-10 lg:min-h-full lg:p-14">
+          <div className="section-shell overflow-hidden border border-border bg-surface">
+            <div className="relative isolate min-h-96 overflow-hidden p-7 sm:p-10 lg:p-14">
               <img src={heroImage} width={1920} height={1080} loading="lazy" alt="Producție video SANS RETOUR în lumină cinematografică" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-35" />
               <div className="absolute inset-0 -z-10 bg-background/75" />
-              <div className="flex h-full flex-col justify-end"><p className="eyebrow">GRATUIT</p><h2 className="section-title max-w-xl">3 IDEI GRATUITE PENTRU BUSINESSUL TĂU.</h2><p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground sm:mt-8 sm:text-lg">Îți trimitem 3 concepte de clipuri create special pentru businessul tău.</p><p className="mt-3 max-w-md text-sm text-muted-foreground">Fără obligații. Doar idei pe care chiar le poți filma.</p></div>
+              <div className="flex h-full flex-col justify-end"><p className="eyebrow">GRATUIT</p><h2 className="section-title max-w-xl">3 IDEI GRATUITE PENTRU BUSINESSUL TĂU.</h2><p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground sm:mt-8 sm:text-lg">Îți trimitem 3 concepte de clipuri create special pentru businessul tău.</p><p className="mt-3 max-w-md text-sm text-muted-foreground">Fără obligații. Doar idei pe care chiar le poți filma.</p><Button asChild size="lg" className="mt-8 h-12 w-fit rounded-none px-7"><a href="?interest=free_ideas#contact" onClick={() => window.dispatchEvent(new Event("sans-retour-interest"))}>PRIMEȘTE CELE 3 IDEI <ArrowUpRight /></a></Button></div>
             </div>
-            <div className="relative border-t border-border bg-surface-subtle p-7 sm:p-10 lg:border-l lg:border-t-0 lg:p-14"><div className="absolute right-7 top-7 grid size-10 place-items-center border border-border text-gold sm:right-10 sm:top-10"><span className="h-px w-5 rotate-45 bg-gold/50" /></div><div className="pt-14 sm:pt-16"><IdeasForm /></div></div>
           </div>
         </section>
 
@@ -276,7 +275,7 @@ function Index() {
         </section>
 
         <section className="luxury-finale border-y border-border bg-surface-subtle py-16 text-center sm:py-28"><div className="luxury-finale-light" aria-hidden="true" />
-          <div className="section-shell"><h2 className="section-title mx-auto max-w-6xl">URMĂTOAREA TA LUNĂ<br /><span className="text-ivory-muted">DE CONTENT ÎNCEPE AICI.</span></h2><div className="mt-8 flex flex-col justify-center gap-3 sm:mt-10 sm:flex-row"><Button asChild size="lg" className="h-12 rounded-none px-7 sm:h-13"><a href="#contact">HAI SĂ VORBIM <ArrowUpRight /></a></Button><Button asChild variant="outline" size="lg" className="h-12 rounded-none bg-transparent px-5 sm:h-13 sm:px-7"><a href="#contact">PRIMEȘTE 3 IDEI GRATUITE</a></Button></div></div>
+          <div className="section-shell"><h2 className="section-title mx-auto max-w-6xl">URMĂTOAREA TA LUNĂ<br /><span className="text-ivory-muted">DE CONTENT ÎNCEPE AICI.</span></h2><div className="mt-8 flex flex-col justify-center gap-3 sm:mt-10 sm:flex-row"><Button asChild size="lg" className="h-12 rounded-none px-7 sm:h-13"><a href="?interest=unsure#contact" onClick={() => window.dispatchEvent(new Event("sans-retour-interest"))}>HAI SĂ VORBIM <ArrowUpRight /></a></Button><Button asChild variant="outline" size="lg" className="h-12 rounded-none bg-transparent px-5 sm:h-13 sm:px-7"><a href="?interest=free_ideas#contact" onClick={() => window.dispatchEvent(new Event("sans-retour-interest"))}>PRIMEȘTE 3 IDEI GRATUITE</a></Button></div></div>
         </section>
 
         <section id="contact" className="section-shell scroll-mt-20 py-16 sm:py-28">
@@ -298,6 +297,6 @@ function Index() {
   );
 }
 
-function ServiceCard({ index, title, features, cta, featured = false }: { index: string; title: string; features: string[]; cta: string; featured?: boolean }) {
-  return <article className={featured ? "bg-premium-ivory p-7 text-premium-ivory-foreground sm:p-10" : "bg-background p-7 sm:p-10"}><div className="flex items-center justify-between"><span className="text-xs tracking-[0.2em] text-gold">{index}</span>{featured ? <span className="text-[0.55rem] tracking-[0.18em] text-premium-ivory-foreground/60">SISTEM COMPLET</span> : null}</div><h3 className="mt-8 break-normal font-display text-4xl [overflow-wrap:normal] sm:mt-10 sm:text-5xl">{title}</h3><ul className="mt-8 space-y-4 sm:mt-10">{features.map((feature) => <li key={feature} className="flex items-center gap-3 text-sm"><Check className="size-3 shrink-0 text-gold" />{feature}</li>)}</ul><Button asChild variant={featured ? "secondary" : "outline"} className="mt-10 h-12 rounded-none px-6 sm:mt-12"><a href="#contact">{cta}<ArrowUpRight /></a></Button></article>;
+function ServiceCard({ index, title, features, cta, interest, featured = false }: { index: string; title: string; features: string[]; cta: string; interest: "clasic" | "full_social"; featured?: boolean }) {
+  return <article className={featured ? "bg-premium-ivory p-7 text-premium-ivory-foreground sm:p-10" : "bg-background p-7 sm:p-10"}><div className="flex items-center justify-between"><span className="text-xs tracking-[0.2em] text-gold">{index}</span>{featured ? <span className="text-[0.55rem] tracking-[0.18em] text-premium-ivory-foreground/60">SISTEM COMPLET</span> : null}</div><h3 className="mt-8 break-normal font-display text-4xl [overflow-wrap:normal] sm:mt-10 sm:text-5xl">{title}</h3><ul className="mt-8 space-y-4 sm:mt-10">{features.map((feature) => <li key={feature} className="flex items-center gap-3 text-sm"><Check className="size-3 shrink-0 text-gold" />{feature}</li>)}</ul><Button asChild variant={featured ? "secondary" : "outline"} className="mt-10 h-12 rounded-none px-6 sm:mt-12"><a href={`?interest=${interest}#contact`} onClick={() => window.dispatchEvent(new Event("sans-retour-interest"))}>{cta}<ArrowUpRight /></a></Button></article>;
 }
