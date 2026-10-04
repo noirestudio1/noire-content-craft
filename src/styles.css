@@ -647,3 +647,13 @@
 @media(prefers-reduced-motion:reduce){
  .champagne-scene--problems img,.champagne-process-visual img,.champagne-industry-visual img,.champagne-work-marquee span{animation:none!important}
 }
+
+
+/* Problem cards refresh — cleaner modern production imagery; remove repeated section visual. */
+.champagne-problems .problem-image{filter:saturate(.72) sepia(.12) contrast(1.1) brightness(.86);transform:scale(1.025);transition:transform 1.1s cubic-bezier(.22,1,.36,1),filter .8s ease}
+.champagne-problems .problem-card:hover .problem-image{transform:scale(1.085);filter:saturate(.82) sepia(.08) contrast(1.08) brightness(.96)}
+.champagne-problems .problem-shadow{background:linear-gradient(90deg,rgba(7,6,5,.9) 0%,rgba(7,6,5,.68) 46%,rgba(7,6,5,.22) 100%),linear-gradient(0deg,rgba(7,6,5,.88),transparent 72%)}
+@media(max-width:767px){
+ .champagne-problems .problem-image{filter:saturate(.7) sepia(.12) contrast(1.08) brightness(.9)}
+ .champagne-problems .problem-shadow{background:linear-gradient(90deg,rgba(7,6,5,.88),rgba(7,6,5,.48)),linear-gradient(0deg,rgba(7,6,5,.9),transparent 75%)}
+}
