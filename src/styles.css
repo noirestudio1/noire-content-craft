@@ -657,3 +657,25 @@
  .champagne-problems .problem-image{filter:saturate(.7) sepia(.12) contrast(1.08) brightness(.9)}
  .champagne-problems .problem-shadow{background:linear-gradient(90deg,rgba(7,6,5,.88),rgba(7,6,5,.48)),linear-gradient(0deg,rgba(7,6,5,.9),transparent 75%)}
 }
+
+
+/* Image exposure pass — +12% visual brightness below the locked hero. */
+.champagne-intro .intro-cinematic-image img,
+.champagne-problems .problem-image,
+.champagne-process-visual img,
+.champagne-industry-visual img,
+.champagne-lead img{
+  filter:saturate(.78) sepia(.1) contrast(1.07) brightness(1.02);
+}
+.champagne-problems .problem-card:hover .problem-image{
+  filter:saturate(.86) sepia(.06) contrast(1.06) brightness(1.1);
+}
+@media(max-width:767px){
+ .champagne-intro .intro-cinematic-image img,
+ .champagne-problems .problem-image,
+ .champagne-process-visual img,
+ .champagne-industry-visual img,
+ .champagne-lead img{
+   filter:saturate(.76) sepia(.1) contrast(1.06) brightness(1.05);
+ }
+}
