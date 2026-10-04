@@ -22,10 +22,10 @@ export function CinematicExperience() {
         root.style.setProperty("--pointer-y", `${event.clientY}px`);
         root.style.setProperty("--depth-x", `${(event.clientX / innerWidth - 0.5) * 2}`);
         root.style.setProperty("--depth-y", `${(event.clientY / innerHeight - 0.5) * 2}`);
-        if (cursor) cursor.dataset.visible = "true";
+        if (cursor) cursor.dataset["visible"] = "true";
       });
     };
-    const onLeave = () => { if (cursor) cursor.dataset.visible = "false"; };
+    const onLeave = () => { if (cursor) cursor.dataset["visible"] = "false"; };
     window.addEventListener("pointermove", onMove, { passive: true });
     document.documentElement.addEventListener("mouseleave", onLeave);
     return () => {

@@ -10,6 +10,7 @@
 - [x] Soften and elevate the Full Social package treatment
 - [x] Separate form presentation from its deploy-time submission endpoint
 - [x] Re-test the complete homepage at desktop, tablet, 390px, and 360px
+- [x] Restore the styled baseline after the cinematic R3F typing failure
 - [ ] Build reusable cinematic motion and optional WebGL systems
 - [ ] Integrate generated editorial imagery across hero, problems, process, work, and industries
 - [ ] Verify the complete cinematic experience across desktop, tablet, 390px, and 360px
