@@ -276,7 +276,7 @@ function Index() {
         </section>
 
         <section className="luxury-finale border-y border-border bg-surface-subtle py-16 text-center sm:py-28"><div className="luxury-finale-light" aria-hidden="true" />
-          <div className="section-shell"><h2 className="section-title mx-auto max-w-6xl">URMĂTOAREA TA LUNĂ<br /><span className="text-ivory-muted">DE CONTENT ÎNCEPE AICI.</span></h2><div className="mt-8 flex flex-col justify-center gap-3 sm:mt-10 sm:flex-row"><Button asChild size="lg" className="h-12 rounded-none px-7 sm:h-13"><a href="#contact">HAI SĂ VORBIM <ArrowUpRight /></a></Button><Button asChild variant="outline" size="lg" className="h-12 rounded-none bg-transparent px-5 sm:h-13 sm:px-7"><a href="#idei">PRIMEȘTE 3 IDEI GRATUITE</a></Button></div></div>
+          <div className="section-shell"><h2 className="section-title mx-auto max-w-6xl">URMĂTOAREA TA LUNĂ<br /><span className="text-ivory-muted">DE CONTENT ÎNCEPE AICI.</span></h2><div className="mt-8 flex flex-col justify-center gap-3 sm:mt-10 sm:flex-row"><Button asChild size="lg" className="h-12 rounded-none px-7 sm:h-13"><a href="#contact">HAI SĂ VORBIM <ArrowUpRight /></a></Button><Button asChild variant="outline" size="lg" className="h-12 rounded-none bg-transparent px-5 sm:h-13 sm:px-7"><a href="#contact">PRIMEȘTE 3 IDEI GRATUITE</a></Button></div></div>
         </section>
 
         <section id="contact" className="section-shell scroll-mt-20 py-16 sm:py-28">
