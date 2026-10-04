@@ -86,9 +86,9 @@ export const submitLead = createServerFn({ method: "POST" })
     }
 
     const interestLabels = {
-      start: "CONTENT START — 1.500 LEI",
-      clasic: "CONTENT SYSTEM — 2.500 LEI",
-      full_social: "FULL SOCIAL — 4.500 LEI",
+      start: "ESSENTIAL — 1.500 LEI",
+      clasic: "ELITE — 2.500 LEI",
+      full_social: "BLACK ROYAL — 4.500 LEI",
       free_ideas: "3 IDEI GRATUITE",
       unsure: "VREAU SĂ DISCUTĂM",
     } as const;
