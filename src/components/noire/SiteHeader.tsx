@@ -70,7 +70,7 @@ export function SiteHeader() {
       </div>
       {open ? (
         <nav id="mobile-navigation" ref={menuRef} aria-label="Navigație mobilă" className="mobile-couture-menu lg:hidden">
-          <div className="mobile-couture-aura" aria-hidden="true" />
+          <div className="mobile-couture-aura" aria-hidden="true"><i /><i /><i /></div>
           <div className="mobile-couture-head">
             <div className="mobile-couture-brand"><Logo /></div>
             <button type="button" className="mobile-couture-close" aria-label="Închide meniul" onClick={() => setOpen(false)}><X /></button>
