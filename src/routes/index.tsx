@@ -87,7 +87,11 @@ function Index() {
       <main>
         <CinematicScene id="acasa" className="hero-cinematic scroll-mt-0">
           <div className="hero-cinematic-stage">
-            <CinematicImageLayer src={cinematicProduction} alt="Regizor și cameră cinematografică pe platoul SANS RETOUR" className="hero-cinematic-background" priority />
+            <div className="hero-reel" aria-hidden="true">
+              <div className="hero-reel-frame hero-reel-frame--old"><img src={heroImage} alt="" fetchPriority="high" decoding="async" /></div>
+              <div className="hero-reel-frame hero-reel-frame--production"><img src={cinematicProduction} alt="" loading="eager" decoding="async" /></div>
+              <div className="hero-reel-frame hero-reel-frame--social"><img src={cinematicSocial} alt="" loading="eager" decoding="async" /></div>
+            </div>
             <CinematicImageLayer src={cinematicSocial} className="hero-cinematic-portrait" />
             <div className="hero-cinematic-slat" aria-hidden="true"><img src={cinematicSocial} alt="" loading="eager" decoding="async" /></div>
             <CinematicMask className="hero-cinematic-grade" />
