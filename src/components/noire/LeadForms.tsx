@@ -7,8 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
-import { submitLead, type LeadInput } from "@/lib/leads.functions";
-import { submitLeadForm } from "@/lib/lead-form-client";
+import { submitLead } from "@/lib/leads.functions";
+import { submitLeadForm, type LeadInput } from "@/lib/lead-form-client";
 
 const fieldClass = "h-12 rounded-none border-x-0 border-t-0 border-input bg-transparent px-0 text-foreground placeholder:text-muted-foreground focus-visible:border-gold focus-visible:ring-0";
 
