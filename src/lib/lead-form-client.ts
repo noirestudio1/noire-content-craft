@@ -1,4 +1,18 @@
-import type { LeadInput } from "@/lib/leads.functions";
+export type LeadInput = {
+  formType: "free_ideas" | "contact" | "quote";
+  interest?: "start" | "clasic" | "full_social" | "free_ideas" | "unsure";
+  name: string;
+  businessName?: string;
+  industry?: string;
+  city?: string;
+  socialHandle?: string;
+  website?: string;
+  phone?: string;
+  email?: string;
+  message?: string;
+  consent: true;
+  websiteTrap?: string;
+};
 
 type ServerSubmit = (options: { data: LeadInput }) => Promise<unknown>;
 
