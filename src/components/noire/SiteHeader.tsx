@@ -65,7 +65,7 @@ export function SiteHeader() {
         <nav aria-label="Navigație principală" className="hidden items-center justify-center gap-7 lg:flex">
           {navItems.map(([label, href]) => <a key={href} href={href} className="text-[0.68rem] tracking-[0.16em] text-muted-foreground transition-colors hover:text-foreground">{label.toUpperCase()}</a>)}
         </nav>
-        <Button asChild className="hidden h-11 rounded-none px-5 text-[0.65rem] tracking-[0.16em] lg:inline-flex"><a href="#contact">ÎNCEPE UN PROIECT</a></Button>
+        <Button asChild className="hidden h-11 rounded-none px-5 text-[0.65rem] tracking-[0.16em] lg:inline-flex"><a href="?interest=unsure#contact" onClick={(event) => { event.preventDefault(); window.history.replaceState(null, "", "?interest=unsure#contact"); window.dispatchEvent(new CustomEvent("sans-retour-interest", { detail: "unsure" })); requestAnimationFrame(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>ÎNCEPE UN PROIECT</a></Button>
         <Button ref={triggerRef} variant="ghost" size="icon" className="rounded-none lg:hidden" aria-label={open ? "Închide meniul" : "Deschide meniul"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen((value) => !value)}>{open ? <X /> : <Menu />}</Button>
       </div>
       {open ? (
@@ -89,7 +89,7 @@ export function SiteHeader() {
                 event.preventDefault();
                 setOpen(false);
                 window.history.replaceState(null, "", "?interest=unsure#contact");
-                window.dispatchEvent(new Event("sans-retour-interest"));
+                window.dispatchEvent(new CustomEvent("sans-retour-interest", { detail: "unsure" }));
                 window.setTimeout(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }), 0);
               }}
               className="mobile-couture-cta"
