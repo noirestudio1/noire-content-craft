@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 const navItems: Array<[string, string]> = [
   ["Acasă", "#acasa"], ["Despre Noi", "#despre"], ["Servicii", "#servicii"],
-  ["Portofoliu", "#portofoliu"], ["Blog", "/blog"], ["Contact", "#contact"],
+  ["Portofoliu", "#portofoliu"], ["Contact", "#contact"],
 ];
 
 export function SiteHeader() {
