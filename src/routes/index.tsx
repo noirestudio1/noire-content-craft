@@ -20,10 +20,6 @@ import problemPlanning from "@/assets/problem-planning.png";
 const metaDescription = "SANS RETOUR construiește sisteme complete de content pentru businessuri: strategie, idei, scripturi, filmare, editare și publicare pentru Reels, TikTok și Shorts.";
 
 export const Route = createFileRoute("/")({
-  // The homepage contains browser-only cinematic/WebGL behavior. Rendering it only
-  // on the client prevents SSR/hydration from producing two different visual states
-  // on a hard refresh. This does not change the approved markup or styling.
-  ssr: false,
   head: () => ({
     meta: [
       { title: "SANS RETOUR | Content Studio București & Brașov" },
