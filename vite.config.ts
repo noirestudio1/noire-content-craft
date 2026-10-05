@@ -12,4 +12,7 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Netlify production target. This changes deployment/runtime output only;
+  // it does not alter the site's components, CSS, content, or visual design.
+  nitro: { preset: "netlify" },
 });
