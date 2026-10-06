@@ -1056,3 +1056,4 @@
 @media (prefers-reduced-motion: reduce) {
   .seq-frame-image, .seq-frame-title span, .seq-frame-answer span, .seq-frame-ghost, .seq-process-film img { transition: none !important; animation: none !important; }
 }
+.seq-frame--text, .seq-frame--text[data-state="active"] { z-index: 5; }
