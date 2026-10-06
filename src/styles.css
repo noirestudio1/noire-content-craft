@@ -1045,7 +1045,7 @@
 .seq-process-film img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.3) brightness(.55) sepia(.2); animation: seq-film-in 1.2s cubic-bezier(.77,0,.18,1) both; transform-origin: center; }
 @keyframes seq-film-in { from { clip-path: inset(0 100% 0 0); transform: scale(1.2); } to { clip-path: inset(0 0 0 0); transform: scale(1.04); } }
 .seq-frame--text .seq-frame-copy { inset: auto 0 16svh 0; }
-.seq-process-rail { position: absolute; top: 6.5rem; left: 0; right: 0; z-index: 5; display: flex; gap: clamp(.5rem, 2vw, 2rem); font-size: .6rem; letter-spacing: .2em; }
+.seq-process-rail { position: absolute; top: 8rem; left: 0; right: 0; z-index: 5; display: flex; gap: clamp(.5rem, 2vw, 2rem); font-size: .6rem; letter-spacing: .2em; }
 .seq-process-rail span { flex: 1; padding-top: .7rem; border-top: 1px solid var(--border); color: var(--muted-foreground); transition: color .6s, border-color .6s; }
 .seq-process-rail span[data-on="true"] { color: var(--gold, #b59261); border-color: var(--gold, #b59261); }
 @media (max-width: 767px) {
