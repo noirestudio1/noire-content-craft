@@ -16,6 +16,9 @@ import cinematicProcess from "@/assets/cinematic-process.jpg";
 import cinematicIndustries from "@/assets/cinematic-industries.jpg";
 import problemEditing from "@/assets/problem-editing.png";
 import problemPlanning from "@/assets/problem-planning.png";
+import { ScrollSequence } from "@/components/noire/ScrollSequence";
+
+const processImages = [cinematicProcess, heroImage, cinematicProduction, cinematicProduction, problemEditing, problemPlanning, cinematicSocial];
 
 const metaDescription = "SANS RETOUR construiește sisteme complete de content pentru businessuri: strategie, idei, scripturi, filmare, editare și publicare pentru Reels, TikTok și Shorts.";
 
