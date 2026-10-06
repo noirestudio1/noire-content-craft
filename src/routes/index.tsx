@@ -168,40 +168,53 @@ function Index() {
           </div>
         </section>
 
-        <section className="champagne-problems border-y border-border bg-surface-subtle py-16 sm:py-28">
-          <div className="section-shell">
-            <SectionHeading label="MAI PUȚINĂ PRESIUNE. MAI MULTĂ CLARITATE.">CONTENTUL <span className="whitespace-nowrap">N-AR</span> TREBUI<br /><span className="whitespace-nowrap">SĂ-ȚI</span> CONSUME TIMPUL.</SectionHeading>
-            <div className="mt-11 grid border-l border-t border-border sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="champagne-problems seq-intro section-shell pt-16 sm:pt-28">
+          <SectionHeading label="MAI PUȚINĂ PRESIUNE. MAI MULTĂ CLARITATE.">CONTENTUL <span className="whitespace-nowrap">N-AR</span> TREBUI<br /><span className="whitespace-nowrap">SĂ-ȚI</span> CONSUME TIMPUL.</SectionHeading>
+        </section>
+        <ScrollSequence count={problems.length} label="Problemele pe care le rezolvăm" className="seq-problems">
+          {(active) => (
+            <>
               {problems.map(([title, copy, image], index) => (
-                <article key={title} className="reveal-card problem-card group relative min-h-44 overflow-hidden border-b border-r border-border p-5 sm:min-h-56 sm:p-7">
-                  <img src={image} alt="" loading="lazy" className="problem-image absolute inset-0 h-full w-full object-cover" />
-                  <div className="problem-shadow absolute inset-0" />
-                  <div className="problem-glow absolute -right-16 -top-16 h-40 w-40 rounded-full" />
-                  <span className="relative z-10 text-[0.62rem] tracking-[0.24em] text-gold sm:text-[0.68rem]">{String(index + 1).padStart(2, "0")}</span>
-                  <div className="relative z-10 mt-14 sm:mt-20">
-                    <h3 className="max-w-[23rem] font-display text-[0.96rem] leading-[1.08] sm:text-[1.28rem] lg:text-[1.48rem]">{title}</h3>
-                    <p className="mt-2 max-w-[24rem] text-[0.76rem] leading-5 text-foreground/60 sm:text-[0.86rem] sm:leading-5">{copy}</p>
+                <article key={title} className="seq-frame" data-state={index === active ? "active" : index < active ? "past" : "next"} aria-hidden={index !== active}>
+                  <div className="seq-frame-image"><img src={image} alt="" loading="lazy" decoding="async" /></div>
+                  <div className="seq-frame-shade" />
+                  <span className="seq-frame-ghost" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                  <div className="seq-frame-copy section-shell">
+                    <span className="seq-frame-index">{String(index + 1).padStart(2, "0")} / {String(problems.length).padStart(2, "0")}</span>
+                    <h3 className="seq-frame-title"><span>{title}</span></h3>
+                    <p className="seq-frame-answer"><span>{copy}</span></p>
                   </div>
                 </article>
               ))}
-            </div>
-          </div>
-        </section>
+            </>
+          )}
+        </ScrollSequence>
 
-        <section id="proces" className="process-premium champagne-process section-shell relative scroll-mt-20 overflow-hidden py-16 sm:py-28 lg:py-36"><div className="champagne-process-visual" aria-hidden="true"><img src={cinematicProcess} alt="" /></div><div className="process-backdrop" aria-hidden="true" /><div className="relative z-10">
+        <section className="process-premium seq-intro section-shell relative pt-16 sm:pt-28">
           <SectionHeading label="DE LA STRATEGIE LA PUBLICARE">O ZI DE FILMARE.<br /><span className="text-ivory-muted">O LUNĂ DE CONTENT.</span></SectionHeading>
-          <div className="process-panel relative mt-12 overflow-hidden border-y border-border/70 sm:mt-20 lg:ml-[22%]">
-            <div className="absolute bottom-0 left-[1.15rem] top-0 w-px bg-gradient-to-b from-gold/70 via-border to-gold/20 sm:left-[1.65rem]" />
-            {process.map(([title, copy], index) => (
-              <article key={title} className="reveal-row process-row process-stage relative grid grid-cols-[3rem_1fr] gap-x-4 gap-y-2 border-b border-border/80 px-0 py-5 sm:grid-cols-[4rem_0.7fr_1fr] sm:gap-8 sm:py-10">
-                <span className="relative z-10 grid size-9 place-items-center rounded-full border border-gold bg-background text-[0.6rem] text-gold sm:size-12">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="font-display text-[1.08rem] leading-none sm:text-2xl lg:text-3xl">{title}</h3>
-                <p className="col-start-2 max-w-lg text-[0.78rem] leading-5 text-muted-foreground sm:col-start-3 sm:pt-1 sm:text-[0.92rem] sm:leading-6 lg:text-base">{copy}</p>
-              </article>
-            ))}
-          </div>
-          </div>
         </section>
+        <ScrollSequence id="proces" count={process.length} label="Procesul SANS RETOUR" className="seq-process scroll-mt-0" pace={0.75}>
+          {(active) => (
+            <>
+              <div className="seq-process-film" aria-hidden="true" style={{ ["--stage" as string]: active }}>
+                <img src={processImages[active % processImages.length]} alt="" key={active} loading="lazy" decoding="async" />
+              </div>
+              <div className="seq-frame-shade" />
+              <div className="seq-process-rail section-shell" aria-hidden="true">
+                {process.map(([title], index) => <span key={title} data-on={index <= active}>{String(index + 1).padStart(2, "0")}</span>)}
+              </div>
+              {process.map(([title, copy], index) => (
+                <article key={title} className="seq-frame seq-frame--text" data-state={index === active ? "active" : index < active ? "past" : "next"} aria-hidden={index !== active}>
+                  <div className="seq-frame-copy section-shell">
+                    <span className="seq-frame-index">ETAPA {String(index + 1).padStart(2, "0")} / 07</span>
+                    <h3 className="seq-frame-title"><span>{title}</span></h3>
+                    <p className="seq-frame-answer"><span>{copy}</span></p>
+                  </div>
+                </article>
+              ))}
+            </>
+          )}
+        </ScrollSequence>
 
         <section id="portofoliu" className="champagne-work scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28"><div className="champagne-work-marquee" aria-hidden="true"><span>SELECTED WORK · SANS RETOUR · SELECTED WORK · SANS RETOUR ·</span></div>
           <div className="section-shell">
