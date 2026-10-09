@@ -1,7 +1,6 @@
 import { copy, paths, type Locale } from "@/lib/site-locale";
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
-import { ArrowDown, ArrowUpRight, Check, Circle } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/noire/LeadForms";
 import { Logo } from "@/components/noire/Logo";
@@ -13,13 +12,7 @@ import { CinematicImageLayer, CinematicMask, CinematicScene } from "@/components
 import heroImage from "@/assets/noire-hero.jpg";
 import cinematicProduction from "@/assets/cinematic-production.jpg";
 import cinematicSocial from "@/assets/cinematic-social.jpg";
-import cinematicProcess from "@/assets/cinematic-process.jpg";
-import cinematicIndustries from "@/assets/cinematic-industries.jpg";
-import problemEditing from "@/assets/problem-editing.png";
-import problemPlanning from "@/assets/problem-planning.png";
-import { ScrollSequence } from "@/components/noire/ScrollSequence";
 
-const processImages = [cinematicProcess, heroImage, cinematicProduction, cinematicProduction, problemEditing, problemPlanning, cinematicSocial];
 
 const metaDescription = "SANS RETOUR construiește sisteme complete de content pentru businessuri: strategie, idei, scripturi, filmare, editare și publicare pentru Reels, TikTok și Shorts.";
 
@@ -38,24 +31,7 @@ export const Route = createFileRoute("/")({
   component: () => <HomePage locale="ro" />,
 });
 
-const problems = [
-  ["NU AI IDEI?", "Noi avem. Tu ai un business de condus.", cinematicProduction],
-  ["NU ȘTII CE SĂ SPUI?", "Te ghidăm cadru cu cadru — ce spui, cum o spui, intonație, mimică și prezență. Ca un regizor.", cinematicSocial],
-  ["NU ȘTII CUM SĂ FILMEZI?", "Venim la locație și construim cadrele pentru tine.", cinematicProcess],
-  ["NU VREI SĂ EDITEZI?", "Din material brut facem content care ține atenția.", problemEditing],
-  ["NU ȘTII CÂND SĂ POSTEZI?", "Construim un calendar clar pentru ritmul businessului.", problemPlanning],
-  ["NU AI TIMP SĂ POSTEZI?", "Putem administra publicarea, ca tu să rămâi în business.", cinematicIndustries],
-] as const;
 
-const process = [
-  ["STRATEGIE", "Înainte să pornim camera, trebuie să știm de ce ar rămâne cineva să se uite."],
-  ["IDEI", "Nu-ți cerem să vii cu ideile. Asta e treaba noastră."],
-  ["SCRIPT", "Știi ce spui înainte să apăsăm REC. Fără improvizații incomode."],
-  ["FILMARE", "Tu vii cu expertiza. Noi venim cu camera și te regizăm."],
-  ["EDITARE", "Tăiem ce plictisește. Păstrăm ce ține omul pe ecran."],
-  ["PLANIFICARE", "Fiecare clip are un loc și un moment. Nu postăm la întâmplare."],
-  ["POSTARE", "Contentul pleacă. Tu te întorci la business."],
-];
 
 const projects = [
   { title: "PROJECT 001", category: "AUTOMOTIVE", videoUrl: null, poster: null },
@@ -65,19 +41,12 @@ const projects = [
   { title: "PROJECT 005", category: "MEDICAL", videoUrl: null, poster: null },
   { title: "PROJECT 006", category: "REAL ESTATE", videoUrl: null, poster: null },
 ] as const;
-const industries = [
-  ["BEAUTY & AESTHETICS", "Portrete, servicii și transformări cu imagine premium."],
-  ["MEDICAL", "Expertiză explicată clar, uman și credibil."],
-  ["RESTAURANTS", "Povești, atmosferă și produs, filmate cinematic."],
-  ["AUTOMOTIVE", "Detaliu, mișcare și cadre construite pentru pasiune."],
-  ["FITNESS", "Energie, progres și comunitate transformate în content."],
-  ["REAL ESTATE", "Spații prezentate cinematic, nu ca simple anunțuri."],
-  ["LOCAL BUSINESS", "Oameni reali și businessuri locale cu povești care merită văzute."],
-] as const;
 const contentStart = ["5 clipuri verticale / lună", "5 fotografii editate", "1 sesiune de producție", "Strategie lunară", "Idei & concepte", "Scripturi și hook-uri", "Regie la filmare", "Filmare + editare", "Calendar de content", "Captions", "Audit inițial", "Raport lunar"];
 const contentSystem = ["10 clipuri verticale / lună", "10 fotografii editate", "2 sesiuni de producție", "Strategie lunară", "Idei & concepte", "Scripturi și hook-uri", "Regie la filmare", "Filmare + editare", "Calendar de content", "Captions", "Audit inițial", "Analiză & optimizare", "Trend Research & Adaptare", "Analiză competiție", "Raport lunar"];
 const fullSocial = ["20 clipuri verticale / lună", "15 fotografii editate", "3 sesiuni de producție", "Strategie lunară", "Idei & concepte", "Scripturi și hook-uri", "Regie la filmare", "Filmare + editare", "Calendar de content", "Captions", "Audit inițial", "Analiză & optimizare", "Trend Research & Adaptare", "Analiză competiție", "Publicare multi-platformă", "Administrare social media", "Community management", "Optimizare profil", "Trend Response", "Raport lunar"];
 
+export function HomePage({locale = "ro"}: {locale?: Locale}) {
+  const t = copy[locale];
   return (
     <div className="overflow-x-clip bg-background text-foreground">
       <SiteHeader locale={locale} />
