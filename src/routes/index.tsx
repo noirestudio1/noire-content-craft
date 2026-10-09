@@ -1,3 +1,4 @@
+import { copy, paths, type Locale } from "@/lib/site-locale";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import { ArrowDown, ArrowUpRight, Check, Circle } from "lucide-react";
@@ -34,7 +35,7 @@ export const Route = createFileRoute("/")({
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
-  component: Index,
+  component: () => <HomePage locale="ro" />,
 });
 
 const problems = [
@@ -77,57 +78,9 @@ const contentStart = ["5 clipuri verticale / lună", "5 fotografii editate", "1 
 const contentSystem = ["10 clipuri verticale / lună", "10 fotografii editate", "2 sesiuni de producție", "Strategie lunară", "Idei & concepte", "Scripturi și hook-uri", "Regie la filmare", "Filmare + editare", "Calendar de content", "Captions", "Audit inițial", "Analiză & optimizare", "Trend Research & Adaptare", "Analiză competiție", "Raport lunar"];
 const fullSocial = ["20 clipuri verticale / lună", "15 fotografii editate", "3 sesiuni de producție", "Strategie lunară", "Idei & concepte", "Scripturi și hook-uri", "Regie la filmare", "Filmare + editare", "Calendar de content", "Captions", "Audit inițial", "Analiză & optimizare", "Trend Research & Adaptare", "Analiză competiție", "Publicare multi-platformă", "Administrare social media", "Community management", "Optimizare profil", "Trend Response", "Raport lunar"];
 
-function Index() {
-  const kineticRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    const nodes = Array.from(document.querySelectorAll<HTMLElement>(".reveal, .reveal-row, .reveal-copy, .reveal-card"));
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      nodes.forEach((node) => node.classList.add("is-visible"));
-      return;
-    }
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          (entry.target as HTMLElement).classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
-    nodes.forEach((node) => observer.observe(node));
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const section = kineticRef.current;
-    if (!section) return;
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) {
-      section.style.setProperty("--kinetic-progress", "0.72");
-      return;
-    }
-    let raf = 0;
-    const update = () => {
-      raf = 0;
-      const rect = section.getBoundingClientRect();
-      const travel = Math.max(1, section.offsetHeight - window.innerHeight);
-      const progress = Math.min(1, Math.max(0, -rect.top / travel));
-      section.style.setProperty("--kinetic-progress", progress.toFixed(4));
-    };
-    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, []);
-
   return (
     <div className="overflow-x-clip bg-background text-foreground">
-      <SiteHeader />
+      <SiteHeader locale={locale} />
       <main>
         <CinematicScene id="acasa" className="hero-cinematic scroll-mt-0">
           <div className="hero-cinematic-stage">
@@ -144,13 +97,13 @@ function Index() {
             <CinematicExperience />
             <div className="hero-cinematic-content">
               <div className="relative z-10 mx-auto w-full max-w-[1500px]">
-            <div className="mb-6 grid w-fit grid-cols-[2rem_minmax(0,1fr)] items-center gap-3 text-[0.56rem] tracking-[0.16em] text-gold sm:mb-8 sm:flex sm:text-[0.62rem] sm:tracking-[0.24em]"><span className="h-px w-8 bg-gold sm:w-10" />BUCUREȘTI · BRAȘOV / CONTENT STUDIO</div>
-            <h1 className="hero-title hero-cinematic-title max-w-6xl text-balance">NU MAI STA SĂ TE GÂNDEȘTI<br /><span className="text-ivory-muted">CE SĂ POSTEZI.</span></h1>
+            <div className="mb-6 grid w-fit grid-cols-[2rem_minmax(0,1fr)] items-center gap-3 text-[0.56rem] tracking-[0.16em] text-gold sm:mb-8 sm:flex sm:text-[0.62rem] sm:tracking-[0.24em]"><span className="h-px w-8 bg-gold sm:w-10" />{t.hero.kicker}</div>
+            <h1 className="hero-title hero-cinematic-title max-w-6xl text-balance">{locale === "ro" ? <>NU MAI STA SĂ TE GÂNDEȘTI<br /><span className="text-ivory-muted">CE SĂ POSTEZI.</span></> : <>STOP WONDERING<br /><span className="text-ivory-muted">WHAT TO POST.</span></>}</h1>
             <div className="mt-7 grid gap-6 sm:mt-9 sm:gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-              <p className="max-w-lg text-base leading-7 text-muted-foreground sm:text-lg">Noi venim cu ideea. Îți spunem ce să spui.<br /><span className="text-foreground">Filmăm. Edităm. Planificăm. Postăm.</span></p>
+              <p className="max-w-lg text-base leading-7 text-muted-foreground sm:text-lg">{locale === "ro" ? <>Noi venim cu ideea. Îți spunem ce să spui.<br /><span className="text-foreground">Filmăm. Edităm. Planificăm. Postăm.</span></> : <>We bring the ideas. We guide you on camera.<br /><span className="text-foreground">We shoot. Edit. Plan. Publish.</span></>}</p>
               <div className="grid gap-3 sm:flex sm:flex-row">
-                <Button asChild size="lg" className="h-12 w-full rounded-none px-5 text-[0.68rem] tracking-[0.1em] sm:h-13 sm:w-auto sm:px-6 sm:tracking-[0.12em]"><a href="?interest=unsure#contact" onClick={(event) => { event.preventDefault(); window.history.replaceState(null, "", `?interest=unsure#contact`); window.dispatchEvent(new CustomEvent("sans-retour-interest", { detail: "unsure" })); requestAnimationFrame(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>ÎNCEPE UN PROIECT <ArrowUpRight /></a></Button>
-                <Button asChild variant="outline" size="lg" className="h-12 w-full rounded-none bg-transparent px-5 text-[0.68rem] tracking-[0.1em] sm:h-13 sm:w-auto sm:px-6 sm:tracking-[0.12em]"><a href="#proces">VEZI CUM LUCRĂM <ArrowDown /></a></Button>
+                <Button asChild size="lg" className="h-12 w-full rounded-none px-5 text-[0.68rem] tracking-[0.1em] sm:h-13 sm:w-auto sm:px-6 sm:tracking-[0.12em]"><a href="?interest=unsure#contact" onClick={(event) => { event.preventDefault(); window.history.replaceState(null, "", `?interest=unsure#contact`); window.dispatchEvent(new CustomEvent("sans-retour-interest", { detail: "unsure" })); requestAnimationFrame(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>{t.hero.start} <ArrowUpRight /></a></Button>
+                <Button asChild variant="outline" size="lg" className="h-12 w-full rounded-none bg-transparent px-5 text-[0.68rem] tracking-[0.1em] sm:h-13 sm:w-auto sm:px-6 sm:tracking-[0.12em]"><a href="#proces">{t.hero.process} <ArrowDown /></a></Button>
               </div>
             </div>
               </div>
@@ -160,151 +113,38 @@ function Index() {
           </div>
         </CinematicScene>
 
-        <section className="intro-cinematic champagne-intro relative overflow-hidden border-b border-border">
-          <div className="intro-cinematic-image" aria-hidden="true"><img src={cinematicSocial} alt="" loading="lazy" decoding="async" /></div>
-          <div className="section-shell relative z-10 py-16 sm:py-28 lg:py-36">
-            <SectionHeading label="SANS RETOUR · CONTENT STUDIO">TU CONDUCI BUSINESSUL.<br /><span className="text-ivory-muted">NOI NE OCUPĂM DE CONTENT.</span></SectionHeading>
-            <div className="mt-11 grid gap-8 border-t border-border pt-7 sm:mt-16 sm:gap-10 sm:pt-8 md:grid-cols-2 lg:mt-24">
-              <p className="reveal-copy max-w-xl text-[0.98rem] leading-6 sm:text-lg sm:leading-7 lg:text-xl">BUSINESSUL TĂU ARE DEJA CEVA DE SPUS. NOI ÎL TRANSFORMĂM ÎN CONTENT PE CARE OAMENII VOR SĂ-L URMĂREASCĂ.</p>
-              <p className="reveal-copy max-w-lg text-[0.84rem] leading-6 text-muted-foreground sm:text-[0.95rem] md:justify-self-end lg:text-base lg:leading-7">Strategie, concept, filmare și editare — construite în jurul brandului tău. Fără content generic. Fără postări făcute doar ca să existe.</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="champagne-problems seq-intro section-shell pt-16 sm:pt-28">
-          <SectionHeading label="MAI PUȚINĂ PRESIUNE. MAI MULTĂ CLARITATE.">CONTENTUL <span className="whitespace-nowrap">N-AR</span> TREBUI<br /><span className="whitespace-nowrap">SĂ-ȚI</span> CONSUME TIMPUL.</SectionHeading>
-        </section>
-        <ScrollSequence count={problems.length} label="Problemele pe care le rezolvăm" className="seq-problems">
-          {(active) => (
-            <>
-              {problems.map(([title, copy, image], index) => (
-                <article key={title} className="seq-frame" data-state={index === active ? "active" : index < active ? "past" : "next"} aria-hidden={index !== active}>
-                  <div className="seq-frame-image"><img src={image} alt="" loading="lazy" decoding="async" /></div>
-                  <div className="seq-frame-shade" />
-                  <span className="seq-frame-ghost" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-                  <div className="seq-frame-copy section-shell">
-                    <span className="seq-frame-index">{String(index + 1).padStart(2, "0")} / {String(problems.length).padStart(2, "0")}</span>
-                    <h3 className="seq-frame-title"><span>{title}</span></h3>
-                    <p className="seq-frame-answer"><span>{copy}</span></p>
-                  </div>
-                </article>
-              ))}
-            </>
-          )}
-        </ScrollSequence>
-
-        <section className="process-premium seq-intro section-shell relative pt-16 sm:pt-28">
-          <SectionHeading label="DE LA STRATEGIE LA PUBLICARE">O ZI DE FILMARE.<br /><span className="text-ivory-muted">O LUNĂ DE CONTENT.</span></SectionHeading>
-        </section>
-        <ScrollSequence id="proces" count={process.length} label="Procesul SANS RETOUR" className="seq-process scroll-mt-0" pace={0.75}>
-          {(active) => (
-            <>
-              <div className="seq-process-film" aria-hidden="true" style={{ ["--stage" as string]: active }}>
-                <img src={processImages[active % processImages.length]} alt="" key={active} loading="lazy" decoding="async" />
-              </div>
-              <div className="seq-frame-shade" />
-              <div className="seq-process-rail section-shell" aria-hidden="true">
-                {process.map(([title], index) => <span key={title} data-on={index <= active}>{String(index + 1).padStart(2, "0")}</span>)}
-              </div>
-              {process.map(([title, copy], index) => (
-                <article key={title} className="seq-frame seq-frame--text" data-state={index === active ? "active" : index < active ? "past" : "next"} aria-hidden={index !== active}>
-                  <div className="seq-frame-copy section-shell">
-                    <span className="seq-frame-index">ETAPA {String(index + 1).padStart(2, "0")} / 07</span>
-                    <h3 className="seq-frame-title"><span>{title}</span></h3>
-                    <p className="seq-frame-answer"><span>{copy}</span></p>
-                  </div>
-                </article>
-              ))}
-            </>
-          )}
-        </ScrollSequence>
-
         <section id="portofoliu" className="champagne-work scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28"><div className="champagne-work-marquee" aria-hidden="true"><span>SELECTED WORK · SANS RETOUR · SELECTED WORK · SANS RETOUR ·</span></div>
           <div className="section-shell">
-            <SectionHeading label="SELECTED WORK">CONTENT CARE MERITĂ<br />SĂ FIE VĂZUT.</SectionHeading>
+            <SectionHeading label="SELECTED WORK">{locale === "ro" ? <>CONTENT CARE MERITĂ<br />SĂ FIE VĂZUT.</> : <>CONTENT WORTH<br />WATCHING.</>}</SectionHeading>
             <div className="mt-11 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 sm:mt-16 sm:gap-5 md:grid-cols-3 lg:ml-[15%]">
               {projects.map((project, index) => <div id={`work-${project.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} key={project.category} className={index % 3 === 1 ? "md:translate-y-12" : ""}><VideoPlaceholder project={project.title} category={project.category} videoUrl={project.videoUrl} poster={project.poster} className="reveal-card portfolio-motion" /></div>)}
             </div>
-            <p className="mt-12 border-t border-border pt-6 text-xs tracking-[0.14em] text-muted-foreground sm:mt-20 sm:tracking-[0.18em]">PROIECTELE NOASTRE VOR APĂREA AICI ÎN CURÂND.</p>
+            <p className="mt-12 border-t border-border pt-6 text-xs tracking-[0.14em] text-muted-foreground sm:mt-20 sm:tracking-[0.18em]">{t.portfolio.pending}</p>
           </div>
         </section>
 
-        <section ref={kineticRef} className="kinetic-film" aria-label="Sistemul SANS RETOUR">
-          <div className="kinetic-film-stage">
-            <div className="kinetic-film-light" aria-hidden="true" />
-            <div className="kinetic-film-grain" aria-hidden="true" />
-            <div className="kinetic-film-frame kinetic-film-frame--idea"><span>01 · STRATEGIE</span><strong>IDEA.</strong></div>
-            <div className="kinetic-film-frame kinetic-film-frame--script"><span>02 · CREAȚIE</span><strong>SCRIPT.</strong></div>
-            <div className="kinetic-film-frame kinetic-film-frame--shoot"><span>03 · PRODUCȚIE</span><strong>SHOOT.</strong></div>
-            <div className="kinetic-film-frame kinetic-film-frame--edit"><span>04 · POST-PRODUCȚIE</span><strong>EDIT.</strong></div>
-            <div className="kinetic-film-signature"><span>THE SYSTEM BEHIND THE CONTENT</span><strong>SANS RETOUR.</strong></div>
-            <div className="kinetic-film-progress" aria-hidden="true"><i /></div>
-          </div>
-        </section>
-
-        <section className="champagne-industries section-shell relative overflow-hidden py-16 sm:py-28 lg:py-36"><div className="champagne-industry-visual" aria-hidden="true"><img src={cinematicIndustries} alt="" /></div>
-          <SectionHeading label="INDUSTRII">CONTENT CREAT PENTRU<br />BUSINESSUL TĂU.</SectionHeading>
-          <div className="mt-11 border-t border-border sm:mt-16">
-            {industries.map(([industry, industryCopy], index) => (
-              <a key={industry} href={`#work-${industry.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className="reveal-row cinematic-hover industry-row group relative grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-4 gap-y-2 overflow-hidden border-b border-border py-5 transition-colors hover:text-gold sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:py-8">
-                <span className="text-[0.6rem] text-muted-foreground">{String(index + 1).padStart(2, "0")}</span>
-                <div className="min-w-0">
-                  <h3 className="min-w-0 truncate font-display text-[clamp(.98rem,4.35vw,1.3rem)] sm:text-[clamp(1.8rem,3.6vw,3.8rem)]">{industry}</h3>
-                  <p className="mt-1 max-w-xl text-[0.72rem] leading-5 text-muted-foreground sm:hidden">{industryCopy}</p>
-                </div>
-                <span className="col-start-2 flex items-center gap-2 text-[0.5rem] tracking-[0.12em] text-muted-foreground sm:col-start-auto sm:text-[0.55rem] sm:tracking-[0.15em]"><Circle className="size-2 fill-current" /> VIDEO ÎN CURÂND</span>
-                <div className="industry-preview pointer-events-none absolute right-4 top-1/2 hidden aspect-video w-[min(30vw,360px)] -translate-y-1/2 overflow-hidden border border-border bg-background/95 shadow-2xl lg:block">
-                  <div className="absolute inset-0 bg-placeholder" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4"><p className="text-[0.55rem] tracking-[0.2em] text-gold">PREVIEW VIDEO · MUTED</p><p className="mt-1 font-display text-xl text-foreground">{industry}</p></div>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-
+        <section className="champagne-problems section-shell py-16 sm:py-24" id="ce-facem"><SectionHeading label={t.what.label}>{t.what.title}</SectionHeading><div className="mt-12 grid gap-6 md:grid-cols-3">{t.what.items.map(([heading,body],i)=><article key={heading} className="reveal-card border-t border-border pt-6"><p className="mb-5 text-xs tracking-[0.18em] text-gold">0{i+1}</p><h3 className="font-display text-2xl">{heading}</h3><p className="mt-4 leading-7 text-muted-foreground">{body}</p></article>)}</div></section>
+        <section id="proces" className="process-premium section-shell scroll-mt-20 py-16 sm:py-24"><SectionHeading label={t.process.label}>{t.process.title}</SectionHeading><div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{t.process.items.map(([heading,body],i)=><article key={heading} className="reveal-card border-t border-gold/40 pt-6"><span className="text-xs tracking-[0.2em] text-gold">{String(i+1).padStart(2,"0")}</span><h3 className="mt-5 font-display text-xl">{heading}</h3><p className="mt-4 text-sm leading-7 text-muted-foreground">{body}</p></article>)}</div></section>
+        <section id="despre" className="champagne-about section-shell scroll-mt-20 py-16 sm:py-24"><SectionHeading label={t.about.label}>{t.about.title}</SectionHeading><p className="mt-8 max-w-3xl text-lg leading-8 text-muted-foreground">{t.about.body}</p><a href={paths[locale].about} className="mt-8 inline-block border-b border-gold pb-2 text-xs tracking-[0.14em] text-gold">{t.about.link} →</a></section>
         <section id="servicii" className="champagne-services scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28">
           <div className="section-shell">
-            <SectionHeading label="SERVICII">NOI FACEM CONTENTUL.<br /><span className="text-ivory-muted">TU ÎȚI CONDUCI BUSINESSUL.</span></SectionHeading>
+            <SectionHeading label="SERVICII">{locale === "ro" ? <>NOI FACEM CONTENTUL.<br /><span className="text-ivory-muted">TU ÎȚI CONDUCI BUSINESSUL.</span></> : <>WE MAKE THE CONTENT.<br /><span className="text-ivory-muted">YOU RUN THE BUSINESS.</span></>}</SectionHeading>
             <div className="package-grid mt-11 grid gap-5 sm:mt-16 lg:grid-cols-3 lg:gap-6">
               <ServiceCard index="01" title="ESSENTIAL" price="1.500 LEI" features={contentStart} cta="ALEGE ESSENTIAL" interest="start" tone="essential" />
-              <ServiceCard index="02" title="ELITE" price="2.500 LEI" features={contentSystem} cta="ALEGE ELITE" interest="clasic" tone="elite" badge="CEL MAI ALES" />
-              <ServiceCard index="03" title="BLACK ROYAL" price="4.500 LEI" features={fullSocial} cta="ALEGE BLACK ROYAL" interest="full_social" tone="royal" badge="FULL SERVICE" />
+              <ServiceCard index="02" title="ELITE" price="2.500 LEI" features={contentSystem} cta="ALEGE ELITE" interest="clasic" tone="elite" badge="{t.pricing.most}" />
+              <ServiceCard index="03" title="BLACK ROYAL" price="4.500 LEI" features={fullSocial} cta="ALEGE BLACK ROYAL" interest="full_social" tone="royal" badge="{t.pricing.full}" />
             </div>
-            <p className="mt-7 text-center text-xs tracking-[0.08em] text-muted-foreground">AI NEVOIE DE UN VOLUM DIFERIT? CONSTRUIM O OFERTĂ ADAPTATĂ BUSINESSULUI TĂU.</p>
+            <p className="mt-7 text-center text-xs tracking-[0.08em] text-muted-foreground">{t.pricing.custom}</p>
           </div>
-        </section>
-
-        <section id="idei" className="champagne-lead scroll-mt-20 border-y border-border bg-background py-20 sm:py-28 lg:py-32">
-          <div className="section-shell overflow-hidden border border-border bg-surface">
-            <div className="relative isolate min-h-96 overflow-hidden p-7 sm:p-10 lg:p-14">
-              <img src={heroImage} width={1920} height={1080} loading="lazy" alt="Producție video SANS RETOUR în lumină cinematografică" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-35" />
-              <div className="absolute inset-0 -z-10 bg-background/75" />
-              <div className="flex h-full flex-col justify-end"><p className="eyebrow">GRATUIT</p><h2 className="section-title max-w-xl">3 IDEI GRATUITE PENTRU BUSINESSUL TĂU.</h2><p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground sm:mt-8 sm:text-lg">Îți trimitem 3 concepte de clipuri create special pentru businessul tău.</p><p className="mt-3 max-w-md text-sm text-muted-foreground">Fără obligații. Doar idei pe care chiar le poți filma.</p><Button asChild size="lg" className="mt-8 h-12 w-fit rounded-none px-7"><a href="?interest=free_ideas#contact" onClick={(event) => { event.preventDefault(); window.history.replaceState(null, "", `?interest=free_ideas#contact`); window.dispatchEvent(new CustomEvent("sans-retour-interest", { detail: "free_ideas" })); requestAnimationFrame(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>PRIMEȘTE CELE 3 IDEI <ArrowUpRight /></a></Button></div>
-            </div>
-          </div>
-        </section>
-
-        <section id="despre" className="champagne-about section-shell relative overflow-hidden scroll-mt-20 py-20 sm:py-36 lg:py-48">
-          <SectionHeading label="DESPRE SANS RETOUR">NU SUNTEM AICI<br /><span className="whitespace-nowrap">SĂ-ȚI</span> MAI DĂM TEME.</SectionHeading>
-          <div className="mt-11 grid gap-8 border-t border-border pt-7 sm:mt-16 sm:gap-10 sm:pt-8 md:grid-cols-2">
-            <p className="reveal-copy font-display text-xl leading-snug sm:text-4xl">SANS RETOUR a pornit dintr-o idee simplă:</p>
-            <div className="reveal-copy max-w-xl space-y-6 text-lg leading-relaxed text-muted-foreground"><p>Businessurile au nevoie de content, dar proprietarii nu ar trebui să devină peste noapte scenariști, cameramani și editori.</p><p className="text-foreground">Noi construim sistemul.<br />Tu apari și îți conduci businessul.</p></div>
-          </div>
-        </section>
-
-        <section className="luxury-finale border-y border-border bg-surface-subtle py-16 text-center sm:py-28"><div className="luxury-finale-light" aria-hidden="true" />
-          <div className="section-shell"><h2 className="section-title mx-auto max-w-6xl">URMĂTOAREA TA LUNĂ<br /><span className="text-ivory-muted">DE CONTENT ÎNCEPE AICI.</span></h2><div className="mt-8 flex flex-col justify-center gap-3 sm:mt-10 sm:flex-row"><Button asChild size="lg" className="h-12 rounded-none px-7 sm:h-13"><a href="?interest=unsure#contact" onClick={(event) => { event.preventDefault(); window.history.replaceState(null, "", `?interest=unsure#contact`); window.dispatchEvent(new CustomEvent("sans-retour-interest", { detail: "unsure" })); requestAnimationFrame(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>HAI SĂ VORBIM <ArrowUpRight /></a></Button><Button asChild variant="outline" size="lg" className="h-12 rounded-none bg-transparent px-5 sm:h-13 sm:px-7"><a href="?interest=free_ideas#contact" onClick={(event) => { event.preventDefault(); window.history.replaceState(null, "", `?interest=free_ideas#contact`); window.dispatchEvent(new CustomEvent("sans-retour-interest", { detail: "free_ideas" })); requestAnimationFrame(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>PRIMEȘTE 3 IDEI GRATUITE</a></Button></div></div>
         </section>
 
         <section id="contact" className="section-shell scroll-mt-20 py-16 sm:py-28">
           <div className="grid gap-16 lg:grid-cols-[0.85fr_1.15fr]">
-            <div><p className="eyebrow">CONTACT</p><h2 className="section-title">SPUNE-NE CE<br />VREI SĂ CREȘTI.</h2><p className="mt-8 max-w-md leading-7 text-muted-foreground">Povestește-ne despre businessul tău. Construim de aici conversația potrivită.</p><div className="mt-12 space-y-4 border-t border-border pt-6 text-sm text-muted-foreground"><p>Instagram — <span className="text-foreground">de adăugat</span></p><p>TikTok — <span className="text-foreground">de adăugat</span></p><p>Email — <a className="text-foreground transition-colors hover:text-gold" href="mailto:sansretourstudio@gmail.com">sansretourstudio@gmail.com</a></p><p>WhatsApp — <span className="text-foreground">de adăugat</span></p></div></div>
-            <ContactForm />
+            <div><p className="eyebrow">CONTACT</p><h2 className="section-title">{locale === "ro" ? <>SPUNE-NE CE<br />VREI SĂ CREȘTI.</> : <>TELL US WHAT<br />YOU WANT TO GROW.</>}</h2><p className="mt-8 max-w-md leading-7 text-muted-foreground">{t.contact.body}</p><div className="mt-12 space-y-4 border-t border-border pt-6 text-sm text-muted-foreground"><p>Instagram — <span className="text-foreground">de adăugat</span></p><p>TikTok — <span className="text-foreground">de adăugat</span></p><p>Email — <a className="text-foreground transition-colors hover:text-gold" href="mailto:sansretourstudio@gmail.com">sansretourstudio@gmail.com</a></p><p>WhatsApp — <span className="text-foreground">de adăugat</span></p></div></div>
+            <ContactForm locale={locale} />
           </div>
         </section>
       </main>
-
       <footer className="border-t border-border px-5 py-10 sm:px-8 lg:px-12">
         <div className="mx-auto grid max-w-[1500px] gap-10 md:grid-cols-[1fr_auto] md:items-end">
           <div><Logo /><p className="mt-8 text-xs tracking-[0.18em] text-muted-foreground">BUCUREȘTI · BRAȘOV · ROMÂNIA</p></div>
