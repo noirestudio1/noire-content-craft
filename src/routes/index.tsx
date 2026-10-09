@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "/" }, { rel: "alternate", hrefLang: "ro", href: "/" }, { rel: "alternate", hrefLang: "en", href: "/en/" }],
   }),
   component: () => <HomePage locale="ro" />,
 });
@@ -84,7 +84,7 @@ export function HomePage({locale = "ro"}: {locale?: Locale}) {
 
         <section id="portofoliu" className="champagne-work scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28"><div className="champagne-work-marquee" aria-hidden="true"><span>SELECTED WORK · SANS RETOUR · SELECTED WORK · SANS RETOUR ·</span></div>
           <div className="section-shell">
-            <SectionHeading label="SELECTED WORK">{locale === "ro" ? <>CONTENT CARE MERITĂ<br />SĂ FIE VĂZUT.</> : <>CONTENT WORTH<br />WATCHING.</>}</SectionHeading>
+            <SectionHeading label={t.portfolio.label}>{locale === "ro" ? <>CONTENT CARE MERITĂ<br />SĂ FIE VĂZUT.</> : <>CONTENT WORTH<br />WATCHING.</>}</SectionHeading>
             <div className="mt-11 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 sm:mt-16 sm:gap-5 md:grid-cols-3 lg:ml-[15%]">
               {projects.map((project, index) => <div id={`work-${project.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} key={project.category} className={index % 3 === 1 ? "md:translate-y-12" : ""}><VideoPlaceholder project={project.title} category={project.category} videoUrl={project.videoUrl} poster={project.poster} className="reveal-card portfolio-motion" /></div>)}
             </div>
@@ -97,7 +97,7 @@ export function HomePage({locale = "ro"}: {locale?: Locale}) {
         <section id="despre" className="champagne-about section-shell scroll-mt-20 py-16 sm:py-24"><SectionHeading label={t.about.label}>{t.about.title}</SectionHeading><p className="mt-8 max-w-3xl text-lg leading-8 text-muted-foreground">{t.about.body}</p><a href={paths[locale].about} className="mt-8 inline-block border-b border-gold pb-2 text-xs tracking-[0.14em] text-gold">{t.about.link} →</a></section>
         <section id="servicii" className="champagne-services scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28">
           <div className="section-shell">
-            <SectionHeading label="SERVICII">{locale === "ro" ? <>NOI FACEM CONTENTUL.<br /><span className="text-ivory-muted">TU ÎȚI CONDUCI BUSINESSUL.</span></> : <>WE MAKE THE CONTENT.<br /><span className="text-ivory-muted">YOU RUN THE BUSINESS.</span></>}</SectionHeading>
+            <SectionHeading label={t.pricing.label}>{locale === "ro" ? <>NOI FACEM CONTENTUL.<br /><span className="text-ivory-muted">TU ÎȚI CONDUCI BUSINESSUL.</span></> : <>WE MAKE THE CONTENT.<br /><span className="text-ivory-muted">YOU RUN THE BUSINESS.</span></>}</SectionHeading>
             <div className="package-grid mt-11 grid gap-5 sm:mt-16 lg:grid-cols-3 lg:gap-6">
               <ServiceCard index="01" title="ESSENTIAL" price="1.500 LEI" features={locale === "ro" ? contentStart : contentStart.map(translateFeature)} cta={locale === "ro" ? "ALEGE ESSENTIAL" : "CHOOSE ESSENTIAL"} interest="start" tone="essential" locale={locale} />
               <ServiceCard index="02" title="ELITE" price="2.500 LEI" features={locale === "ro" ? contentSystem : contentSystem.map(translateFeature)} cta={locale === "ro" ? "ALEGE ELITE" : "CHOOSE ELITE"} interest="clasic" tone="elite" badge={t.pricing.most} locale={locale} />
