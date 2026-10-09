@@ -11,6 +11,7 @@ import { submitLead } from "@/lib/leads.functions";
 import { submitLeadForm, type LeadInput } from "@/lib/lead-form-client";
 
 const fieldClass = "h-12 rounded-none border-x-0 border-t-0 border-input bg-transparent px-0 text-foreground placeholder:text-muted-foreground focus-visible:border-gold focus-visible:ring-0";
+type LeadInterest = "start" | "clasic" | "full_social" | "free_ideas" | "unsure";
 
 function FormStatus({ state }: { state: "idle" | "sending" | "success" | "error" }) {
   if (state === "success") return <p role="status" className="mt-5 text-sm text-gold">Solicitarea a fost trimisă. Revenim cu un răspuns.</p>;
@@ -75,13 +76,13 @@ export function IdeasForm() {
 
 export function ContactForm() {
   const sendLead = useServerFn(submitLead);
-  const [interest, setInterest] = useState("clasic");
+  const [interest, setInterest] = useState<LeadInterest>("clasic");
 
   useEffect(() => {
     const syncInterest = (event?: Event) => {
       const eventInterest = event instanceof CustomEvent ? event.detail : undefined;
       const selected = typeof eventInterest === "string" ? eventInterest : new URLSearchParams(window.location.search).get("interest");
-      if (selected && ["start", "clasic", "full_social", "free_ideas", "unsure"].includes(selected)) setInterest(selected);
+      if (selected && ["start", "clasic", "full_social", "free_ideas", "unsure"].includes(selected)) setInterest(selected as LeadInterest);
     };
     syncInterest();
     window.addEventListener("sans-retour-interest", syncInterest);
@@ -126,7 +127,7 @@ export function ContactForm() {
           id="contact-interest"
           name="interest"
           value={interest}
-          onChange={(event) => setInterest(event.target.value)}
+          onChange={(event) => setInterest(event.target.value as LeadInterest)}
           className="h-12 w-full rounded-none border-x-0 border-t-0 border-input bg-transparent px-0 text-sm text-foreground outline-none focus:border-gold"
         >
           <option value="start">ESSENTIAL — 1.500 LEI</option>
