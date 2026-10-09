@@ -79,7 +79,7 @@ export const submitLead = createServerFn({ method: "POST" })
       throw new Error("Solicitarea nu a putut fi trimisă. Încearcă din nou.");
     }
 
-    const resendApiKey = process.env.RESEND_API_KEY;
+    const resendApiKey = process.env["RESEND_API_KEY"];
     if (!resendApiKey) {
       console.error("SANS RETOUR email notification skipped: RESEND_API_KEY is not configured.");
       throw new Error("Notificarea pe email nu este configurată.");
