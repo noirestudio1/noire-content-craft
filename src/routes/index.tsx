@@ -130,9 +130,9 @@ const fullSocial = ["20 clipuri verticale / lună", "15 fotografii editate", "3 
           <div className="section-shell">
             <SectionHeading label="SERVICII">{locale === "ro" ? <>NOI FACEM CONTENTUL.<br /><span className="text-ivory-muted">TU ÎȚI CONDUCI BUSINESSUL.</span></> : <>WE MAKE THE CONTENT.<br /><span className="text-ivory-muted">YOU RUN THE BUSINESS.</span></>}</SectionHeading>
             <div className="package-grid mt-11 grid gap-5 sm:mt-16 lg:grid-cols-3 lg:gap-6">
-              <ServiceCard index="01" title="ESSENTIAL" price="1.500 LEI" features={contentStart} cta="ALEGE ESSENTIAL" interest="start" tone="essential" />
-              <ServiceCard index="02" title="ELITE" price="2.500 LEI" features={contentSystem} cta="ALEGE ELITE" interest="clasic" tone="elite" badge="{t.pricing.most}" />
-              <ServiceCard index="03" title="BLACK ROYAL" price="4.500 LEI" features={fullSocial} cta="ALEGE BLACK ROYAL" interest="full_social" tone="royal" badge="{t.pricing.full}" />
+              <ServiceCard index="01" title="ESSENTIAL" price="1.500 LEI" features={locale === "ro" ? contentStart : contentStart.map(translateFeature)} cta="ALEGE ESSENTIAL" interest="start" tone="essential" />
+              <ServiceCard index="02" title="ELITE" price="2.500 LEI" features={locale === "ro" ? contentSystem : contentSystem.map(translateFeature)} cta="ALEGE ELITE" interest="clasic" tone="elite" badge={t.pricing.most} />
+              <ServiceCard index="03" title="BLACK ROYAL" price="4.500 LEI" features={locale === "ro" ? fullSocial : fullSocial.map(translateFeature)} cta="ALEGE BLACK ROYAL" interest="full_social" tone="royal" badge={t.pricing.full} />
             </div>
             <p className="mt-7 text-center text-xs tracking-[0.08em] text-muted-foreground">{t.pricing.custom}</p>
           </div>
@@ -156,6 +156,10 @@ const fullSocial = ["20 clipuri verticale / lună", "15 fotografii editate", "3 
   );
 }
 
+const featureTranslations: Record<string,string> = {
+"5 clipuri verticale / lună":"5 vertical videos / month","10 clipuri verticale / lună":"10 vertical videos / month","20 clipuri verticale / lună":"20 vertical videos / month","5 fotografii editate":"5 edited photos","10 fotografii editate":"10 edited photos","15 fotografii editate":"15 edited photos","1 sesiune de producție":"1 production session","2 sesiuni de producție":"2 production sessions","3 sesiuni de producție":"3 production sessions","Strategie lunară":"Monthly strategy","Idei & concepte":"Ideas & concepts","Scripturi și hook-uri":"Scripts & hooks","Regie la filmare":"On-set direction","Filmare + editare":"Filming + editing","Calendar de content":"Content calendar","Captions":"Captions","Audit inițial":"Initial audit","Raport lunar":"Monthly report","Analiză & optimizare":"Analysis & optimization","Trend Research & Adaptare":"Trend research & adaptation","Analiză competiție":"Competitor analysis","Publicare multi-platformă":"Multi-platform publishing","Administrare social media":"Social media management","Community management":"Community management","Optimizare profil":"Profile optimization","Trend Response":"Trend response"
+};
+function translateFeature(feature:string){return featureTranslations[feature] ?? feature;}
 function ServiceCard({ index, title, price, features, cta, interest, tone, badge }: { index: string; title: string; price: string; features: string[]; cta: string; interest: "start" | "clasic" | "full_social"; tone: "essential" | "elite" | "royal"; badge?: string }) {
   const cardClass = `package-card package-card--${tone} p-7 sm:p-8`;
   const mutedClass = tone === "elite" ? "text-[#17130D]/60" : "text-[#F2E9D8]/55";
