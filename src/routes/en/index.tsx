@@ -35,22 +35,22 @@ export const Route = createFileRoute("/en/")({
 });
 
 const problems = [
-  ["NU AI IDEI?", "Noi avem. Tu ai un business de condus.", cinematicProduction],
-  ["NU ȘTII CE SĂ SPUI?", "Te ghidăm cadru cu cadru — ce spui, cum o spui, intonație, mimică și prezență. Ca un regizor.", cinematicSocial],
-  ["NU ȘTII CUM SĂ FILMEZI?", "Venim la locație și construim cadrele pentru tine.", cinematicProcess],
-  ["NU VREI SĂ EDITEZI?", "Din material brut facem content care ține atenția.", problemEditing],
-  ["NU ȘTII CÂND SĂ POSTEZI?", "Construim un calendar clar pentru ritmul businessului.", problemPlanning],
-  ["NU AI TIMP SĂ POSTEZI?", "Putem administra publicarea, ca tu să rămâi în business.", cinematicIndustries],
+  ["NO IDEAS?", "We have them. You have a business to run.", cinematicProduction],
+  ["NOT SURE WHAT TO SAY?", "We direct you frame by frame — your words, delivery, expression and presence.", cinematicSocial],
+  ["NOT SURE HOW TO FILM?", "We come to your location and create the shots for you.", cinematicProcess],
+  ["DON'T WANT TO EDIT?", "We turn raw footage into content that holds attention.", problemEditing],
+  ["NOT SURE WHEN TO POST?", "We build a clear calendar around your business.", problemPlanning],
+  ["NO TIME TO POST?", "We can handle publishing so you can focus on your business.", cinematicIndustries],
 ] as const;
 
 const process = [
-  ["STRATEGY", "Înainte să pornim camera, trebuie să știm de ce ar rămâne cineva să se uite."],
-  ["IDEI", "Nu-ți cerem să vii cu ideile. Asta e treaba noastră."],
-  ["SCRIPT", "Știi ce spui înainte să apăsăm REC. Fără improvizații incomode."],
-  ["FILMARE", "Tu vii cu expertiza. Noi venim cu camera și te regizăm."],
-  ["EDITARE", "Tăiem ce plictisește. Păstrăm ce ține omul pe ecran."],
-  ["PLANIFICARE", "Fiecare clip are un loc și un moment. Nu postăm la întâmplare."],
-  ["POSTARE", "Contentul pleacă. Tu te întorci la business."],
+  ["STRATEGY", "Before we roll, we work out why someone would keep watching."],
+  ["IDEAS", "You do not need to bring the ideas. That is our job."],
+  ["SCRIPT", "You know what to say before we hit record. No awkward improvisation."],
+  ["FILMING", "You bring your expertise. We bring the camera and direct you."],
+  ["EDITING", "We cut what drags and keep what holds attention."],
+  ["PLANNING", "Every video has a place and a purpose. No random posting."],
+  ["PUBLISHING", "Your content goes live. You get back to business."],
 ];
 
 const projects = [
@@ -153,7 +153,7 @@ function Index() {
               </div>
             </div>
             <div className="hero-scene-wipe" aria-hidden="true"><span /></div>
-            <span className="absolute right-5 top-28 z-20 hidden border border-border bg-background/50 px-3 py-2 text-[0.55rem] tracking-[0.18em] text-muted-foreground backdrop-blur-sm sm:right-8 sm:block lg:right-12">SHOWREEL — PLACEHOLDER VIDEO</span>
+            <span className="absolute right-5 top-28 z-20 hidden border border-border bg-background/50 px-3 py-2 text-[0.55rem] tracking-[0.18em] text-muted-foreground backdrop-blur-sm sm:right-8 sm:block lg:right-12">SHOWREEL — VIDEO COMING SOON</span>
           </div>
         </CinematicScene>
 
@@ -240,7 +240,7 @@ function Index() {
                 <div className="industry-preview pointer-events-none absolute right-4 top-1/2 hidden aspect-video w-[min(30vw,360px)] -translate-y-1/2 overflow-hidden border border-border bg-background/95 shadow-2xl lg:block">
                   <div className="absolute inset-0 bg-placeholder" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4"><p className="text-[0.55rem] tracking-[0.2em] text-gold">PREVIEW VIDEO · MUTED</p><p className="mt-1 font-display text-xl text-foreground">{industry}</p></div>
+                  <div className="absolute bottom-4 left-4"><p className="text-[0.55rem] tracking-[0.2em] text-gold">VIDEO PREVIEW · MUTED</p><p className="mt-1 font-display text-xl text-foreground">{industry}</p></div>
                 </div>
               </a>
             ))}
@@ -262,9 +262,9 @@ function Index() {
         <section id="idei" className="champagne-lead scroll-mt-20 border-y border-border bg-background py-20 sm:py-28 lg:py-32">
           <div className="section-shell overflow-hidden border border-border bg-surface">
             <div className="relative isolate min-h-96 overflow-hidden p-7 sm:p-10 lg:p-14">
-              <img src={heroImage} width={1920} height={1080} loading="lazy" alt="Producție video SANS RETOUR în lumină cinematografică" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-35" />
+              <img src={heroImage} width={1920} height={1080} loading="lazy" alt="SANS RETOUR video production in cinematic lighting" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-35" />
               <div className="absolute inset-0 -z-10 bg-background/75" />
-              <div className="flex h-full flex-col justify-end"><p className="eyebrow">COMPLIMENTARY</p><h2 className="section-title max-w-xl">3 IDEI COMPLIMENTARYE PENTRU BUSINESSUL TĂU.</h2><p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground sm:mt-8 sm:text-lg">We will send you three video concepts created specifically for your business.</p><p className="mt-3 max-w-md text-sm text-muted-foreground">No obligations. Just ideas you can actually film.</p><Button asChild size="lg" className="mt-8 h-12 w-fit rounded-none px-7"><a href="?interest=free_ideas#contact" onClick={(event) => { event.preventDefault(); window.history.replaceState(null, "", `?interest=free_ideas#contact`); window.dispatchEvent(new CustomEvent("sans-retour-interest", { detail: "free_ideas" })); requestAnimationFrame(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>GET YOUR 3 IDEAS <ArrowUpRight /></a></Button></div>
+              <div className="flex h-full flex-col justify-end"><p className="eyebrow">COMPLIMENTARY</p><h2 className="section-title max-w-xl">3 IDEAS COMPLIMENTARYE PENTRU BUSINESSUL TĂU.</h2><p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground sm:mt-8 sm:text-lg">We will send you three video concepts created specifically for your business.</p><p className="mt-3 max-w-md text-sm text-muted-foreground">No obligations. Just ideas you can actually film.</p><Button asChild size="lg" className="mt-8 h-12 w-fit rounded-none px-7"><a href="?interest=free_ideas#contact" onClick={(event) => { event.preventDefault(); window.history.replaceState(null, "", `?interest=free_ideas#contact`); window.dispatchEvent(new CustomEvent("sans-retour-interest", { detail: "free_ideas" })); requestAnimationFrame(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>GET YOUR 3 IDEAS <ArrowUpRight /></a></Button></div>
             </div>
           </div>
         </section>
@@ -278,7 +278,7 @@ function Index() {
         </section>
 
         <section className="luxury-finale border-y border-border bg-surface-subtle py-16 text-center sm:py-28"><div className="luxury-finale-light" aria-hidden="true" />
-          <div className="section-shell"><h2 className="section-title mx-auto max-w-6xl">YOUR NEXT MONTH<br /><span className="text-ivory-muted">OF CONTENT STARTS HERE.</span></h2><div className="mt-8 flex flex-col justify-center gap-3 sm:mt-10 sm:flex-row"><Button asChild size="lg" className="h-12 rounded-none px-7 sm:h-13"><a href="?interest=unsure#contact" onClick={(event) => { event.preventDefault(); window.history.replaceState(null, "", `?interest=unsure#contact`); window.dispatchEvent(new CustomEvent("sans-retour-interest", { detail: "unsure" })); requestAnimationFrame(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>LET'S TALK <ArrowUpRight /></a></Button><Button asChild variant="outline" size="lg" className="h-12 rounded-none bg-transparent px-5 sm:h-13 sm:px-7"><a href="?interest=free_ideas#contact" onClick={(event) => { event.preventDefault(); window.history.replaceState(null, "", `?interest=free_ideas#contact`); window.dispatchEvent(new CustomEvent("sans-retour-interest", { detail: "free_ideas" })); requestAnimationFrame(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>PRIMEȘTE 3 IDEI COMPLIMENTARYE</a></Button></div></div>
+          <div className="section-shell"><h2 className="section-title mx-auto max-w-6xl">YOUR NEXT MONTH<br /><span className="text-ivory-muted">OF CONTENT STARTS HERE.</span></h2><div className="mt-8 flex flex-col justify-center gap-3 sm:mt-10 sm:flex-row"><Button asChild size="lg" className="h-12 rounded-none px-7 sm:h-13"><a href="?interest=unsure#contact" onClick={(event) => { event.preventDefault(); window.history.replaceState(null, "", `?interest=unsure#contact`); window.dispatchEvent(new CustomEvent("sans-retour-interest", { detail: "unsure" })); requestAnimationFrame(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>LET'S TALK <ArrowUpRight /></a></Button><Button asChild variant="outline" size="lg" className="h-12 rounded-none bg-transparent px-5 sm:h-13 sm:px-7"><a href="?interest=free_ideas#contact" onClick={(event) => { event.preventDefault(); window.history.replaceState(null, "", `?interest=free_ideas#contact`); window.dispatchEvent(new CustomEvent("sans-retour-interest", { detail: "free_ideas" })); requestAnimationFrame(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>PRIMEȘTE 3 IDEAS COMPLIMENTARYE</a></Button></div></div>
         </section>
 
         <section id="contact" className="section-shell scroll-mt-20 py-16 sm:py-28">
