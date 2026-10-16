@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import { ArrowDown, ArrowUpRight, Check, Circle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ContactForm } from "@/components/noire/LeadForms";
 import { Logo } from "@/components/noire/Logo";
 import { SectionHeading } from "@/components/noire/SectionHeading";
 import { SiteHeader } from "@/components/noire/SiteHeader";
@@ -282,9 +281,13 @@ function Index() {
         </section>
 
         <section id="contact" className="section-shell scroll-mt-20 py-16 sm:py-28">
-          <div className="grid gap-16 lg:grid-cols-[0.85fr_1.15fr]">
-            <div><p className="eyebrow">CONTACT</p><h2 className="section-title">SPUNE-NE CE<br />VREI SĂ CREȘTI.</h2><p className="mt-8 max-w-md leading-7 text-muted-foreground">Povestește-ne despre businessul tău. Construim de aici conversația potrivită.</p><div className="mt-12 space-y-4 border-t border-border pt-6 text-sm text-muted-foreground"><p>Instagram — <span className="text-foreground">de adăugat</span></p><p>TikTok — <span className="text-foreground">de adăugat</span></p><p>Email — <a className="text-foreground transition-colors hover:text-gold" href="mailto:sansretourstudio@gmail.com">sansretourstudio@gmail.com</a></p><p>WhatsApp — <span className="text-foreground">de adăugat</span></p></div></div>
-            <ContactForm />
+          <div className="max-w-4xl"><p className="eyebrow">CONTACT</p><h2 className="section-title">SPUNE-NE CE<br />VREI SĂ CREȘTI.</h2><p className="mt-8 max-w-xl leading-7 text-muted-foreground">Povestește-ne despre businessul tău. Scrie-ne direct — fără formulare sau conturi.</p>
+            <div className="mt-12 grid gap-6 border-t border-border pt-8 text-sm sm:grid-cols-2">
+              <div><p className="mb-2 text-xs tracking-[0.2em] text-gold">EMAIL</p><a className="break-all text-lg text-foreground transition-colors hover:text-gold" href="mailto:sansretourstudio@gmail.com">sansretourstudio@gmail.com</a></div>
+              <div><p className="mb-2 text-xs tracking-[0.2em] text-gold">TELEFON / WHATSAPP</p><p className="text-muted-foreground">Număr de adăugat</p></div>
+              <div><p className="mb-2 text-xs tracking-[0.2em] text-gold">INSTAGRAM</p><p className="text-muted-foreground">Profil oficial de adăugat</p></div>
+              <div><p className="mb-2 text-xs tracking-[0.2em] text-gold">TIKTOK</p><p className="text-muted-foreground">Profil oficial de adăugat</p></div>
+            </div>
           </div>
         </section>
       </main>
