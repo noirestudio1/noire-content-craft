@@ -225,7 +225,14 @@ function Index() {
               <ServiceCard index="02" title="ELITE" price="2.500 LEI" features={contentSystem} cta="ALEGE ELITE" interest="clasic" tone="elite" badge="CEL MAI ALES" />
               <ServiceCard index="03" title="BLACK ROYAL" price="4.500 LEI" features={fullSocial} cta="ALEGE BLACK ROYAL" interest="full_social" tone="royal" badge="FULL SERVICE" />
             </div>
-            <p className="mt-7 text-center text-xs tracking-[0.08em] text-muted-foreground">AI NEVOIE DE UN VOLUM DIFERIT? CONSTRUIM O OFERTĂ ADAPTATĂ BUSINESSULUI TĂU.</p>
+            <div className="mx-auto mt-12 max-w-3xl border-t border-gold/50 px-3 pt-9 text-center sm:mt-16 sm:pt-12">
+              <p className="text-[0.65rem] font-medium tracking-[0.24em] text-gold">SOLUȚII PERSONALIZATE</p>
+              <h3 className="mt-4 font-display text-[clamp(1.55rem,5vw,2.75rem)] leading-[1.15]">AI NEVOIE DE UN VOLUM DIFERIT?</h3>
+              <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">Construim o ofertă adaptată obiectivelor și ritmului businessului tău.</p>
+              <Button asChild variant="outline" size="lg" className="mt-7 min-h-12 rounded-none border-gold/70 bg-transparent px-6 text-[0.68rem] tracking-[0.1em] text-gold hover:bg-gold hover:text-background sm:mt-8">
+                <a href="?interest=unsure#contact" onClick={(event) => { event.preventDefault(); window.history.replaceState(null, "", "?interest=unsure#contact"); window.dispatchEvent(new CustomEvent("sans-retour-interest", { detail: "unsure" })); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" }); }}>SOLICITĂ O OFERTĂ PERSONALIZATĂ <ArrowUpRight className="ml-2 size-4" /></a>
+              </Button>
+            </div>
           </div>
         </section>
 
