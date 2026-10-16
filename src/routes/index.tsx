@@ -250,7 +250,7 @@ function Index() {
           <SectionHeading label="DESPRE SANS RETOUR">SCĂPĂM BUSINESSUL TĂU<br />DE STRESUL CONTENTULUI.</SectionHeading>
           <div className="mt-11 grid gap-8 border-t border-border pt-7 sm:mt-16 sm:gap-10 sm:pt-8 md:grid-cols-2">
             <p className="reveal-copy font-display text-xl leading-snug sm:text-4xl">SANS RETOUR a pornit dintr-o idee simplă:</p>
-            <div className="reveal-copy max-w-xl space-y-6 text-lg leading-relaxed text-muted-foreground"><p>Nu trebuie să vii cu idei, să scrii scenarii sau să te gândești ce să postezi. Ne ocupăm noi.</p><p className="text-foreground">Tu conduci businessul.<br />Noi avem grijă de content.</p></div>
+            <div className="reveal-copy max-w-xl space-y-6 text-lg leading-relaxed text-muted-foreground"><p>Nu trebuie să vii cu idei, să scrii scenarii sau să te gândești ce să postezi. Ne ocupăm noi.</p></div>
           </div>
         </section>
 
