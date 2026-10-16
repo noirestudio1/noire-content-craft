@@ -56,9 +56,6 @@ const projects = [
   { title: "PROJECT 001", category: "AUTOMOTIVE", videoUrl: null, poster: null },
   { title: "PROJECT 002", category: "BEAUTY", videoUrl: null, poster: null },
   { title: "PROJECT 003", category: "RESTAURANT", videoUrl: null, poster: null },
-  { title: "PROJECT 004", category: "FITNESS", videoUrl: null, poster: null },
-  { title: "PROJECT 005", category: "MEDICAL", videoUrl: null, poster: null },
-  { title: "PROJECT 006", category: "REAL ESTATE", videoUrl: null, poster: null },
 ] as const;
 const contentStart = ["5 clipuri verticale / lună", "5 fotografii editate", "1 sesiune de producție", "Strategie lunară", "Idei & concepte", "Scripturi și hook-uri", "Regie la filmare", "Filmare + editare", "Calendar de content", "Captions", "Audit inițial", "Raport lunar"];
 const contentSystem = ["10 clipuri verticale / lună", "10 fotografii editate", "2 sesiuni de producție", "Strategie lunară", "Idei & concepte", "Scripturi și hook-uri", "Regie la filmare", "Filmare + editare", "Calendar de content", "Captions", "Audit inițial", "Analiză & optimizare", "Trend Research & Adaptare", "Analiză competiție", "Raport lunar"];
