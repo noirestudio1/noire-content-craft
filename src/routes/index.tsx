@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import { ArrowDown, ArrowUpRight, Check, Circle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ContactForm } from "@/components/noire/LeadForms";
 import { Logo } from "@/components/noire/Logo";
 import { SectionHeading } from "@/components/noire/SectionHeading";
 import { SiteHeader } from "@/components/noire/SiteHeader";
@@ -162,7 +161,7 @@ function Index() {
           <div className="section-shell relative z-10 py-16 sm:py-28 lg:py-36">
             <SectionHeading label="SANS RETOUR · CONTENT STUDIO">TU CONDUCI BUSINESSUL.<br /><span className="text-ivory-muted">NOI NE OCUPĂM DE CONTENT.</span></SectionHeading>
             <div className="mt-11 grid gap-8 border-t border-border pt-7 sm:mt-16 sm:gap-10 sm:pt-8 md:grid-cols-2 lg:mt-24">
-              <p className="reveal-copy max-w-xl text-[0.98rem] leading-6 sm:text-lg sm:leading-7 lg:text-xl">BUSINESSUL TĂU ARE DEJA CEVA DE SPUS. NOI ÎL TRANSFORMĂM ÎN CONTENT PE CARE OAMENII VOR SĂ-L URMĂREASCĂ.</p>
+              <p className="reveal-copy max-w-xl font-display text-[1.12rem] leading-[1.25] sm:text-2xl sm:leading-[1.2] lg:text-3xl">BUSINESSUL TĂU ARE DEJA CEVA DE SPUS. NOI ÎL TRANSFORMĂM ÎN CONTENT PE CARE OAMENII VOR SĂ-L URMĂREASCĂ.</p>
               <p className="reveal-copy max-w-lg text-[0.84rem] leading-6 text-muted-foreground sm:text-[0.95rem] md:justify-self-end lg:text-base lg:leading-7">Strategie, concept, filmare și editare — construite în jurul brandului tău. Fără content generic. Fără postări făcute doar ca să existe.</p>
             </div>
           </div>
@@ -282,9 +281,13 @@ function Index() {
         </section>
 
         <section id="contact" className="section-shell scroll-mt-20 py-16 sm:py-28">
-          <div className="grid gap-16 lg:grid-cols-[0.85fr_1.15fr]">
-            <div><p className="eyebrow">CONTACT</p><h2 className="section-title">SPUNE-NE CE<br />VREI SĂ CREȘTI.</h2><p className="mt-8 max-w-md leading-7 text-muted-foreground">Povestește-ne despre businessul tău. Construim de aici conversația potrivită.</p><div className="mt-12 space-y-4 border-t border-border pt-6 text-sm text-muted-foreground"><p>Instagram — <span className="text-foreground">de adăugat</span></p><p>TikTok — <span className="text-foreground">de adăugat</span></p><p>Email — <a className="text-foreground transition-colors hover:text-gold" href="mailto:sansretourstudio@gmail.com">sansretourstudio@gmail.com</a></p><p>WhatsApp — <span className="text-foreground">de adăugat</span></p></div></div>
-            <ContactForm />
+          <div className="max-w-4xl"><p className="eyebrow">CONTACT</p><h2 className="section-title">SPUNE-NE CE<br />VREI SĂ CREȘTI.</h2><p className="mt-8 max-w-xl leading-7 text-muted-foreground">Povestește-ne despre businessul tău. Scrie-ne direct — fără formulare sau conturi.</p>
+            <div className="mt-12 grid gap-6 border-t border-border pt-8 text-sm sm:grid-cols-2">
+              <div><p className="mb-2 text-xs tracking-[0.2em] text-gold">EMAIL</p><a className="break-all text-lg text-foreground transition-colors hover:text-gold" href="mailto:sansretourstudio@gmail.com">sansretourstudio@gmail.com</a></div>
+              <div><p className="mb-2 text-xs tracking-[0.2em] text-gold">TELEFON / WHATSAPP</p><p className="text-muted-foreground">Număr de adăugat</p></div>
+              <div><p className="mb-2 text-xs tracking-[0.2em] text-gold">INSTAGRAM</p><p className="text-muted-foreground">Profil oficial de adăugat</p></div>
+              <div><p className="mb-2 text-xs tracking-[0.2em] text-gold">TIKTOK</p><p className="text-muted-foreground">Profil oficial de adăugat</p></div>
+            </div>
           </div>
         </section>
       </main>
