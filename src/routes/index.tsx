@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
-import { ArrowDown, ArrowUpRight, Check, Circle } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/noire/LeadForms";
 import { Logo } from "@/components/noire/Logo";
@@ -60,15 +60,6 @@ const projects = [
   { title: "PROJECT 004", category: "FITNESS", videoUrl: null, poster: null },
   { title: "PROJECT 005", category: "MEDICAL", videoUrl: null, poster: null },
   { title: "PROJECT 006", category: "REAL ESTATE", videoUrl: null, poster: null },
-] as const;
-const industries = [
-  ["BEAUTY & AESTHETICS", "Portrete, servicii și transformări cu imagine premium."],
-  ["MEDICAL", "Expertiză explicată clar, uman și credibil."],
-  ["RESTAURANTS", "Povești, atmosferă și produs, filmate cinematic."],
-  ["AUTOMOTIVE", "Detaliu, mișcare și cadre construite pentru pasiune."],
-  ["FITNESS", "Energie, progres și comunitate transformate în content."],
-  ["REAL ESTATE", "Spații prezentate cinematic, nu ca simple anunțuri."],
-  ["LOCAL BUSINESS", "Oameni reali și businessuri locale cu povești care merită văzute."],
 ] as const;
 const contentStart = ["5 clipuri verticale / lună", "5 fotografii editate", "1 sesiune de producție", "Strategie lunară", "Idei & concepte", "Scripturi și hook-uri", "Regie la filmare", "Filmare + editare", "Calendar de content", "Captions", "Audit inițial", "Raport lunar"];
 const contentSystem = ["10 clipuri verticale / lună", "10 fotografii editate", "2 sesiuni de producție", "Strategie lunară", "Idei & concepte", "Scripturi și hook-uri", "Regie la filmare", "Filmare + editare", "Calendar de content", "Captions", "Audit inițial", "Analiză & optimizare", "Trend Research & Adaptare", "Analiză competiție", "Raport lunar"];
@@ -223,27 +214,6 @@ function Index() {
             <div className="kinetic-film-frame kinetic-film-frame--edit"><span>04 · POST-PRODUCȚIE</span><strong>EDIT.</strong></div>
             <div className="kinetic-film-signature"><span>THE SYSTEM BEHIND THE CONTENT</span><strong>SANS RETOUR.</strong></div>
             <div className="kinetic-film-progress" aria-hidden="true"><i /></div>
-          </div>
-        </section>
-
-        <section className="champagne-industries section-shell relative overflow-hidden py-16 sm:py-28 lg:py-36"><div className="champagne-industry-visual" aria-hidden="true"><img src={cinematicIndustries} alt="" /></div>
-          <SectionHeading label="INDUSTRII">CONTENT CREAT PENTRU<br />BUSINESSUL TĂU.</SectionHeading>
-          <div className="mt-11 border-t border-border sm:mt-16">
-            {industries.map(([industry, industryCopy], index) => (
-              <a key={industry} href={`#work-${industry.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} className="reveal-row cinematic-hover industry-row group relative grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-4 gap-y-2 overflow-hidden border-b border-border py-5 transition-colors hover:text-gold sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:py-8">
-                <span className="text-[0.6rem] text-muted-foreground">{String(index + 1).padStart(2, "0")}</span>
-                <div className="min-w-0">
-                  <h3 className="min-w-0 truncate font-display text-[clamp(.98rem,4.35vw,1.3rem)] sm:text-[clamp(1.8rem,3.6vw,3.8rem)]">{industry}</h3>
-                  <p className="mt-1 max-w-xl text-[0.72rem] leading-5 text-muted-foreground sm:hidden">{industryCopy}</p>
-                </div>
-                <span className="col-start-2 flex items-center gap-2 text-[0.5rem] tracking-[0.12em] text-muted-foreground sm:col-start-auto sm:text-[0.55rem] sm:tracking-[0.15em]"><Circle className="size-2 fill-current" /> VIDEO ÎN CURÂND</span>
-                <div className="industry-preview pointer-events-none absolute right-4 top-1/2 hidden aspect-video w-[min(30vw,360px)] -translate-y-1/2 overflow-hidden border border-border bg-background/95 shadow-2xl lg:block">
-                  <div className="absolute inset-0 bg-placeholder" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4"><p className="text-[0.55rem] tracking-[0.2em] text-gold">PREVIEW VIDEO · MUTED</p><p className="mt-1 font-display text-xl text-foreground">{industry}</p></div>
-                </div>
-              </a>
-            ))}
           </div>
         </section>
 
