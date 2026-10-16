@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
 import { ArrowDown, ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ContactForm } from "@/components/noire/LeadForms";
 import { Logo } from "@/components/noire/Logo";
 import { SectionHeading } from "@/components/noire/SectionHeading";
 import { SiteHeader } from "@/components/noire/SiteHeader";
@@ -261,7 +260,7 @@ function Index() {
         <section id="contact" className="section-shell scroll-mt-20 py-16 sm:py-28">
           <div className="grid gap-16 lg:grid-cols-[0.85fr_1.15fr]">
             <div><p className="eyebrow">CONTACT</p><h2 className="section-title">SPUNE-NE CE<br />VREI SĂ CREȘTI.</h2><p className="mt-8 max-w-md leading-7 text-muted-foreground">Povestește-ne despre businessul tău. Construim de aici conversația potrivită.</p><div className="mt-12 space-y-4 border-t border-border pt-6 text-sm text-muted-foreground"><p>Instagram — <span className="text-foreground">de adăugat</span></p><p>TikTok — <span className="text-foreground">de adăugat</span></p><p>Email — <a className="text-foreground transition-colors hover:text-gold" href="mailto:sansretourstudio@gmail.com">sansretourstudio@gmail.com</a></p><p>WhatsApp — <span className="text-foreground">de adăugat</span></p></div></div>
-            <ContactForm />
+            <div className="flex flex-col justify-center gap-5 border-t border-border pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0"><p className="text-lg leading-relaxed text-foreground">Hai să discutăm despre proiectul tău.</p><Button asChild variant="outline" size="lg" className="w-fit rounded-none border-gold/70 bg-transparent px-7 text-gold hover:bg-gold hover:text-background"><a href="mailto:sansretourstudio@gmail.com?subject=Proiect%20SANS%20RETOUR">SCRIE-NE PE EMAIL <ArrowUpRight className="ml-2 size-4" /></a></Button></div>
           </div>
         </section>
       </main>
