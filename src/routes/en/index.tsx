@@ -161,7 +161,7 @@ function Index() {
           <div className="section-shell relative z-10 py-16 sm:py-28 lg:py-36">
             <SectionHeading label="SANS RETOUR · CONTENT STUDIO">YOU RUN THE BUSINESS.<br /><span className="text-ivory-muted">WE HANDLE THE CONTENT.</span></SectionHeading>
             <div className="mt-11 grid gap-8 border-t border-border pt-7 sm:mt-16 sm:gap-10 sm:pt-8 md:grid-cols-2 lg:mt-24">
-              <p className="reveal-copy max-w-xl text-[0.98rem] leading-6 sm:text-lg sm:leading-7 lg:text-xl">YOUR BUSINESS ALREADY HAS A STORY. WE TURN IT INTO CONTENT PEOPLE WANT TO WATCH.</p>
+              <p className="reveal-copy max-w-xl font-display text-[1.12rem] leading-[1.25] sm:text-2xl sm:leading-[1.2] lg:text-3xl">YOUR BUSINESS ALREADY HAS A STORY. WE TURN IT INTO CONTENT PEOPLE WANT TO WATCH.</p>
               <p className="reveal-copy max-w-lg text-[0.84rem] leading-6 text-muted-foreground sm:text-[0.95rem] md:justify-self-end lg:text-base lg:leading-7">Strategy, concepts, filming and editing built around your brand. No generic content. No posting just for the sake of posting.</p>
             </div>
           </div>
