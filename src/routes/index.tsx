@@ -53,9 +53,9 @@ const process = [
 ];
 
 const projects = [
-  { title: "PROJECT 001", category: "AUTOMOTIVE", videoUrl: null, poster: null },
-  { title: "PROJECT 002", category: "BEAUTY", videoUrl: null, poster: null },
-  { title: "PROJECT 003", category: "RESTAURANT", videoUrl: null, poster: null },
+  { title: "LUCKY BEANS", category: "CAFENEA", videoUrl: "/videos/lucky-beans.mp4", poster: "/videos/lucky-beans.jpg" },
+  { title: "DJ", category: "EVENIMENTE", videoUrl: "/videos/dj.mp4", poster: "/videos/dj.jpg" },
+  { title: "UNISPORT", category: "SPORT", videoUrl: "/videos/unisport.mp4", poster: "/videos/unisport.jpg" },
 ] as const;
 const contentStart = ["5 clipuri verticale / lună", "5 fotografii editate", "1 sesiune de producție", "Strategie lunară", "Idei & concepte", "Scripturi și hook-uri", "Regie la filmare", "Filmare + editare", "Calendar de content", "Captions", "Audit inițial", "Raport lunar"];
 const contentSystem = ["10 clipuri verticale / lună", "10 fotografii editate", "2 sesiuni de producție", "Strategie lunară", "Idei & concepte", "Scripturi și hook-uri", "Regie la filmare", "Filmare + editare", "Calendar de content", "Captions", "Audit inițial", "Analiză & optimizare", "Trend Research & Adaptare", "Analiză competiție", "Raport lunar"];
@@ -196,7 +196,7 @@ function Index() {
             <div className="mt-11 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 sm:mt-16 sm:gap-5 md:grid-cols-3 lg:ml-[15%]">
               {projects.map((project, index) => <div id={`work-${project.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} key={project.category} className={index % 3 === 1 ? "md:translate-y-12" : ""}><VideoPlaceholder project={project.title} category={project.category} videoUrl={project.videoUrl} poster={project.poster} className="reveal-card portfolio-motion" /></div>)}
             </div>
-            <p className="mt-12 border-t border-border pt-6 text-xs tracking-[0.14em] text-muted-foreground sm:mt-20 sm:tracking-[0.18em]">PROIECTELE NOASTRE VOR APĂREA AICI ÎN CURÂND.</p>
+
           </div>
         </section>
 
