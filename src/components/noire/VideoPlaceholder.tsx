@@ -23,9 +23,9 @@ export function VideoPlaceholder({
           src={videoUrl}
           poster={poster ?? image}
           preload="none"
-          muted
           playsInline
           controls
+          controlsList="nodownload"
           className="portfolio-image absolute inset-0 h-full w-full object-cover"
           aria-label={`${project} — ${category}`}
         />
