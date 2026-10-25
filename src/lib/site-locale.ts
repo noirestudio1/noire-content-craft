@@ -25,7 +25,7 @@ export const copy = {
     about: { label: "DESPRE SANS RETOUR", title: "Imaginea nu se lasă la întâmplare.", body: "SANS RETOUR este o agenție de PR & Content Marketing. Construim imaginea brandurilor și a oamenilor din spatele lor prin strategie, direcție creativă și conținut care are ceva de spus. De la prima idee până la materialul final, fiecare detaliu lucrează pentru felul în care vrei să fii perceput.", link: "DESCOPERĂ STUDIOUL" },
     pricing: { label: "SERVICII", title: "NOI FACEM CONTENTUL. TU ÎȚI CONDUCI BUSINESSUL.", month: "/ LUNĂ", choose: "ALEGE", custom: "AI NEVOIE DE UN VOLUM DIFERIT? CONSTRUIM O OFERTĂ ADAPTATĂ BUSINESSULUI TĂU.", most: "CEL MAI ALES", full: "FULL SERVICE" },
     ideas: { label: "3 IDEI GRATUITE", title: "NU ȘTII CE AI PUTEA POSTA?", body: "Îți trimitem 3 idei de clipuri create special pentru businessul tău.", cta: "CERE CELE 3 IDEI" },
-    contact: { label: "CONTACT", title: "Hai să construim ceva memorabil.", body: "Ai un business, un brand sau un proiect pe care vrei să-l faci remarcat? Povestește-ne despre el. Noi venim cu direcția creativă.", placeholders: "Instagram — de adăugat\nTikTok — de adăugat\nWhatsApp — de adăugat" },
+    contact: { label: "CONTACT", title: "Hai să construim ceva memorabil.", body: "Ai un business sau vrei să te știe lumea în online, dar nu știi cum? Contactează-ne acum.", placeholders: "Instagram — de adăugat\nTikTok — de adăugat\nWhatsApp — de adăugat" },
     footer: { place: "BUCUREȘTI · BRAȘOV · ROMÂNIA", privacy: "POLITICA DE CONFIDENȚIALITATE", cookies: "POLITICA DE COOKIES" },
   },
   en: {
@@ -44,7 +44,7 @@ export const copy = {
     about: { label: "ABOUT SANS RETOUR", title: "Your image is no accident.", body: "SANS RETOUR is a PR & Content Marketing agency. We shape the image of brands and the people behind them through strategy, creative direction and content with something to say. From the first idea to the final piece, every detail serves how you want to be perceived.", link: "DISCOVER THE STUDIO" },
     pricing: { label: "SERVICES", title: "WE MAKE THE CONTENT. YOU RUN THE BUSINESS.", month: "/ MONTH", choose: "CHOOSE", custom: "NEED A DIFFERENT VOLUME? WE’LL BUILD A PACKAGE AROUND YOUR BUSINESS.", most: "MOST POPULAR", full: "FULL SERVICE" },
     ideas: { label: "3 COMPLIMENTARY IDEAS", title: "NOT SURE WHAT YOU COULD POST?", body: "We’ll send you three video ideas created specifically for your business.", cta: "REQUEST 3 IDEAS" },
-    contact: { label: "CONTACT", title: "Let’s create something memorable.", body: "Have a business, brand or project you want to get noticed? Tell us about it. We’ll bring the creative direction.", placeholders: "Instagram — to be added\nTikTok — to be added\nWhatsApp — to be added" },
+    contact: { label: "CONTACT", title: "Let’s create something memorable.", body: "Have a business or want to make a name for yourself online, but don’t know how? Get in touch now.", placeholders: "Instagram — to be added\nTikTok — to be added\nWhatsApp — to be added" },
     footer: { place: "BUCHAREST · BRAȘOV · ROMANIA", privacy: "PRIVACY POLICY", cookies: "COOKIE POLICY" },
   },
 } as const;
