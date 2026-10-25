@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { copy, paths, type Locale } from "@/lib/site-locale";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowDown, ArrowUpRight, Check } from "lucide-react";
@@ -34,12 +35,9 @@ export const Route = createFileRoute("/")({
 
 
 const projects = [
-  { title: "PROJECT 001", category: "AUTOMOTIVE", videoUrl: null, poster: null },
-  { title: "PROJECT 002", category: "BEAUTY", videoUrl: null, poster: null },
-  { title: "PROJECT 003", category: "RESTAURANT", videoUrl: null, poster: null },
-  { title: "PROJECT 004", category: "FITNESS", videoUrl: null, poster: null },
-  { title: "PROJECT 005", category: "MEDICAL", videoUrl: null, poster: null },
-  { title: "PROJECT 006", category: "REAL ESTATE", videoUrl: null, poster: null },
+  { title: "LUCKY BEANS", category: "CAFENEA", videoUrl: "/videos/lucky-beans.mp4", poster: "/videos/lucky-beans.jpg" },
+  { title: "DJ", category: "EVENIMENTE", videoUrl: "/videos/dj.mp4", poster: "/videos/dj.jpg" },
+  { title: "UNISPORT", category: "SPORT", videoUrl: "/videos/unisport.mp4", poster: "/videos/unisport.jpg" },
 ] as const;
 const contentStart = ["5 clipuri verticale / lună", "5 fotografii editate", "1 sesiune de producție", "Strategie lunară", "Idei & concepte", "Scripturi și hook-uri", "Regie la filmare", "Filmare + editare", "Calendar de content", "Captions", "Audit inițial", "Raport lunar"];
 const contentSystem = ["10 clipuri verticale / lună", "10 fotografii editate", "2 sesiuni de producție", "Strategie lunară", "Idei & concepte", "Scripturi și hook-uri", "Regie la filmare", "Filmare + editare", "Calendar de content", "Captions", "Audit inițial", "Analiză & optimizare", "Trend Research & Adaptare", "Analiză competiție", "Raport lunar"];
@@ -47,6 +45,22 @@ const fullSocial = ["20 clipuri verticale / lună", "15 fotografii editate", "3 
 
 export function HomePage({locale = "ro"}: {locale?: Locale}) {
   const t = copy[locale];
+  const kineticRef = useRef<HTMLElement | null>(null);
+  const processRef = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    const update = () => {
+      for (const [section, variable] of [[kineticRef.current, "--kinetic-progress"], [processRef.current, "--process-progress"]] as const) {
+        if (!section) continue;
+        const rect = section.getBoundingClientRect();
+        const progress = Math.min(1, Math.max(0, (window.innerHeight * 0.75 - rect.top) / Math.max(1, rect.height)));
+        section.style.setProperty(variable, progress.toFixed(4));
+      }
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => { window.removeEventListener("scroll", update); window.removeEventListener("resize", update); };
+  }, []);
   return (
     <div className="overflow-x-clip bg-background text-foreground">
       <SiteHeader locale={locale} />
@@ -93,7 +107,20 @@ export function HomePage({locale = "ro"}: {locale?: Locale}) {
         </section>
 
         <section className="champagne-problems section-shell py-16 sm:py-24" id="ce-facem"><SectionHeading label={t.what.label}>{t.what.title}</SectionHeading><div className="mt-12 grid gap-6 md:grid-cols-3">{t.what.items.map(([heading,body],i)=><article key={heading} className="reveal-card border-t border-border pt-6"><p className="mb-5 text-xs tracking-[0.18em] text-gold">0{i+1}</p><h3 className="font-display text-2xl">{heading}</h3><p className="mt-4 leading-7 text-muted-foreground">{body}</p></article>)}</div></section>
-        <section id="proces" className="process-premium section-shell scroll-mt-20 py-16 sm:py-24"><SectionHeading label={t.process.label}>{t.process.title}</SectionHeading><div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{t.process.items.map(([heading,body],i)=><article key={heading} className="reveal-card border-t border-gold/40 pt-6"><span className="text-xs tracking-[0.2em] text-gold">{String(i+1).padStart(2,"0")}</span><h3 className="mt-5 font-display text-xl">{heading}</h3><p className="mt-4 text-sm leading-7 text-muted-foreground">{body}</p></article>)}</div></section>
+        <section ref={processRef} id="proces" className="process-premium champagne-process section-shell relative scroll-mt-20 overflow-hidden py-16 sm:py-24"><SectionHeading label={t.process.label}>{t.process.title}</SectionHeading><div className="process-panel relative mt-12 overflow-hidden border-y border-border/70 sm:ml-[15%]"><div className="absolute bottom-0 left-[1.15rem] top-0 w-px bg-gold/20 sm:left-[1.65rem]" /><div className="absolute left-[1.15rem] top-0 w-px bg-gold shadow-[0_0_14px_rgba(212,175,55,0.8)] sm:left-[1.65rem]" style={{ height: "calc(var(--process-progress, 0) * 100%)" }} />{t.process.items.map(([heading,body],i)=><article key={heading} className="process-row process-stage relative grid grid-cols-[3rem_1fr] gap-x-4 gap-y-2 border-b border-border/80 py-6 sm:grid-cols-[4rem_0.7fr_1fr] sm:gap-8 sm:py-9"><span className="relative z-10 grid size-9 place-items-center rounded-full border border-gold bg-background text-[0.6rem] text-gold sm:size-12">{String(i+1).padStart(2,"0")}</span><h3 className="font-display text-xl sm:text-2xl">{heading}</h3><p className="col-start-2 max-w-lg text-sm leading-6 text-muted-foreground sm:col-start-3">{body}</p></article>)}</div></section>
+        <section ref={kineticRef} className="kinetic-film" aria-label="Sistemul SANS RETOUR">
+          <div className="kinetic-film-stage">
+            <div className="kinetic-film-light" aria-hidden="true" />
+            <div className="kinetic-film-grain" aria-hidden="true" />
+            <div className="kinetic-film-frame kinetic-film-frame--idea"><span>01 · STRATEGIE</span><strong>IDEA.</strong></div>
+            <div className="kinetic-film-frame kinetic-film-frame--script"><span>02 · CREAȚIE</span><strong>SCRIPT.</strong></div>
+            <div className="kinetic-film-frame kinetic-film-frame--shoot"><span>03 · PRODUCȚIE</span><strong>SHOOT.</strong></div>
+            <div className="kinetic-film-frame kinetic-film-frame--edit"><span>04 · POST-PRODUCȚIE</span><strong>EDIT.</strong></div>
+            <div className="kinetic-film-signature"><span>THE SYSTEM BEHIND THE CONTENT</span><strong>SANS RETOUR.</strong></div>
+            <div className="kinetic-film-progress" aria-hidden="true"><i /></div>
+          </div>
+        </section>
+
         <section id="despre" className="champagne-about section-shell scroll-mt-20 py-16 sm:py-24"><SectionHeading label={t.about.label}>{t.about.title}</SectionHeading><p className="mt-8 max-w-3xl text-lg leading-8 text-muted-foreground">{t.about.body}</p><a href={paths[locale].about} className="mt-8 inline-block border-b border-gold pb-2 text-xs tracking-[0.14em] text-gold">{t.about.link} →</a></section>
         <section id="servicii" className="champagne-services scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28">
           <div className="section-shell">
