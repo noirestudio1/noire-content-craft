@@ -87,7 +87,7 @@ export function HomePage({locale = "ro"}: {locale?: Locale}) {
 
         <section id="portofoliu" className="champagne-work scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28"><div className="champagne-work-marquee" aria-hidden="true"><span>SELECTED WORK · SANS RETOUR · SELECTED WORK · SANS RETOUR ·</span></div>
           <div className="section-shell">
-            <SectionHeading label={t.portfolio.label}>{locale === "ro" ? <>CONTENT CARE MERITĂ<br />SĂ FIE VĂZUT.</> : <>CONTENT WORTH<br />WATCHING.</>}</SectionHeading>
+            <div className="mb-10 sm:mb-14"><p className="eyebrow mb-4">{t.portfolio.label}</p><h2 className="font-display text-2xl font-normal normal-case leading-tight tracking-normal sm:text-4xl lg:text-[2.8rem]">{locale === "ro" ? "Content care merită văzut." : "Content worth watching."}</h2></div>
             <div className="mt-11 grid grid-cols-1 gap-4 min-[430px]:grid-cols-2 sm:mt-16 sm:gap-5 md:grid-cols-3 lg:ml-[15%]">
               {projects.map((project, index) => <div id={`work-${project.category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`} key={project.category} className={index % 3 === 1 ? "md:translate-y-12" : ""}><VideoPlaceholder project={project.title} category={project.category} videoUrl={project.videoUrl} poster={project.poster} className="reveal-card portfolio-motion" /></div>)}
             </div>
