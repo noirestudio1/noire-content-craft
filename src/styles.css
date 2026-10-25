@@ -1057,3 +1057,10 @@
   .seq-frame-image, .seq-frame-title span, .seq-frame-answer span, .seq-frame-ghost, .seq-process-film img { transition: none !important; animation: none !important; }
 }
 .seq-frame--text, .seq-frame--text[data-state="active"] { z-index: 5; }
+
+/* SANS RETOUR branded hero: show the complete artwork on narrow screens. */
+@media (max-width: 767px) {
+  .hero-cinematic { min-height: auto; }
+  .hero-cinematic-stage { position: relative; top: auto; height: auto; min-height: 0; aspect-ratio: 16 / 10; background: #090909; }
+  .hero-cinematic-stage .hero-branded-image { object-fit: contain; object-position: center center; }
+}
