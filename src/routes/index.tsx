@@ -45,6 +45,23 @@ export function HomePage({locale = "ro"}: {locale?: Locale}) {
   const kineticRef = useRef<HTMLElement | null>(null);
   const processRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
+    const nodes = Array.from(document.querySelectorAll<HTMLElement>(".reveal, .reveal-row, .reveal-copy, .reveal-card"));
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+      nodes.forEach(node => node.classList.add("is-visible"));
+      return;
+    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          (entry.target as HTMLElement).classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    nodes.forEach(node => observer.observe(node));
+    return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
     const update = () => {
       for (const [section, variable] of [[kineticRef.current, "--kinetic-progress"], [processRef.current, "--process-progress"]] as const) {
         if (!section) continue;
@@ -108,7 +125,7 @@ export function HomePage({locale = "ro"}: {locale?: Locale}) {
 
         <section id="contact" className="section-shell scroll-mt-20 py-16 sm:py-28">
           <div className="grid gap-16 lg:grid-cols-[0.85fr_1.15fr]">
-            <div><p className="eyebrow">CONTACT</p><h2 className="section-title">{locale === "ro" ? <>SPUNE-NE CE<br />VREI SĂ CREȘTI.</> : <>TELL US WHAT<br />YOU WANT TO GROW.</>}</h2><p className="mt-8 max-w-md leading-7 text-muted-foreground">{t.contact.body}</p><div className="mt-12 space-y-4 border-t border-border pt-6 text-sm text-muted-foreground"><p>Instagram — <a className="text-foreground transition-colors hover:text-gold" href="https://www.instagram.com/sansretourcs/" target="_blank" rel="noopener noreferrer">@sansretourcs</a></p><p>TikTok — <span className="text-foreground">de adăugat</span></p><p>Email — <a className="text-foreground transition-colors hover:text-gold" href="mailto:sansretourstudio@gmail.com">sansretourstudio@gmail.com</a></p><p>WhatsApp — <span className="text-foreground">de adăugat</span></p></div></div>
+            <div><p className="eyebrow">CONTACT</p><h2 className="section-title">{locale === "ro" ? <>SPUNE-NE CE<br />VREI SĂ CREȘTI.</> : <>TELL US WHAT<br />YOU WANT TO GROW.</>}</h2><p className="mt-8 max-w-md leading-7 text-muted-foreground">{t.contact.body}</p><div className="mt-12 space-y-4 border-t border-border pt-6 text-sm text-muted-foreground"><p>Instagram — <a className="text-foreground transition-colors hover:text-gold" href="https://www.instagram.com/sansretourcs/" target="_blank" rel="noopener noreferrer">@sansretourcs</a></p><p>TikTok — <span className="text-foreground">de adăugat</span></p><p>Email — <a className="text-foreground transition-colors hover:text-gold" href="mailto:sansretourstudio@gmail.com">sansretourstudio@gmail.com</a></p><p>WhatsApp — <a className="text-foreground transition-colors hover:text-gold" href="https://wa.me/40724674008" target="_blank" rel="noopener noreferrer">0724 674 008</a></p></div></div>
             <div className="flex flex-col justify-center gap-5 border-t border-border pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0"><p className="text-lg leading-relaxed text-foreground">{locale === "ro" ? "Hai să discutăm despre proiectul tău." : "Let’s talk about your project."}</p><Button asChild variant="outline" size="lg" className="w-fit rounded-none border-gold/70 bg-transparent px-7 text-gold hover:bg-gold hover:text-background"><a href="tel:+40724674008">{locale === "ro" ? "HAI SĂ VORBIM" : "LET’S TALK"} <ArrowUpRight className="ml-2 size-4" /></a></Button></div>
           </div>
         </section>
