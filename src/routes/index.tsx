@@ -8,11 +8,8 @@ import { Logo } from "@/components/noire/Logo";
 import { SectionHeading } from "@/components/noire/SectionHeading";
 import { SiteHeader } from "@/components/noire/SiteHeader";
 import { VideoPlaceholder } from "@/components/noire/VideoPlaceholder";
-import { CinematicExperience } from "@/components/noire/CinematicExperience";
-import { CinematicImageLayer, CinematicMask, CinematicScene } from "@/components/noire/CinematicScene";
-import heroImage from "@/assets/noire-hero.jpg";
-import cinematicProduction from "@/assets/cinematic-production.jpg";
-import cinematicSocial from "@/assets/cinematic-social.jpg";
+import { CinematicScene } from "@/components/noire/CinematicScene";
+const heroImage = "/sans-retour-hero.jpg.jpeg";
 
 
 const metaDescription = "SANS RETOUR construiește sisteme complete de content pentru businessuri: strategie, idei, scripturi, filmare, editare și publicare pentru Reels, TikTok și Shorts.";
@@ -67,17 +64,7 @@ export function HomePage({locale = "ro"}: {locale?: Locale}) {
       <main>
         <CinematicScene id="acasa" className="hero-cinematic scroll-mt-0">
           <div className="hero-cinematic-stage">
-            <div className="hero-reel" aria-hidden="true">
-              <div className="hero-reel-frame hero-reel-frame--old"><img src={heroImage} alt="" fetchPriority="high" decoding="async" /></div>
-              <div className="hero-reel-frame hero-reel-frame--production"><img src={cinematicProduction} alt="" loading="eager" decoding="async" /></div>
-              <div className="hero-reel-frame hero-reel-frame--social"><img src={cinematicSocial} alt="" loading="eager" decoding="async" /></div>
-            </div>
-            <CinematicImageLayer src={cinematicSocial} className="hero-cinematic-portrait" />
-            <div className="hero-cinematic-slat" aria-hidden="true"><img src={cinematicSocial} alt="" loading="eager" decoding="async" /></div>
-            <CinematicMask className="hero-cinematic-grade" />
-            <div className="hero-cinematic-light" aria-hidden="true" />
-            <div className="hero-cinematic-grain" aria-hidden="true" />
-            <CinematicExperience />
+            <img src={heroImage} alt="SANS RETOUR — PR & Content Marketing" fetchPriority="high" decoding="async" className="absolute inset-0 h-full w-full object-cover object-center" />
             <div className="hero-cinematic-content">
               <div className="relative z-10 mx-auto w-full max-w-[1500px]">
             <div className="mb-6 grid w-fit grid-cols-[2rem_minmax(0,1fr)] items-center gap-3 text-[0.56rem] tracking-[0.16em] text-gold sm:mb-8 sm:flex sm:text-[0.62rem] sm:tracking-[0.24em]"><span className="h-px w-8 bg-gold sm:w-10" />{t.hero.kicker}</div>
