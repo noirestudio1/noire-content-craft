@@ -65,21 +65,6 @@ export function HomePage({locale = "ro"}: {locale?: Locale}) {
         <CinematicScene id="acasa" className="hero-cinematic scroll-mt-0">
           <div className="hero-cinematic-stage">
             <img src={heroImage} alt="SANS RETOUR — PR & Content Marketing" fetchPriority="high" decoding="async" className="absolute inset-0 h-full w-full object-cover object-center" />
-            <div className="hero-cinematic-content">
-              <div className="relative z-10 mx-auto w-full max-w-[1500px]">
-            <div className="mb-6 grid w-fit grid-cols-[2rem_minmax(0,1fr)] items-center gap-3 text-[0.56rem] tracking-[0.16em] text-gold sm:mb-8 sm:flex sm:text-[0.62rem] sm:tracking-[0.24em]"><span className="h-px w-8 bg-gold sm:w-10" />{t.hero.kicker}</div>
-            <h1 className="hero-title hero-cinematic-title max-w-6xl text-balance">{locale === "ro" ? <>NU MAI STA SĂ TE GÂNDEȘTI<br /><span className="text-ivory-muted">CE SĂ POSTEZI.</span></> : <>STOP WONDERING<br /><span className="text-ivory-muted">WHAT TO POST.</span></>}</h1>
-            <div className="mt-7 grid gap-6 sm:mt-9 sm:gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-              <p className="max-w-lg text-base leading-7 text-muted-foreground sm:text-lg">{locale === "ro" ? <>Noi venim cu ideea. Îți spunem ce să spui.<br /><span className="text-foreground">Filmăm. Edităm. Planificăm. Postăm.</span></> : <>We bring the ideas. We guide you on camera.<br /><span className="text-foreground">We shoot. Edit. Plan. Publish.</span></>}</p>
-              <div className="grid gap-3 sm:flex sm:flex-row">
-                <Button asChild size="lg" className="h-12 w-full rounded-none px-5 text-[0.68rem] tracking-[0.1em] sm:h-13 sm:w-auto sm:px-6 sm:tracking-[0.12em]"><a href="?interest=unsure#contact" onClick={(event) => { event.preventDefault(); window.history.replaceState(null, "", `?interest=unsure#contact`); window.dispatchEvent(new CustomEvent("sans-retour-interest", { detail: "unsure" })); requestAnimationFrame(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" })); }}>{t.hero.start} <ArrowUpRight /></a></Button>
-                <Button asChild variant="outline" size="lg" className="h-12 w-full rounded-none bg-transparent px-5 text-[0.68rem] tracking-[0.1em] sm:h-13 sm:w-auto sm:px-6 sm:tracking-[0.12em]"><a href="#proces">{t.hero.process} <ArrowDown /></a></Button>
-              </div>
-            </div>
-              </div>
-            </div>
-            <div className="hero-scene-wipe" aria-hidden="true"><span /></div>
-            <span className="absolute right-5 top-28 z-20 hidden border border-border bg-background/50 px-3 py-2 text-[0.55rem] tracking-[0.18em] text-muted-foreground backdrop-blur-sm sm:right-8 sm:block lg:right-12">SHOWREEL — PLACEHOLDER VIDEO</span>
           </div>
         </CinematicScene>
 
