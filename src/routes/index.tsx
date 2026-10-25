@@ -119,7 +119,7 @@ export function HomePage({locale = "ro"}: {locale?: Locale}) {
               <ServiceCard index="02" title="ELITE" price="2.500 LEI" features={locale === "ro" ? contentSystem : contentSystem.map(translateFeature)} cta={locale === "ro" ? "ALEGE ELITE" : "CHOOSE ELITE"} interest="clasic" tone="elite" badge={t.pricing.most} locale={locale} />
               <ServiceCard index="03" title="BLACK ROYAL" price="4.500 LEI" features={locale === "ro" ? fullSocial : fullSocial.map(translateFeature)} cta={locale === "ro" ? "ALEGE BLACK ROYAL" : "CHOOSE BLACK ROYAL"} interest="full_social" tone="royal" badge={t.pricing.full} locale={locale} />
             </div>
-            <p className="mx-auto mt-9 max-w-3xl text-center text-base leading-7 text-[#E2DBD0] sm:text-lg">{t.pricing.custom}</p>
+            <p className="mt-7 text-center text-sm tracking-[0.08em] text-muted-foreground sm:text-[0.95rem]">{t.pricing.custom}</p>
           </div>
         </section>
 
