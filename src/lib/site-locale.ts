@@ -25,7 +25,7 @@ export const copy = {
     about: { label: "DESPRE SANS RETOUR", title: "CONTENTUL TĂU, FĂRĂ OCOLIȘURI.", body: "SANS RETOUR este un content studio din București și Brașov. Construim sisteme video clare pentru businessuri care vor să fie văzute fără să devină, peste noapte, scenariști, cameramani și editori.", link: "DESCOPERĂ STUDIOUL" },
     pricing: { label: "SERVICII", title: "NOI FACEM CONTENTUL. TU ÎȚI CONDUCI BUSINESSUL.", month: "/ LUNĂ", choose: "ALEGE", custom: "AI NEVOIE DE UN VOLUM DIFERIT? CONSTRUIM O OFERTĂ ADAPTATĂ BUSINESSULUI TĂU.", most: "CEL MAI ALES", full: "FULL SERVICE" },
     ideas: { label: "3 IDEI GRATUITE", title: "NU ȘTII CE AI PUTEA POSTA?", body: "Îți trimitem 3 idei de clipuri create special pentru businessul tău.", cta: "CERE CELE 3 IDEI" },
-    contact: { label: "CONTACT", title: "SPUNE-NE CE VREI SĂ CREȘTI.", body: "Povestește-ne despre businessul tău. Construim de aici conversația potrivită.", placeholders: "Instagram — de adăugat\nTikTok — de adăugat\nWhatsApp — de adăugat" },
+    contact: { label: "CONTACT", title: "Hai să construim ceva memorabil.", body: "Ai un business, un brand sau un proiect pe care vrei să-l faci remarcat? Povestește-ne despre el. Noi venim cu direcția creativă.", placeholders: "Instagram — de adăugat\nTikTok — de adăugat\nWhatsApp — de adăugat" },
     footer: { place: "BUCUREȘTI · BRAȘOV · ROMÂNIA", privacy: "POLITICA DE CONFIDENȚIALITATE", cookies: "POLITICA DE COOKIES" },
   },
   en: {
@@ -44,7 +44,7 @@ export const copy = {
     about: { label: "ABOUT SANS RETOUR", title: "CONTENT, WITHOUT THE DETOURS.", body: "SANS RETOUR is a content studio based in Bucharest and Brașov. We build clear video systems for businesses that want to be seen without becoming scriptwriters, camera operators and editors overnight.", link: "DISCOVER THE STUDIO" },
     pricing: { label: "SERVICES", title: "WE MAKE THE CONTENT. YOU RUN THE BUSINESS.", month: "/ MONTH", choose: "CHOOSE", custom: "NEED A DIFFERENT VOLUME? WE’LL BUILD A PACKAGE AROUND YOUR BUSINESS.", most: "MOST POPULAR", full: "FULL SERVICE" },
     ideas: { label: "3 COMPLIMENTARY IDEAS", title: "NOT SURE WHAT YOU COULD POST?", body: "We’ll send you three video ideas created specifically for your business.", cta: "REQUEST 3 IDEAS" },
-    contact: { label: "CONTACT", title: "TELL US WHAT YOU WANT TO GROW.", body: "Tell us about your business. We’ll take the conversation from there.", placeholders: "Instagram — to be added\nTikTok — to be added\nWhatsApp — to be added" },
+    contact: { label: "CONTACT", title: "Let’s create something memorable.", body: "Have a business, brand or project you want to get noticed? Tell us about it. We’ll bring the creative direction.", placeholders: "Instagram — to be added\nTikTok — to be added\nWhatsApp — to be added" },
     footer: { place: "BUCHAREST · BRAȘOV · ROMANIA", privacy: "PRIVACY POLICY", cookies: "COOKIE POLICY" },
   },
 } as const;
