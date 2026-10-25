@@ -110,7 +110,7 @@ export function HomePage({locale = "ro"}: {locale?: Locale}) {
           </div>
         </section>
 
-        <section id="despre" className="champagne-about section-shell scroll-mt-20 py-16 sm:py-24"><p className="mb-5 text-sm font-medium tracking-[0.13em] text-gold sm:text-base">{t.about.label}</p><h2 className="max-w-4xl font-display text-2xl font-normal normal-case leading-[1.2] tracking-normal text-foreground sm:text-4xl lg:text-[2.8rem]">{t.about.title}</h2><p className="mt-7 max-w-3xl text-base leading-8 text-[#E2DBD0] sm:text-lg">{t.about.body}</p><a href={paths[locale].about} className="mt-8 inline-block border-b border-gold pb-2 text-xs tracking-[0.14em] text-gold">{t.about.link} →</a></section>
+        <section id="despre" className="champagne-about section-shell scroll-mt-20 py-16 sm:py-24"><h2 className="font-display text-3xl font-medium tracking-[0.06em] text-gold sm:text-5xl">{t.about.label}</h2><p className="mt-7 max-w-3xl text-base leading-8 text-[#E2DBD0] sm:text-lg">{t.about.body}</p><a href={paths[locale].about} className="mt-8 inline-block border-b border-gold pb-2 text-xs tracking-[0.14em] text-gold">{t.about.link} →</a></section>
         <section id="servicii" className="champagne-services scroll-mt-20 border-y border-border bg-surface-subtle py-16 sm:py-28">
           <div className="section-shell">
             <SectionHeading label={t.pricing.label}>{locale === "ro" ? <>NOI FACEM CONTENTUL.<br /><span className="text-ivory-muted">TU ÎȚI CONDUCI BUSINESSUL.</span></> : <>WE MAKE THE CONTENT.<br /><span className="text-ivory-muted">YOU RUN THE BUSINESS.</span></>}</SectionHeading>
